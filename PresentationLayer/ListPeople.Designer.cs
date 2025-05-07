@@ -1,6 +1,6 @@
 ﻿namespace DVLD_System
 {
-    partial class Form1
+    partial class ListPeople
     {
         /// <summary>
         /// Required designer variable.
@@ -84,7 +84,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DVLD_System.Properties.Resources.administrator_add;
-            this.pictureBox2.Location = new System.Drawing.Point(1060, 256);
+            this.pictureBox2.Location = new System.Drawing.Point(1081, 245);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(123, 96);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -95,9 +95,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD_System.Properties.Resources.human_resources__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(661, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(107, 99);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 184);
+            this.pictureBox1.Size = new System.Drawing.Size(163, 136);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;

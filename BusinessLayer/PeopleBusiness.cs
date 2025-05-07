@@ -4,9 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DVLDDataAccessLayer;
+using DataAccessLayer;
 
-namespace DVLDBusinessLayer
+namespace BusinessLayer
 {
     public class PeopleBusiness
     {
@@ -75,12 +75,9 @@ namespace DVLDBusinessLayer
 
         }
 
-
-
-
         private bool _AddNewPerson()
         {
-            this.PersonID = PeopleDataAccess.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Email, this.Phone,
+            this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Email, this.Phone,
             this.Address, this.CountryID, this.ImagePath);
             return (this.PersonID != 1);
         }
@@ -113,18 +110,18 @@ namespace DVLDBusinessLayer
    
         public static bool ChechNationalNoIsExis(string NationalNO)
         {
-            return DVLDDataAccessLayer.PeopleDataAccess.NationalNoIsExis(NationalNO);
+            return clsPeopleDataAccess.NationalNoIsExis(NationalNO);
         }
 
-        static public DataTable GetAllContacts()
+        static public DataTable GetAllPeople()
         {
-            return DVLDDataAccessLayer.PeopleDataAccess.GetAllContacts();
+            return clsPeopleDataAccess.GetAllPeople();
         }
 
 
         public static bool DeletePerson(int ID)
         {
-            return (PeopleDataAccess.DeletePerson(ID));
+            return (clsPeopleDataAccess.DeletePerson(ID));
         }
         public static PeopleBusiness Find(int PersonID)
         {
@@ -138,7 +135,7 @@ namespace DVLDBusinessLayer
 
 
 
-            if (PeopleDataAccess.GetPersonInfoByID(PersonID, ref NationalNo, ref FirstName, ref SecondName,
+            if (clsPeopleDataAccess.GetPersonInfoByID(PersonID, ref NationalNo, ref FirstName, ref SecondName,
                           ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref CountryID, ref ImagePath))
 
                 return new PeopleBusiness(PersonID, NationalNo, FirstName, SecondName,
@@ -151,22 +148,12 @@ namespace DVLDBusinessLayer
         {
             //call DataAccess Layer 
 
-            return PeopleDataAccess.UpdatePersonInfo(this.PersonID, this.NationalNo, this.FirstName, this.SecondName,
+            return clsPeopleDataAccess.UpdatePersonInfo(this.PersonID, this.NationalNo, this.FirstName, this.SecondName,
                 this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email,
                 this.CountryID, this.ImagePath);
 
         }
 
 
-
-
-
-
-        public static DataTable GetAllCountries()
-        {
-
-            return DVLDDataAccessLayer.PeopleDataAccess.GetAllCountries();
-
-        }
     }
 }

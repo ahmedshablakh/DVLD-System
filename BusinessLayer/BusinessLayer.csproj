@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCountriesBusiness.cs" />
     <Compile Include="PeopleBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContactsDataAccessLayer\DataAccessLayer.csproj">
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{70e9cc8f-5aef-4b5d-96a6-951ff1d12bab}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>

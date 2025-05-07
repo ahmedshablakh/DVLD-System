@@ -7,26 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLDBusinessLayer;
+using BusinessLayer;
 
 namespace DVLD_System
 {
-    public partial class Form1 : Form
+    public partial class ListPeople : Form
     {
 
-        public void RefreshPeopleList()
+        public void _RefreshPeopleList()
         {
-            dataGridView1.DataSource = DVLDBusinessLayer.PeopleBusiness.GetAllContacts();
+            dataGridView1.DataSource = PeopleBusiness.GetAllPeople();
             labtotalRecord.Text= dataGridView1.RowCount.ToString();
         }
-        public Form1()
+        public ListPeople()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RefreshPeopleList();
+            _RefreshPeopleList();
 
            // dataGridView1.DataSource = DVLDBusinessLayer.PeopleBusiness.GetAllContacts();
         }
@@ -40,14 +40,14 @@ namespace DVLD_System
         {
             frmAddEditPerson addNewPerson = new frmAddEditPerson(-1);
             addNewPerson.ShowDialog();
-            RefreshPeopleList();
+            _RefreshPeopleList();
         }
 
         private void eidrToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
-            RefreshPeopleList();
+            _RefreshPeopleList();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace DVLD_System
             if(result == DialogResult.OK)
             {
                 PeopleBusiness.DeletePerson(Id);
-                RefreshPeopleList();
+                _RefreshPeopleList();
             }
     
 

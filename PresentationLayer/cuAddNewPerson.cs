@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLDBusinessLayer;
+using BusinessLayer;
 
 namespace DVLD_System
 {
-    public partial class cuAddNewPerson : UserControl
+    public partial class cuAddNewPerson : UserControl 
     {
 
 
@@ -45,7 +45,7 @@ namespace DVLD_System
 
         private void _FillCountriesInComoboBox()
         {
-            DataTable dt = PeopleBusiness.GetAllCountries();
+            DataTable dt = clsCountriesBusiness.GetAllCountries();
             foreach (DataRow row in dt.Rows)
             {
                 comCountry.Items.Add(row["CountryName"]);
@@ -77,7 +77,7 @@ namespace DVLD_System
                 return;
             }
 
-
+            comCountry.SelectedIndex = comCountry.FindString(clsCountriesBusiness.Find(Person.CountryID).CountryName);
             lblMode.Text = "Edit Contact ID = " + Person.PersonID;
             labPersonID.Text = Person.PersonID.ToString();
             txtFirstName.Text = Person.FirstName;
@@ -169,7 +169,7 @@ namespace DVLD_System
                 Person.Gender = true;
             }
 
-            Person.CountryID = 1;
+            Person.CountryID = clsCountriesBusiness.Find(comCountry.Text).ID;
 
 
             if (Person.Save())
@@ -217,7 +217,9 @@ namespace DVLD_System
             Form parentForm = this.FindForm();
             if (parentForm != null)
             {
+
                 parentForm.Close();
+
             }
         }
     }

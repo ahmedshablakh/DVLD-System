@@ -7,9 +7,9 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DVLDDataAccessLayer
+namespace DataAccessLayer
 {
-    public class PeopleDataAccess
+    public class clsPeopleDataAccess
     {
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
             DateTime DateOfBirth, bool Gendor, string Address, string Phone, string Email, int CountryID, string ImagePath)
@@ -132,14 +132,14 @@ namespace DVLDDataAccessLayer
 
             return ( i > 0);
         }
-        public static DataTable GetAllContacts()
+        public static DataTable GetAllPeople()
         {
 
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "select * from People";
+            string query = "select * from People ";
             SqlCommand command = new SqlCommand(query, connection);
             try
             {
@@ -164,38 +164,7 @@ namespace DVLDDataAccessLayer
             return dt;
 
         }
-        public static DataTable GetAllCountries()
-        {
-
-            DataTable dt = new DataTable();
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "select * from Countries";
-            SqlCommand command = new SqlCommand(query, connection);
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    dt.Load(reader);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return dt;
-
-        }
+        
 
 
 
