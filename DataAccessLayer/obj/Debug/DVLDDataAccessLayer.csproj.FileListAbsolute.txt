@@ -1,0 +1,6 @@
+C:\C-Sharp\FullRealProject\DVLD-System\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\C-Sharp\FullRealProject\DVLD-System\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\C-Sharp\FullRealProject\DVLD-System\ContactsDataAccessLayer\obj\Debug\DVLDDataAccessLayer.csproj.AssemblyReference.cache
+C:\C-Sharp\FullRealProject\DVLD-System\ContactsDataAccessLayer\obj\Debug\DVLDDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\C-Sharp\FullRealProject\DVLD-System\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
+C:\C-Sharp\FullRealProject\DVLD-System\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb
