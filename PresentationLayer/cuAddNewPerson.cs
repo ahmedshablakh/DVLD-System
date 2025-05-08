@@ -9,13 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using System.IO;
 
 namespace DVLD_System
 {
-    public partial class cuAddNewPerson : UserControl 
+    public partial class cuAddNewPerson : UserControl
     {
-
-
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
 
@@ -53,12 +52,34 @@ namespace DVLD_System
         }
 
 
+        private string _SavePersonImageToFolder()
+        {
+            if (openFileDialog1.FileName == "")
+                return "";
+
+           
+            string imagesFolder = Path.Combine(Application.StartupPath, "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\Images");
+
+           
+            if (!Directory.Exists(imagesFolder))
+                Directory.CreateDirectory(imagesFolder);
+
+            string extension = Path.GetExtension(openFileDialog1.FileName);
+            string newFileName = Guid.NewGuid().ToString() + extension;
+
+            string destinationPath = Path.Combine(imagesFolder, newFileName);
+
+            File.Copy(openFileDialog1.FileName, destinationPath, true);
+
+            return destinationPath;
+        }
+
+
         public void _LoadData()
         {
             _FillCountriesInComoboBox();
-
-            dateTimePicker1.Value = DateTime.Now.AddYears(-18);
             dateTimePicker1.MaxDate = DateTime.Now.AddYears(-18);
+            dateTimePicker1.Value = dateTimePicker1.MaxDate;
             radMale.Checked = true;
             comCountry.SelectedIndex = 0;
 
@@ -69,7 +90,7 @@ namespace DVLD_System
                 return;
             }
 
-            Person = PeopleBusiness.Find(_PersonID);
+            Person = PeopleBusiness.GetPersonInfoByID(_PersonID);
 
             if (Person == null)
             {
@@ -79,7 +100,7 @@ namespace DVLD_System
 
             comCountry.SelectedIndex = comCountry.FindString(clsCountriesBusiness.Find(Person.CountryID).CountryName);
             lblMode.Text = "Edit Contact ID = " + Person.PersonID;
-            labPersonID.Text = Person.PersonID.ToString();
+            lab1PersonID.Text = Person.PersonID.ToString();
             txtFirstName.Text = Person.FirstName;
             txtSecond.Text = Person.SecondName;
             txtThird.Text = Person.ThirdName;
@@ -87,6 +108,19 @@ namespace DVLD_System
             txtNationalNo.Text = Person.NationalNo;
             txtPhone.Text = Person.Phone;
             txtAddress.Text = Person.Address;
+            if (!string.IsNullOrEmpty(Person.ImagePath) && File.Exists(Person.ImagePath))
+            {
+                pictureBox1.Image = Image.FromFile(Person.ImagePath);
+            }
+            else
+            {
+                // صورة افتراضية
+                pictureBox1.Image = radFemale.Checked ?
+                    Properties.Resources.admin_female :
+                    Properties.Resources.patient_boy;
+            }
+
+
 
 
             if (Person.Gender)
@@ -121,6 +155,7 @@ namespace DVLD_System
 
         private void radMale_CheckedChanged_1(object sender, EventArgs e)
         {
+
             if (radMale.Checked)
             {
                 pictureBox1.Image = Properties.Resources.patient_boy;
@@ -138,8 +173,8 @@ namespace DVLD_System
 
         private void label2_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "اختر صورة شخصية";
-            openFileDialog1.Filter = "ملفات الصور|*.jpg;*.jpeg;*.png;*.bmp";
+            openFileDialog1.Title = "Choose a Profile Picture";
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -147,9 +182,8 @@ namespace DVLD_System
             }
         }
 
-        private void AddNewPerson()
+        private void AddEditPerson()
         {
-
 
 
             Person.NationalNo = txtNationalNo.Text;
@@ -160,6 +194,8 @@ namespace DVLD_System
             Person.Address = txtAddress.Text;
             Person.Email = txtEmail.Text;
             Person.Phone = txtPhone.Text;
+            if (Person.ImagePath != "")
+                Person.ImagePath = _SavePersonImageToFolder();
             if (radMale.Checked)
             {
                 Person.Gender = false;
@@ -172,10 +208,21 @@ namespace DVLD_System
             Person.CountryID = clsCountriesBusiness.Find(comCountry.Text).ID;
 
 
+
             if (Person.Save())
             {
-                MessageBox.Show("Successfuly .. ID is " + Person.PersonID);
-                lab1PersonID.Text = Convert.ToString(Person.PersonID);
+                if (_Mode == enMode.AddNew)
+                {
+                    MessageBox.Show("Adding Successfuly .. ID is " + Person.PersonID);
+                    lab1PersonID.Text = Convert.ToString(Person.PersonID);
+                }
+                else
+                {
+                    MessageBox.Show("Update Successfuly");
+                }
+
+
+
             }
             else
             {
@@ -185,26 +232,116 @@ namespace DVLD_System
 
         }
 
-        private void butSave_Click(object sender, EventArgs e)
+
+        private bool _ValidateInputData()
         {
-            AddNewPerson();
-        }
+            bool isValid = true;
 
-
-
-        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
-        {
-
-            if (PeopleBusiness.ChechNationalNoIsExis(txtNationalNo.Text))
+            // National ID validation
+            if (string.IsNullOrWhiteSpace(txtNationalNo.Text))
             {
-
-                errorProvider1.SetError(txtNationalNo, "This National No IS Used..");
-
+                errorProvider1.SetError(txtNationalNo, "National ID is required.");
+                isValid = false;
+            }
+            else if (_Mode == enMode.AddNew && PeopleBusiness.ChechNationalNoIsExis(txtNationalNo.Text))
+            {
+                errorProvider1.SetError(txtNationalNo, "National ID is already in use.");
+                isValid = false;
             }
             else
             {
                 errorProvider1.SetError(txtNationalNo, "");
             }
+
+            // First Name validation
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                errorProvider1.SetError(txtFirstName, "First name is required.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtFirstName, "");
+            }
+            // Second Name validation
+            if (string.IsNullOrWhiteSpace(txtSecond.Text))
+            {
+                errorProvider1.SetError(txtSecond, "First name is required.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtSecond, "");
+            }
+
+            // Last Name validation
+            if (string.IsNullOrWhiteSpace(txtLast.Text))
+            {
+                errorProvider1.SetError(txtLast, "Last name is required.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtLast, "");
+            }
+
+            // Phone Number validation
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                errorProvider1.SetError(txtPhone, "Phone number is required.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPhone, "");
+            }
+
+            // Email validation (optional)
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                if (!System.Text.RegularExpressions.Regex.IsMatch(txtEmail.Text, emailPattern))
+                {
+                    errorProvider1.SetError(txtEmail, "Invalid email format.");
+                    isValid = false;
+                }
+                else
+                {
+                    errorProvider1.SetError(txtEmail, "");
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, "");
+            }
+
+            return isValid;
+        }
+
+
+        private void butSave_Click(object sender, EventArgs e)
+        {
+            if (!_ValidateInputData())
+            {
+                MessageBox.Show("Please correct the data before saving.", "Data Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            AddEditPerson();
+
+            if (_Mode == enMode.AddNew)
+            {
+                _Mode = enMode.Update;
+                _PersonID = Convert.ToInt32(lab1PersonID.Text);
+                _LoadData();
+            }
+        }
+
+
+        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
+        {
+
+
         }
 
         private void cuAddNewPerson_Load(object sender, EventArgs e)
@@ -221,6 +358,11 @@ namespace DVLD_System
                 parentForm.Close();
 
             }
+        }
+
+        private void txtNationalNo_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -123,7 +123,7 @@ namespace BusinessLayer
         {
             return (clsPeopleDataAccess.DeletePerson(ID));
         }
-        public static PeopleBusiness Find(int PersonID)
+        public static PeopleBusiness GetPersonInfoByID(int PersonID)
         {
 
             string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "",

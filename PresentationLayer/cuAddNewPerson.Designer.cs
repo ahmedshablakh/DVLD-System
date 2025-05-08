@@ -257,6 +257,7 @@
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(155, 30);
             this.txtNationalNo.TabIndex = 20;
+            this.txtNationalNo.Leave += new System.EventHandler(this.txtNationalNo_Leave);
             this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNo_Validating);
             // 
             // radFemale
