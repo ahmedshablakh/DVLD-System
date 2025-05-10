@@ -13,19 +13,32 @@ namespace DVLD_System
     public partial class frmAddEditPerson : Form
     {
         public int _PersonID;
-        public frmAddEditPerson(int PersonID)
+        public int i;
+        public frmAddEditPerson(int PersonID,int i)
         {
             _PersonID = PersonID;
             InitializeComponent(PersonID);
+            this.i = i;
         }
 
         private void frmAddEditPerson_Load(object sender, EventArgs e)
         {
-            cuAddNewPerson ctrl = new cuAddNewPerson(_PersonID);
-            ctrl.Dock = DockStyle.Fill;
+            if(i==1)
+            {
+                cuAddNewPerson ctrl = new cuAddNewPerson(_PersonID);
+                ctrl.Dock = DockStyle.Fill;
 
-            // إضافة الكنترول إلى الفورم (يفترض أن يكون هناك Panel أو Container)
-            this.Controls.Add(ctrl);
+                // إضافة الكنترول إلى الفورم (يفترض أن يكون هناك Panel أو Container)
+                this.Controls.Add(ctrl);
+            }
+            else if(i==2)
+            {
+                cuDetailsPersonInfo ctrl = new cuDetailsPersonInfo(_PersonID);
+                ctrl.Dock = DockStyle.Fill;
+
+                // إضافة الكنترول إلى الفورم (يفترض أن يكون هناك Panel أو Container)
+                this.Controls.Add(ctrl);
+            }
         }
     }
 }

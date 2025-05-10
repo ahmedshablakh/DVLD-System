@@ -14,9 +14,13 @@ namespace DVLD_System
     public partial class ListPeople : Form
     {
 
+        DataTable dt = PeopleBusiness.GetAllPeople();
+
         public void _RefreshPeopleList()
         {
-            dataGridView1.DataSource = PeopleBusiness.GetAllPeople();
+            dt = PeopleBusiness.GetAllPeople();
+            DataView dv = new DataView(dt);
+            dataGridView1.DataSource = dv;
             labtotalRecord.Text= dataGridView1.RowCount.ToString();
         }
         public ListPeople()
@@ -27,8 +31,9 @@ namespace DVLD_System
         private void Form1_Load(object sender, EventArgs e)
         {
             _RefreshPeopleList();
-
-           // dataGridView1.DataSource = DVLDBusinessLayer.PeopleBusiness.GetAllContacts();
+            comFilter.SelectedIndex = 0;
+            comboBox1.Visible = false;
+            // dataGridView1.DataSource = DVLDBusinessLayer.PeopleBusiness.GetAllContacts();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -38,14 +43,14 @@ namespace DVLD_System
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            frmAddEditPerson addNewPerson = new frmAddEditPerson(-1);
+            frmAddEditPerson addNewPerson = new frmAddEditPerson(-1,1);
             addNewPerson.ShowDialog();
             _RefreshPeopleList();
         }
 
         private void eidrToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value);
+            frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value,1);
             frm.ShowDialog();
             _RefreshPeopleList();
         }
@@ -61,6 +66,138 @@ namespace DVLD_System
             }
     
 
+        }
+
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson addNewPerson = new frmAddEditPerson(-1, 1);
+            addNewPerson.ShowDialog();
+            _RefreshPeopleList();
+        }
+
+        private void dToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value,2);
+            frm.ShowDialog();
+            _RefreshPeopleList();
+        }
+
+        private void comFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comFilter.SelectedIndex == 0)
+            {
+                txtFilterData.Visible = false;
+                comboBox1.Visible= false;
+            }
+            else
+            {
+                comboBox1.Visible = false;
+                txtFilterData.Visible = true;
+            }
+            if (comFilter.SelectedIndex==8)
+            {
+                comboBox1.Visible = true;
+                txtFilterData.Visible = false;
+            }
+
+         
+        }
+
+
+
+        private void txtFilterData_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+
+
+            if (comFilter.SelectedIndex == 1 || comFilter.SelectedIndex==7) // فلترة بالرقم
+            {
+                // يمنع إدخال الحروف
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
+
+
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dt);
+            if (comboBox1.SelectedIndex == 0)
+            {
+                dv.RowFilter = $"Gendor=" + 0;
+
+            }
+
+            if (comboBox1.SelectedIndex == 1)
+            {
+                dv.RowFilter = $"Gendor=" + 1;
+
+            }
+            dataGridView1.DataSource = dv;
+        }
+
+        private void txtFilterData_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dt);
+            if (comFilter.SelectedIndex == 1) // فلترة بالرقم
+            {
+
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = "PersonID = " + Convert.ToInt32(txtFilterData.Text);
+                
+            }
+
+            if (comFilter.SelectedIndex == 2)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"NationalNo LIKE '*{txtFilterData.Text}*'";
+            }
+
+            if (comFilter.SelectedIndex == 3)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"FirstName LIKE '*{txtFilterData.Text}*'";
+            }
+            if (comFilter.SelectedIndex == 4)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"SecondName LIKE '*{txtFilterData.Text}*'";
+            }
+            if (comFilter.SelectedIndex == 5)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"ThirdName LIKE '*{txtFilterData.Text}*'";
+            }
+
+            if (comFilter.SelectedIndex == 6)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"LastName LIKE '*{txtFilterData.Text}*'";
+            }
+            if (comFilter.SelectedIndex == 7)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"NationalityCountryID=" + Convert.ToInt32(txtFilterData.Text);
+            }
+
+            if (comFilter.SelectedIndex == 9)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"Phone LIKE '*{txtFilterData.Text}*'";
+            }
+            if (comFilter.SelectedIndex == 10)
+            {
+                if (txtFilterData.Text != "")
+                    dv.RowFilter = $"Email LIKE '*{txtFilterData.Text}*'";
+            }
+
+
+
+
+            dataGridView1.DataSource = dv;
         }
     }
 }

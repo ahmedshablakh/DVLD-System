@@ -54,13 +54,13 @@ namespace DVLD_System
 
         private string _SavePersonImageToFolder()
         {
-            if (openFileDialog1.FileName == "")
+            if (string.IsNullOrWhiteSpace(openFileDialog1.FileName) || !File.Exists(openFileDialog1.FileName))
                 return "";
 
-           
-            string imagesFolder = Path.Combine(Application.StartupPath, "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\Images");
+            // مسار المجلد داخل مجلد التطبيق
+            string imagesFolder = @"C:\Users\aboar\ahmedshablakh\DVLD-System\Images";
 
-           
+
             if (!Directory.Exists(imagesFolder))
                 Directory.CreateDirectory(imagesFolder);
 
@@ -108,30 +108,29 @@ namespace DVLD_System
             txtNationalNo.Text = Person.NationalNo;
             txtPhone.Text = Person.Phone;
             txtAddress.Text = Person.Address;
-            if (!string.IsNullOrEmpty(Person.ImagePath) && File.Exists(Person.ImagePath))
+            txtEmail.Text = Person.Email;
+            lblRemove.Visible = (!string.IsNullOrEmpty(Person.ImagePath));
+            if (Person.Gender)
+            {
+                radFemale.Checked = true;
+            }
+            else
+            {
+                radMale.Checked = true;
+            }
+
+          
+
+            if (!string.IsNullOrWhiteSpace(Person.ImagePath) && File.Exists(Person.ImagePath))
             {
                 pictureBox1.Image = Image.FromFile(Person.ImagePath);
             }
             else
             {
-                // صورة افتراضية
-                pictureBox1.Image = radFemale.Checked ?
+                // صورة افتراضية بناءً على النوع
+                pictureBox1.Image = Person.Gender ?
                     Properties.Resources.admin_female :
                     Properties.Resources.patient_boy;
-            }
-
-
-
-
-            if (Person.Gender)
-            {
-                radFemale.Checked = true;
-
-
-            }
-            else
-            {
-                radMale.Checked = true;
             }
 
         }
@@ -194,8 +193,9 @@ namespace DVLD_System
             Person.Address = txtAddress.Text;
             Person.Email = txtEmail.Text;
             Person.Phone = txtPhone.Text;
-            if (Person.ImagePath != "")
-                Person.ImagePath = _SavePersonImageToFolder();
+
+
+            Person.ImagePath = _SavePersonImageToFolder();
             if (radMale.Checked)
             {
                 Person.Gender = false;
@@ -333,8 +333,11 @@ namespace DVLD_System
             {
                 _Mode = enMode.Update;
                 _PersonID = Convert.ToInt32(lab1PersonID.Text);
-                _LoadData();
+
             }
+
+            _LoadData();
+
         }
 
 
@@ -346,6 +349,7 @@ namespace DVLD_System
 
         private void cuAddNewPerson_Load(object sender, EventArgs e)
         {
+            lblRemove.Visible = false;
             _LoadData();
         }
 
@@ -363,6 +367,12 @@ namespace DVLD_System
         private void txtNationalNo_Leave(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblRemove_Click(object sender, EventArgs e)
+        {
+            pictureBox1.ImageLocation = null;
+            lblRemove.Visible = false;
         }
     }
 }
