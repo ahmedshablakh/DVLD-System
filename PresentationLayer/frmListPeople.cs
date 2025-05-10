@@ -11,7 +11,7 @@ using BusinessLayer;
 
 namespace DVLD_System
 {
-    public partial class ListPeople : Form
+    public partial class frmListPeople : Form
     {
 
         DataTable dt = PeopleBusiness.GetAllPeople();
@@ -23,7 +23,7 @@ namespace DVLD_System
             dataGridView1.DataSource = dv;
             labtotalRecord.Text= dataGridView1.RowCount.ToString();
         }
-        public ListPeople()
+        public frmListPeople()
         {
             InitializeComponent();
         }
@@ -32,7 +32,11 @@ namespace DVLD_System
         {
             _RefreshPeopleList();
             comFilter.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;
             comboBox1.Visible = false;
+
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+
             // dataGridView1.DataSource = DVLDBusinessLayer.PeopleBusiness.GetAllContacts();
         }
 
@@ -88,6 +92,10 @@ namespace DVLD_System
             {
                 txtFilterData.Visible = false;
                 comboBox1.Visible= false;
+                DataView dv1 = new DataView(dt);
+                dataGridView1.DataSource = dv1;
+                labtotalRecord.Text= dataGridView1.RowCount.ToString();
+                return;
             }
             else
             {
@@ -100,7 +108,9 @@ namespace DVLD_System
                 txtFilterData.Visible = false;
             }
 
-         
+            
+
+
         }
 
 
@@ -109,9 +119,9 @@ namespace DVLD_System
         {
 
 
-            if (comFilter.SelectedIndex == 1 || comFilter.SelectedIndex==7) // فلترة بالرقم
+            if (comFilter.SelectedIndex == 1 || comFilter.SelectedIndex==7) 
             {
-                // يمنع إدخال الحروف
+                
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 {
                     e.Handled = true;
@@ -121,33 +131,52 @@ namespace DVLD_System
 
             }
         }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+           
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Gendor" && e.Value != null)
+            {
+                int gender = Convert.ToInt32(e.Value);
+                e.Value = (gender == 0) ? "Male" : "Female";
+                e.FormattingApplied = true;
+            }
+        }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView(dt);
-            if (comboBox1.SelectedIndex == 0)
+
+            if (comboBox1.SelectedIndex == 1)
             {
                 dv.RowFilter = $"Gendor=" + 0;
 
             }
 
-            if (comboBox1.SelectedIndex == 1)
+            else if (comboBox1.SelectedIndex == 2)
             {
                 dv.RowFilter = $"Gendor=" + 1;
 
             }
+            else
+            {
+                dataGridView1.DataSource = dv;
+                labtotalRecord.Text = dataGridView1.RowCount.ToString();
+            }
             dataGridView1.DataSource = dv;
+            labtotalRecord.Text = dataGridView1.RowCount.ToString();
         }
 
         private void txtFilterData_TextChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView(dt);
+            
             if (comFilter.SelectedIndex == 1) // فلترة بالرقم
             {
 
                 if (txtFilterData.Text != "")
                     dv.RowFilter = "PersonID = " + Convert.ToInt32(txtFilterData.Text);
-                
+
             }
 
             if (comFilter.SelectedIndex == 2)
@@ -193,11 +222,8 @@ namespace DVLD_System
                 if (txtFilterData.Text != "")
                     dv.RowFilter = $"Email LIKE '*{txtFilterData.Text}*'";
             }
-
-
-
-
             dataGridView1.DataSource = dv;
+            labtotalRecord.Text= dataGridView1.RowCount.ToString();
         }
     }
 }
