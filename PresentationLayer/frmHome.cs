@@ -43,5 +43,11 @@ namespace DVLD_System
         {
 
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsersList frm = new frmUsersList();
+            frm.ShowDialog();
+        }
     }
 }

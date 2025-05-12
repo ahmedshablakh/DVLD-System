@@ -88,6 +88,7 @@ namespace DVLD_System
 
         private void comFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFilterData.Text = "";
             if(comFilter.SelectedIndex == 0)
             {
                 txtFilterData.Visible = false;
@@ -106,6 +107,7 @@ namespace DVLD_System
             {
                 comboBox1.Visible = true;
                 txtFilterData.Visible = false;
+                comboBox1.SelectedIndex = 0;
             }
 
             
@@ -171,7 +173,7 @@ namespace DVLD_System
         {
             DataView dv = new DataView(dt);
             
-            if (comFilter.SelectedIndex == 1) // فلترة بالرقم
+            if (comFilter.SelectedIndex == 1) 
             {
 
                 if (txtFilterData.Text != "")

@@ -39,6 +39,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Azure;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -57,7 +58,7 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.resume;
-            this.homeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.homeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(30, 0, 10, 0);
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(226, 74);
             this.homeToolStripMenuItem.Text = "Applications";
@@ -89,6 +90,7 @@
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(143, 74);
             this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // accountSettingsToolStripMenuItem
             // 
@@ -107,7 +109,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmHome";
-            this.Text = "frmHome";
+            this.Text = "0";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

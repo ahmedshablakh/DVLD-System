@@ -14,28 +14,41 @@ namespace DVLD_System
 {
     public partial class cuDetailsPersonInfo : UserControl
     {
-       public int PersonID =-1;
+        public int PersonID =-1;
         PeopleBusiness PersonInfo;
+
+        public cuDetailsPersonInfo()
+        {
+            InitializeComponent();
+        }
         public cuDetailsPersonInfo(int ID)
         {
             InitializeComponent();
             PersonID = ID;
             PersonInfo = PeopleBusiness.GetPersonInfoByID(PersonID);
         }
+        
 
-       
+
 
         private void cuDetailsPersonInfo_Load(object sender, EventArgs e)
         {
+            if (PersonID == -1)
+            {   
+                lblEditInfo.Enabled = false;
+                return;
+            }
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddEllipse(0, 0, pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Region = new Region(path);
 
-            if(PersonInfo != null)
+            if (PersonInfo != null)
             {
                 lab1PersonID.Text= Convert.ToString(PersonInfo.PersonID);
-                lblFirstName.Text = PersonInfo.FirstName;
-                lblSecondName.Text = PersonInfo.SecondName;
-                lblThird.Text = PersonInfo.ThirdName;
-                lblLastName.Text = PersonInfo.LastName;
-                lblDateOfBirth.Text= Convert.ToString((DateTime)PersonInfo.DateOfBirth);
+                lblFullName.Text = PersonInfo.FirstName + " " + PersonInfo.SecondName + " " + PersonInfo.ThirdName + " " + PersonInfo.LastName;
+                lblNotionalNo.Text = PersonInfo.NationalNo;
+                lblDateOfBirth.Text = ((DateTime)PersonInfo.DateOfBirth).ToString("dd-MM-yyyy");
+
                 lblPhone.Text = PersonInfo.Phone;
                 lblAddress.Text = PersonInfo.Address;
                 lblCountry.Text = clsCountriesBusiness.Find(PersonInfo.CountryID).CountryName;
@@ -66,24 +79,18 @@ namespace DVLD_System
 
         }
 
-        private void butClose_Click(object sender, EventArgs e)
+       
+
+
+        private void lblEditInfo_Click(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
-            {
-
-                parentForm.Close();
-
-            }
-        }
-
-        private void EditInfo_Click(object sender, EventArgs e)
-        {
-            frmAddEditPerson frm = new frmAddEditPerson(Convert.ToInt32( lab1PersonID.Text), 1);
+            frmAddEditPerson frm = new frmAddEditPerson(Convert.ToInt32(lab1PersonID.Text), 1);
             frm.ShowDialog();
             PersonInfo = PeopleBusiness.GetPersonInfoByID(PersonID);
-            cuDetailsPersonInfo_Load(sender,e);
+            cuDetailsPersonInfo_Load(sender, e);
 
         }
+
+       
     }
 }

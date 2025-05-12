@@ -188,14 +188,17 @@ namespace DVLD_System
             Person.NationalNo = txtNationalNo.Text;
             Person.FirstName = txtFirstName.Text;
             Person.SecondName = txtSecond.Text;
-            Person.ThirdName = txtThird.Text; ;
+            Person.ThirdName = txtThird.Text; 
             Person.LastName = txtLast.Text;
             Person.Address = txtAddress.Text;
             Person.Email = txtEmail.Text;
             Person.Phone = txtPhone.Text;
 
 
-            Person.ImagePath = _SavePersonImageToFolder();
+            if (!string.IsNullOrWhiteSpace(openFileDialog1.FileName) && File.Exists(openFileDialog1.FileName))
+            {
+                Person.ImagePath = _SavePersonImageToFolder();
+            }
             if (radMale.Checked)
             {
                 Person.Gender = false;
@@ -373,6 +376,11 @@ namespace DVLD_System
         {
             pictureBox1.ImageLocation = null;
             lblRemove.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

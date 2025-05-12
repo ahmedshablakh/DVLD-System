@@ -144,10 +144,35 @@ namespace BusinessLayer
                 return null;
         }
 
+
+        public static PeopleBusiness GetPersonInfoByNationalNo(string NationalNo)
+        {
+
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "",
+               Address = "", Phone = "", Email = "", ImagePath = "";
+
+            DateTime DateOfBirth = DateTime.Now;
+            int CountryID = -1,
+                PersonID=-1;
+            bool Gendor = true;
+
+
+
+            if (clsPeopleDataAccess.GetPersonInfoByNationalNo(ref PersonID,  NationalNo, ref FirstName, ref SecondName,
+                          ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref CountryID, ref ImagePath))
+
+                return new PeopleBusiness(PersonID, NationalNo, FirstName, SecondName,
+                           ThirdName, LastName, DateOfBirth, Gendor, Address, Phone, Email, CountryID, ImagePath);
+            else
+                return null;
+        }
+
+
+
         private bool _UpdatePerson()
         {
             //call DataAccess Layer 
-
+            
             return clsPeopleDataAccess.UpdatePersonInfo(this.PersonID, this.NationalNo, this.FirstName, this.SecondName,
                 this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email,
                 this.CountryID, this.ImagePath);
