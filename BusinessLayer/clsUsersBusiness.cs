@@ -26,13 +26,13 @@ namespace BusinessLayer
         public bool IsActive { get; set; }
 
 
-        public clsUsersBusiness() 
+        public clsUsersBusiness()
         {
 
             this.UserID = -1;
             this.PersonID = -1;
-            this. FullName = "";
-            this. Username = "";
+            this.FullName = "";
+            this.Username = "";
             this.Password = "";
             this.IsActive = false;
 
@@ -40,8 +40,8 @@ namespace BusinessLayer
 
         }
 
-        private clsUsersBusiness(int UserID,int PersonID,string FullName,string Username,string Password,bool IsActive)
-        { 
+        private clsUsersBusiness(int UserID, int PersonID, string FullName, string Username, string Password, bool IsActive)
+        {
             this.UserID = UserID;
             this.PersonID = PersonID;
             this.FullName = FullName;
@@ -53,16 +53,17 @@ namespace BusinessLayer
 
 
 
+
         private bool _AddNewUser()
         {
-            this.UserID = clsUsersDataAccess.AddNewUser(this.PersonID, this.Username, this.Password,this.IsActive);
+            this.UserID = clsUsersDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.IsActive);
             return (this.UserID != -1);
-           
+
         }
 
-        private bool  _UpdateUserInfo()
+        private bool _UpdateUserInfo()
         {
-            return clsUsersDataAccess.UpdateUserInfo(this.UserID, this.PersonID, this.Username, this.Password, this.IsActive);
+            return clsUsersDataAccess.UpdateUserInfo(this.UserID, this.Username, this.Password, this.IsActive);
         }
 
 
@@ -93,14 +94,14 @@ namespace BusinessLayer
         }
 
 
-    public static clsUsersBusiness GetUserInfoByID(int UserID)
+        public static clsUsersBusiness GetUserInfoByID(int UserID)
         {
-            int PersonID =  -1;
-            string FullName = "", Username = "", Password = "";
-            bool IsActive = false;
+            int PersonID1 = -1;
+            string FullName1 = "", Username1 = "", Password1 = "";
+            bool IsActive1 = false;
 
-            if(clsUsersDataAccess.GetUserInfoByID(UserID,ref PersonID,ref FullName,ref Username,ref Password,ref IsActive))
-                return new clsUsersBusiness(UserID,PersonID,FullName,Username,Password,IsActive);
+            if (clsUsersDataAccess.GetUserInfoByID(UserID, ref PersonID1, ref FullName1, ref Username1, ref Password1, ref IsActive1))
+                return new clsUsersBusiness(UserID, PersonID1, FullName1, Username1, Password1, IsActive1);
             else
                 return null;
         }
@@ -110,6 +111,32 @@ namespace BusinessLayer
         {
             return clsUsersDataAccess.GetAllUsers();
         }
+
+        public static bool IsUsernameExist(string UserName)
+        {
+
+            return clsUsersDataAccess.IsUsernameExist(UserName);
+        }
+        public static bool DeleteUserByID(int UserID)
+        {
+            return clsUsersDataAccess.DaleteUserByID(UserID);
+        }
+
+
+        public static clsUsersBusiness GetUserInfoByUsernameAndPassword(string Username, string Password)
+        {
+            int UserID = -1;
+            int PersonID = -1;
+            string FullName = "";
+            bool IsActive = false;
+            if(clsUsersDataAccess.GetUserInfoByUsernameAndPassword(ref UserID,ref PersonID,ref FullName, Username, Password,ref IsActive))
+            {
+                return new clsUsersBusiness(UserID,PersonID,FullName,Username,Password,IsActive);
+            }
+            else
+            { return null; }
+        }
+
 
     }
 }

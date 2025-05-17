@@ -96,7 +96,7 @@
             this.groupBox1.Controls.Add(this.labNationalNo);
             this.groupBox1.Controls.Add(this.labEmail);
             this.groupBox1.Controls.Add(this.labAddress);
-            this.groupBox1.Location = new System.Drawing.Point(20, 9);
+            this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(855, 297);
             this.groupBox1.TabIndex = 8;
@@ -128,7 +128,7 @@
             this.lblEditInfo.AutoSize = true;
             this.lblEditInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblEditInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblEditInfo.Location = new System.Drawing.Point(691, 41);
+            this.lblEditInfo.Location = new System.Drawing.Point(654, 41);
             this.lblEditInfo.Name = "lblEditInfo";
             this.lblEditInfo.Size = new System.Drawing.Size(144, 20);
             this.lblEditInfo.TabIndex = 31;
@@ -318,11 +318,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::DVLD_System.Properties.Resources.patient_boy;
-            this.pictureBox1.Location = new System.Drawing.Point(695, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(672, 75);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 144);
+            this.pictureBox1.Size = new System.Drawing.Size(113, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
@@ -383,7 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "cuDetailsPersonInfo";
-            this.Size = new System.Drawing.Size(896, 320);
+            this.Size = new System.Drawing.Size(875, 312);
             this.Load += new System.EventHandler(this.cuDetailsPersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -49,5 +49,26 @@ namespace DVLD_System
             frmUsersList frm = new frmUsersList();
             frm.ShowDialog();
         }
+
+        private void singOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsGlobalUser.CurrentUser = null;
+            frmLoginScreen frm = new frmLoginScreen();
+            this.Hide();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo(clsGlobalUser.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangepassword frm = new frmChangepassword(clsGlobalUser.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
     }
 }

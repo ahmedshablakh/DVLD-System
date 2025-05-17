@@ -45,7 +45,6 @@ namespace DataAccessLayer
                 connection.Open();
                 object result = command.ExecuteScalar();
 
-
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
                 {
                     return insertedID;
@@ -139,7 +138,10 @@ namespace DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "select * from People ";
+            string query = @"select  P.PersonID , P.NationalNo,P.FirstName,P.SecondName,P.ThirdName,P.LastName , P.Gendor,P.DateOfBirth,
+  C.CountryName, P.Phone,P.Address,P.Email
+  from  People P inner join Countries C
+on P.NationalityCountryID = C.CountryID ";
             SqlCommand command = new SqlCommand(query, connection);
             try
             {

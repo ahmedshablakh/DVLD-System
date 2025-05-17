@@ -30,12 +30,17 @@ namespace DVLD_System
 
         private void frmUsersList_Load(object sender, EventArgs e)
         {
+            _Load();
+
+        }
+        private void _Load()
+
+        {
             dataGridViewUsers.DataSource = clsUsersBusiness.GetAllUsers();
             lblTotalRecords.Text = dataGridViewUsers.RowCount.ToString();
 
             dataGridViewUsers.Columns["FullName"].Width = 200;
         }
-
         private void comUserFilterData_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtFilter.Text ="";
@@ -146,6 +151,61 @@ namespace DVLD_System
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+        }
+
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            frmAddEditUser frm = new frmAddEditUser((int)dataGridViewUsers.CurrentRow.Cells[0].Value, (int)dataGridViewUsers.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();
+        }
+
+        private void frmUsersList_Activated(object sender, EventArgs e)
+        {
+            _Load();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int Id = (int)(dataGridViewUsers.CurrentRow.Cells[0].Value);
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete the user with ID: " + Id + "?",
+                "Confirm Deletion",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.OK)
+            {
+                if (clsUsersBusiness.DeleteUserByID(Id))
+                {
+                    MessageBox.Show("The user was deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("User is not Deleted tue do dataconnect to it..", "Falid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void detailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo((int)dataGridViewUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void changepassword_Click(object sender, EventArgs e)
+        {
+            frmChangepassword frm = new frmChangepassword((int)dataGridViewUsers.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
     }

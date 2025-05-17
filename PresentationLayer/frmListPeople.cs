@@ -49,24 +49,21 @@ namespace DVLD_System
         {
             frmAddEditPerson addNewPerson = new frmAddEditPerson(-1,1);
             addNewPerson.ShowDialog();
-            _RefreshPeopleList();
         }
 
         private void eidrToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value,1);
             frm.ShowDialog();
-            _RefreshPeopleList();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int Id = ((int)dataGridView1.CurrentRow.Cells[0].Value);
-            DialogResult result = MessageBox.Show("Detete y /n  for id is "+Id, "Delete Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if(result == DialogResult.OK)
+            DialogResult result = MessageBox.Show("Detete y /n  for id is " + Id, "Delete Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result == DialogResult.OK)
             {
                 PeopleBusiness.DeletePerson(Id);
-                _RefreshPeopleList();
             }
     
 
@@ -76,14 +73,13 @@ namespace DVLD_System
         {
             frmAddEditPerson addNewPerson = new frmAddEditPerson(-1, 1);
             addNewPerson.ShowDialog();
-            _RefreshPeopleList();
         }
 
         private void dToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value,2);
+            frmAddEditPerson frm = new frmAddEditPerson((int)dataGridView1.CurrentRow.Cells[0].Value, 2);
             frm.ShowDialog();
-            _RefreshPeopleList();
+            
         }
 
         private void comFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,7 +117,7 @@ namespace DVLD_System
         {
 
 
-            if (comFilter.SelectedIndex == 1 || comFilter.SelectedIndex==7) 
+            if (comFilter.SelectedIndex == 1) 
             {
                 
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -211,7 +207,7 @@ namespace DVLD_System
             if (comFilter.SelectedIndex == 7)
             {
                 if (txtFilterData.Text != "")
-                    dv.RowFilter = $"NationalityCountryID=" + Convert.ToInt32(txtFilterData.Text);
+                    dv.RowFilter = $"CountryName LIKE '*{txtFilterData.Text}*'";
             }
 
             if (comFilter.SelectedIndex == 9)
@@ -226,6 +222,11 @@ namespace DVLD_System
             }
             dataGridView1.DataSource = dv;
             labtotalRecord.Text= dataGridView1.RowCount.ToString();
+        }
+
+        private void frmListPeople_Activated(object sender, EventArgs e)
+        {
+            _RefreshPeopleList();
         }
     }
 }

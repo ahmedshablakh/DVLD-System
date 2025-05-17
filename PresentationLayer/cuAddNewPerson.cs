@@ -15,17 +15,19 @@ namespace DVLD_System
 {
     public partial class cuAddNewPerson : UserControl
     {
+        public Button ButSave => butSave;
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
 
 
-        int _PersonID;
+        public int _PersonID;
         PeopleBusiness Person;
 
         public cuAddNewPerson()
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
+            pictureBox1.Image = null;
         }
         public cuAddNewPerson(int PersonID)
         {
@@ -34,6 +36,7 @@ namespace DVLD_System
             if (_PersonID == -1)
             {
                 _Mode = enMode.AddNew;
+                pictureBox1.Image = null;
             }
             else
             {
@@ -119,8 +122,8 @@ namespace DVLD_System
                 radMale.Checked = true;
             }
 
-          
 
+            dateTimePicker1.Value =Person.DateOfBirth;
             if (!string.IsNullOrWhiteSpace(Person.ImagePath) && File.Exists(Person.ImagePath))
             {
                 pictureBox1.Image = Image.FromFile(Person.ImagePath);
@@ -141,21 +144,12 @@ namespace DVLD_System
 
 
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void radMale_CheckedChanged_1(object sender, EventArgs e)
         {
 
-            if (radMale.Checked)
+            if (radMale.Checked && pictureBox1.Image == null)
             {
                 pictureBox1.Image = Properties.Resources.patient_boy;
             }
@@ -164,7 +158,7 @@ namespace DVLD_System
         private void radFemale_CheckedChanged_1(object sender, EventArgs e)
         {
 
-            if (radFemale.Checked)
+            if (radFemale.Checked && pictureBox1.Image == null)
             {
                 pictureBox1.Image = Properties.Resources.admin_female;
             }
@@ -193,6 +187,8 @@ namespace DVLD_System
             Person.Address = txtAddress.Text;
             Person.Email = txtEmail.Text;
             Person.Phone = txtPhone.Text;
+            Person.DateOfBirth = new DateTime(dateTimePicker1.Value.Year, Person.DateOfBirth.Month, Person.DateOfBirth.Day);
+
 
 
             if (!string.IsNullOrWhiteSpace(openFileDialog1.FileName) && File.Exists(openFileDialog1.FileName))
@@ -218,12 +214,13 @@ namespace DVLD_System
                 {
                     MessageBox.Show("Adding Successfuly .. ID is " + Person.PersonID);
                     lab1PersonID.Text = Convert.ToString(Person.PersonID);
+                    _PersonID = Person.PersonID;
+                   
                 }
                 else
                 {
                     MessageBox.Show("Update Successfuly");
                 }
-
 
 
             }
@@ -331,7 +328,7 @@ namespace DVLD_System
             }
 
             AddEditPerson();
-
+            this.Tag = _PersonID;
             if (_Mode == enMode.AddNew)
             {
                 _Mode = enMode.Update;
@@ -344,11 +341,6 @@ namespace DVLD_System
         }
 
 
-        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
-        {
-
-
-        }
 
         private void cuAddNewPerson_Load(object sender, EventArgs e)
         {
@@ -356,31 +348,29 @@ namespace DVLD_System
             _LoadData();
         }
 
+     
+
         private void butClose_Click(object sender, EventArgs e)
         {
             Form parentForm = this.FindForm();
             if (parentForm != null)
             {
-
+                parentForm.DialogResult = DialogResult.OK; 
                 parentForm.Close();
-
             }
         }
-
-        private void txtNationalNo_Leave(object sender, EventArgs e)
-        {
-
-        }
-
         private void lblRemove_Click(object sender, EventArgs e)
         {
+            
+            pictureBox1.Image = null;
+            if(_Mode ==enMode.Update)
+            {
+                Person.ImagePath = "";
+            }
             pictureBox1.ImageLocation = null;
             lblRemove.Visible = false;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

@@ -158,7 +158,6 @@
             this.groupBox1.Size = new System.Drawing.Size(949, 468);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblRemove
             // 
@@ -311,7 +310,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(155, 26);
             this.dateTimePicker1.TabIndex = 22;
             this.dateTimePicker1.Value = new System.DateTime(2005, 5, 25, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // labDateOfBirth
             // 
@@ -330,8 +328,6 @@
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(155, 30);
             this.txtNationalNo.TabIndex = 20;
-            this.txtNationalNo.Leave += new System.EventHandler(this.txtNationalNo_Leave);
-            this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNo_Validating);
             // 
             // radFemale
             // 
@@ -379,7 +375,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txtLast
             // 
@@ -587,7 +582,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label labPhone;
-        private System.Windows.Forms.Button butSave;
+        public System.Windows.Forms.Button butSave;
         private System.Windows.Forms.Button butClose;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.ComboBox comCountry;
@@ -603,5 +598,7 @@
         private System.Windows.Forms.Label lblRemove;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
+
+        
     }
 }

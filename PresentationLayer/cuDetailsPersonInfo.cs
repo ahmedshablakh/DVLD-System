@@ -25,26 +25,18 @@ namespace DVLD_System
         {
             InitializeComponent();
             PersonID = ID;
-            PersonInfo = PeopleBusiness.GetPersonInfoByID(PersonID);
+            
         }
-        
 
 
-
-        private void cuDetailsPersonInfo_Load(object sender, EventArgs e)
+        private void _loadData()
         {
-            if (PersonID == -1)
-            {   
-                lblEditInfo.Enabled = false;
-                return;
-            }
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddEllipse(0, 0, pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Region = new Region(path);
+            
 
-            if (PersonInfo != null)
+            if (PersonID !=-1)
             {
-                lab1PersonID.Text= Convert.ToString(PersonInfo.PersonID);
+                PersonInfo = PeopleBusiness.GetPersonInfoByID(PersonID);
+                lab1PersonID.Text = Convert.ToString(PersonInfo.PersonID);
                 lblFullName.Text = PersonInfo.FirstName + " " + PersonInfo.SecondName + " " + PersonInfo.ThirdName + " " + PersonInfo.LastName;
                 lblNotionalNo.Text = PersonInfo.NationalNo;
                 lblDateOfBirth.Text = ((DateTime)PersonInfo.DateOfBirth).ToString("dd-MM-yyyy");
@@ -67,7 +59,7 @@ namespace DVLD_System
                 }
 
 
-                if (PersonInfo.Gender==false)
+                if (PersonInfo.Gender == false)
                 {
                     lblGendor.Text = "Male";
                 }
@@ -76,7 +68,16 @@ namespace DVLD_System
                     lblGendor.Text = "Famile";
                 }
             }
+        }
+        private void cuDetailsPersonInfo_Load(object sender, EventArgs e)
+        {
+            if (PersonID == -1)
+            {   
+                lblEditInfo.Enabled = false;
+                return;
+            }
 
+            _loadData();
         }
 
        
@@ -87,10 +88,14 @@ namespace DVLD_System
             frmAddEditPerson frm = new frmAddEditPerson(Convert.ToInt32(lab1PersonID.Text), 1);
             frm.ShowDialog();
             PersonInfo = PeopleBusiness.GetPersonInfoByID(PersonID);
-            cuDetailsPersonInfo_Load(sender, e);
+
+            _loadData();
 
         }
 
-       
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

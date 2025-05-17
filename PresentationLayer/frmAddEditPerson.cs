@@ -14,24 +14,28 @@ namespace DVLD_System
     {
         public int _PersonID;
         public int i;
-        public frmAddEditPerson(int PersonID,int i)
+        public frmAddEditPerson(int PersonID, int i)
         {
             _PersonID = PersonID;
-            InitializeComponent(PersonID);
+            InitializeComponent();
             this.i = i;
         }
 
+
         private void frmAddEditPerson_Load(object sender, EventArgs e)
         {
-            if(i==1)
+            if (i == 1)
             {
+               
                 cuAddNewPerson ctrl = new cuAddNewPerson(_PersonID);
                 ctrl.Dock = DockStyle.Fill;
-
-                // إضافة الكنترول إلى الفورم (يفترض أن يكون هناك Panel أو Container)
                 this.Controls.Add(ctrl);
+
+
+               
+
             }
-            else if(i==2)
+            else if (i == 2)
             {
                 cuDetailsPersonInfo ctrl = new cuDetailsPersonInfo(_PersonID);
                 ctrl.Dock = DockStyle.Fill;
@@ -40,5 +44,7 @@ namespace DVLD_System
                 this.Controls.Add(ctrl);
             }
         }
+
+       
     }
 }

@@ -38,3 +38,9 @@ C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmHome.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmUsersList.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmAddEditUser.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmUserInfo.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.ucLoginInformation.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.cuUserInfo.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.cuChangepassword.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmChangepassword.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmLoginScreen.resources
