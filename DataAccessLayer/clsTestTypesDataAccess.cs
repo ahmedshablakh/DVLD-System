@@ -1,24 +1,22 @@
-﻿using DataAccessLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class clsAppTypeDataAccess
+    public class clsTestTypesDataAccess
     {
-
-        public static bool GetApplicationTypeByID(int ID,ref string Title, ref float Fees)
+        public static bool GetTestTypeByID(int ID, ref string Title,ref string Description, ref float Fees)
         {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ID";
+            string query = "SELECT * FROM TestTypes WHERE TestTypeID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -35,9 +33,10 @@ namespace DataAccessLayer
                     // The record was found
                     isFound = true;
 
-                    Title = (string)reader["ApplicationTypeTitle"];
-                    Fees = reader["ApplicationFees"] != DBNull.Value
-         ? (float)Convert.ToDecimal(reader["ApplicationFees"])
+                    Title = (string)reader["TestTypeTitle"];
+                    Description = (string)reader["TestTypeDescription"];
+                    Fees = reader["TestTypeFees"] != DBNull.Value
+         ? (float)Convert.ToDecimal(reader["TestTypeFees"])
          : 0f;
 
                 }
@@ -64,12 +63,12 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static DataTable GetAllAppType()
+        public static DataTable GetAllTestTypes()
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string queru = @"Select * from ApplicationTypes";
+            string queru = @"Select * from TestTypes";
             SqlCommand command = new SqlCommand(queru, connection);
 
             try
@@ -77,7 +76,7 @@ namespace DataAccessLayer
                 connection.Open();
 
                 SqlDataReader reader = command.ExecuteReader();
-                if(reader !=null)
+                if (reader != null)
                 {
                     dt.Load(reader);
                 }
@@ -86,24 +85,25 @@ namespace DataAccessLayer
             {
 
             }
-            finally 
-            { 
+            finally
+            {
                 connection.Close();
             }
             return dt;
 
         }
 
-        public static bool UpdateAppType(int ApplicationTypeID, string Title,float Fees) 
+        public static bool UpdateTestType(int TestTypeID,  string Title, string Description, float Fees)
         {
             int AffectedRow = 0;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"update ApplicationTypes set ApplicationTypeTitle = @Title, ApplicationFees= @Fees where ApplicationTypeID =@ApplicationTypeID";
+            string query = @"update TestTypes set TestTypeTitle = @Title,TestTypeDescription=@Description, TestTypeFees= @Fees where TestTypeID =@TestTypeID";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
             cmd.Parameters.AddWithValue("@Title", Title);
+            cmd.Parameters.AddWithValue("@Description", Description);
             cmd.Parameters.AddWithValue("@Fees", Fees);
 
 
@@ -121,6 +121,9 @@ namespace DataAccessLayer
 
             return (AffectedRow > 0);
         }
+
+
+
 
     }
 }

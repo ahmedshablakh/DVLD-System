@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,8 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageApplToolStripMenuItem});
+            this.manageApplToolStripMenuItem,
+            this.manageTestTypesToolStripMenuItem});
             this.homeToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.resume;
             this.homeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(30, 0, 10, 0);
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
@@ -74,9 +76,17 @@
             // 
             this.manageApplToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.tasks;
             this.manageApplToolStripMenuItem.Name = "manageApplToolStripMenuItem";
-            this.manageApplToolStripMenuItem.Size = new System.Drawing.Size(435, 56);
-            this.manageApplToolStripMenuItem.Text = "Manage Application Type";
+            this.manageApplToolStripMenuItem.Size = new System.Drawing.Size(446, 56);
+            this.manageApplToolStripMenuItem.Text = "Manage Application Types";
             this.manageApplToolStripMenuItem.Click += new System.EventHandler(this.manageApplToolStripMenuItem_Click);
+            // 
+            // manageTestTypesToolStripMenuItem
+            // 
+            this.manageTestTypesToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.testing;
+            this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
+            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(446, 56);
+            this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
             // 
             // peopleToolStripMenuItem
             // 
@@ -171,5 +181,6 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem singOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageApplToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageTestTypesToolStripMenuItem;
     }
 }

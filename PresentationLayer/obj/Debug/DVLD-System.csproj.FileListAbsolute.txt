@@ -46,3 +46,5 @@ C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmLoginScreen.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmApplicationTypes.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmUpdateAppliacitonType.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmManageTestTypes.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmEditTestType.resources

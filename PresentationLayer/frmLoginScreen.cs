@@ -50,9 +50,7 @@ namespace DVLD_System
                             File.Delete(path);
                         }
                     }
-                    MessageBox.Show("Welcome " + clsGlobalUser.CurrentUser.FullName, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    
+                   
                     frmHome frm = new frmHome();
                     this.Hide(); 
                     frm.ShowDialog(); 
