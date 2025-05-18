@@ -70,5 +70,11 @@ namespace DVLD_System
             frmChangepassword frm = new frmChangepassword(clsGlobalUser.CurrentUser.UserID);
             frm.ShowDialog();
         }
+
+        private void manageApplToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmApplicationTypes frm = new frmApplicationTypes();
+            frm.ShowDialog();
+        }
     }
 }

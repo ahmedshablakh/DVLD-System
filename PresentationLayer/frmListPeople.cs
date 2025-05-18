@@ -63,7 +63,14 @@ namespace DVLD_System
             DialogResult result = MessageBox.Show("Detete y /n  for id is " + Id, "Delete Person", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.OK)
             {
-                PeopleBusiness.DeletePerson(Id);
+                if(PeopleBusiness.DeletePerson(Id))
+                {
+                    MessageBox.Show("Deleted Successfuly..", "Successfuly");
+                }
+                else
+                {
+                    MessageBox.Show("Deleted Falid..", "Falid");
+                }
             }
     
 

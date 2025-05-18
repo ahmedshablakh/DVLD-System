@@ -44,3 +44,5 @@ C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.cuChangepassword.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmChangepassword.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmLoginScreen.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmApplicationTypes.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmUpdateAppliacitonType.resources

@@ -77,8 +77,8 @@ namespace BusinessLayer
 
         private bool _AddNewPerson()
         {
-            this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Email, this.Phone,
-            this.Address, this.CountryID, this.ImagePath);
+            this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName, this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Address, this.Phone,
+            this.Email, this.CountryID, this.ImagePath);
             return (this.PersonID != 1);
         }
 

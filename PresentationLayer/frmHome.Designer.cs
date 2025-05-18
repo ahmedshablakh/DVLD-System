@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageApplToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,12 +61,22 @@
             // 
             // homeToolStripMenuItem
             // 
+            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageApplToolStripMenuItem});
             this.homeToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.resume;
             this.homeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(30, 0, 10, 0);
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(226, 74);
             this.homeToolStripMenuItem.Text = "Applications";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
+            // manageApplToolStripMenuItem
+            // 
+            this.manageApplToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.tasks;
+            this.manageApplToolStripMenuItem.Name = "manageApplToolStripMenuItem";
+            this.manageApplToolStripMenuItem.Size = new System.Drawing.Size(435, 56);
+            this.manageApplToolStripMenuItem.Text = "Manage Application Type";
+            this.manageApplToolStripMenuItem.Click += new System.EventHandler(this.manageApplToolStripMenuItem_Click);
             // 
             // peopleToolStripMenuItem
             // 
@@ -159,5 +170,6 @@
         private System.Windows.Forms.ToolStripMenuItem currentUserInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem singOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageApplToolStripMenuItem;
     }
 }
