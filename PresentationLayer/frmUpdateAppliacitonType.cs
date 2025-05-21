@@ -26,7 +26,7 @@ namespace DVLD_System
             if(txtFees.Text !=""&& txtTitle.Text!="")
             {
                 AppTypeInfo.Title = txtTitle.Text;
-                AppTypeInfo.Fees = float.Parse(txtFees.Text);
+                AppTypeInfo.Fees = decimal.Parse(txtFees.Text);
                 if(AppTypeInfo.Save())
                 {
                     MessageBox.Show("Update Successffuly..", "Successffuly");

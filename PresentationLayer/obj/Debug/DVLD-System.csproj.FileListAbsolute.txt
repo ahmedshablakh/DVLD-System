@@ -48,3 +48,6 @@ C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmUpdateAppliacitonType.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmManageTestTypes.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmEditTestType.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmLocalDrivingLicenseApplications.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmNewLocalDrivingLicenseApplication.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.ucFindPerson.resources

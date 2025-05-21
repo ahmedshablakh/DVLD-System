@@ -82,5 +82,22 @@ namespace DVLD_System
             frmManageTestTypes frm = new frmManageTestTypes();
             frm.ShowDialog();
         }
+
+        private void detainLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void localLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicenseApplications frm = new frmLocalDrivingLicenseApplications();
+            frm.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewLocalDrivingLicenseApplication frm = new frmNewLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+        }
     }
 }

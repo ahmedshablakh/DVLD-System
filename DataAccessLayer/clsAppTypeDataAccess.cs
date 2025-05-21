@@ -12,7 +12,7 @@ namespace DataAccessLayer
     public class clsAppTypeDataAccess
     {
 
-        public static bool GetApplicationTypeByID(int ID,ref string Title, ref float Fees)
+        public static bool GetApplicationTypeByID(int ID,ref string Title, ref decimal Fees)
         {
             bool isFound = false;
 
@@ -36,9 +36,7 @@ namespace DataAccessLayer
                     isFound = true;
 
                     Title = (string)reader["ApplicationTypeTitle"];
-                    Fees = reader["ApplicationFees"] != DBNull.Value
-         ? (float)Convert.ToDecimal(reader["ApplicationFees"])
-         : 0f;
+                    Fees =(decimal) reader["ApplicationFees"];
 
                 }
                 else
@@ -94,7 +92,7 @@ namespace DataAccessLayer
 
         }
 
-        public static bool UpdateAppType(int ApplicationTypeID, string Title,float Fees) 
+        public static bool UpdateAppType(int ApplicationTypeID, string Title, decimal Fees) 
         {
             int AffectedRow = 0;
 

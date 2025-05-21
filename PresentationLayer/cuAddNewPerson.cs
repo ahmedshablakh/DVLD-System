@@ -371,6 +371,14 @@ namespace DVLD_System
             lblRemove.Visible = false;
         }
 
-      
+        private void comCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

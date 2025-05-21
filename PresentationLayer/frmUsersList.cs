@@ -36,7 +36,8 @@ namespace DVLD_System
         private void _Load()
 
         {
-            dataGridViewUsers.DataSource = clsUsersBusiness.GetAllUsers();
+            dt = clsUsersBusiness.GetAllUsers();
+            dataGridViewUsers.DataSource = dt;
             lblTotalRecords.Text = dataGridViewUsers.RowCount.ToString();
 
             dataGridViewUsers.Columns["FullName"].Width = 200;

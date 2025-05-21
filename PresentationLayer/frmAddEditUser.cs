@@ -295,6 +295,11 @@ namespace DVLD_System
                 }
             }
         }
+
+        private void grFilter_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -33,14 +33,11 @@
             this.comFilter = new System.Windows.Forms.ComboBox();
             this.txtFindPeerson = new System.Windows.Forms.TextBox();
             this.grFilter = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPersonInfo = new System.Windows.Forms.TabPage();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.cuDetailsPersonInfo = new DVLD_System.cuDetailsPersonInfo();
             this.grNext = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabLoginInfo = new System.Windows.Forms.TabPage();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
@@ -49,41 +46,44 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblUserID1 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.grClose = new System.Windows.Forms.GroupBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblTitle = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnSave = new System.Windows.Forms.GroupBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.grFilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPersonInfo.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             this.grNext.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabLoginInfo.SuspendLayout();
+            this.grClose.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.btnSave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.grClose.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.btnSave.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,28 +131,7 @@
             this.grFilter.TabIndex = 1;
             this.grFilter.TabStop = false;
             this.grFilter.Text = "Filter";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::DVLD_System.Properties.Resources._7887065;
-            this.pictureBox2.Location = new System.Drawing.Point(648, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(84, 56);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD_System.Properties.Resources._15862658;
-            this.pictureBox1.Location = new System.Drawing.Point(546, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 56);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.grFilter.Enter += new System.EventHandler(this.grFilter_Enter);
             // 
             // tabControl
             // 
@@ -190,13 +169,10 @@
             // cuDetailsPersonInfo
             // 
             this.cuDetailsPersonInfo.Location = new System.Drawing.Point(6, 4);
-            this.cuDetailsPersonInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuDetailsPersonInfo.Margin = new System.Windows.Forms.Padding(4);
             this.cuDetailsPersonInfo.Name = "cuDetailsPersonInfo";
             this.cuDetailsPersonInfo.Size = new System.Drawing.Size(1106, 385);
             this.cuDetailsPersonInfo.TabIndex = 0;
-
-
-
             // 
             // grNext
             // 
@@ -208,17 +184,6 @@
             this.grNext.TabIndex = 4;
             this.grNext.TabStop = false;
             this.grNext.MouseCaptureChanged += new System.EventHandler(this.groupBox2_MouseCaptureChanged);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::DVLD_System.Properties.Resources.right_arrow;
-            this.pictureBox3.Location = new System.Drawing.Point(108, 18);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(46, 47);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.MouseCaptureChanged += new System.EventHandler(this.groupBox2_MouseCaptureChanged);
             // 
             // label2
             // 
@@ -239,14 +204,14 @@
             this.tabLoginInfo.Controls.Add(this.label7);
             this.tabLoginInfo.Controls.Add(this.lblUserID1);
             this.tabLoginInfo.Controls.Add(this.txtUserName);
-            this.tabLoginInfo.Controls.Add(this.pictureBox10);
-            this.tabLoginInfo.Controls.Add(this.pictureBox9);
-            this.tabLoginInfo.Controls.Add(this.pictureBox5);
-            this.tabLoginInfo.Controls.Add(this.pictureBox4);
             this.tabLoginInfo.Controls.Add(this.label6);
             this.tabLoginInfo.Controls.Add(this.label5);
             this.tabLoginInfo.Controls.Add(this.label4);
             this.tabLoginInfo.Controls.Add(this.label3);
+            this.tabLoginInfo.Controls.Add(this.pictureBox10);
+            this.tabLoginInfo.Controls.Add(this.pictureBox9);
+            this.tabLoginInfo.Controls.Add(this.pictureBox5);
+            this.tabLoginInfo.Controls.Add(this.pictureBox4);
             this.tabLoginInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabLoginInfo.Location = new System.Drawing.Point(4, 25);
             this.tabLoginInfo.Name = "tabLoginInfo";
@@ -310,46 +275,6 @@
             this.txtUserName.Size = new System.Drawing.Size(209, 30);
             this.txtUserName.TabIndex = 8;
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::DVLD_System.Properties.Resources.reset_password;
-            this.pictureBox10.Location = new System.Drawing.Point(309, 341);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 7;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::DVLD_System.Properties.Resources._17035298;
-            this.pictureBox9.Location = new System.Drawing.Point(309, 291);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 6;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::DVLD_System.Properties.Resources._3177440;
-            this.pictureBox5.Location = new System.Drawing.Point(309, 239);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::DVLD_System.Properties.Resources._9512601;
-            this.pictureBox4.Location = new System.Drawing.Point(309, 189);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -402,17 +327,6 @@
             this.grClose.Enter += new System.EventHandler(this.grClose_Enter);
             this.grClose.MouseCaptureChanged += new System.EventHandler(this.pictureBox11_MouseCaptureChanged);
             // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::DVLD_System.Properties.Resources.remove;
-            this.pictureBox11.Location = new System.Drawing.Point(24, 18);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(46, 47);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 3;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.MouseCaptureChanged += new System.EventHandler(this.pictureBox11_MouseCaptureChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -450,6 +364,16 @@
             this.btnSave.TabStop = false;
             this.btnSave.MouseCaptureChanged += new System.EventHandler(this.groupBox1_MouseCaptureChanged);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(76, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 31);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Save";
+            // 
             // pictureBox12
             // 
             this.pictureBox12.Image = global::DVLD_System.Properties.Resources._489707;
@@ -460,15 +384,89 @@
             this.pictureBox12.TabIndex = 3;
             this.pictureBox12.TabStop = false;
             // 
-            // label9
+            // pictureBox11
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(76, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 31);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Save";
+            this.pictureBox11.Image = global::DVLD_System.Properties.Resources.remove;
+            this.pictureBox11.Location = new System.Drawing.Point(24, 18);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(46, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 3;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.MouseCaptureChanged += new System.EventHandler(this.pictureBox11_MouseCaptureChanged);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::DVLD_System.Properties.Resources.right_arrow;
+            this.pictureBox3.Location = new System.Drawing.Point(108, 18);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(46, 47);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseCaptureChanged += new System.EventHandler(this.groupBox2_MouseCaptureChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DVLD_System.Properties.Resources._7887065;
+            this.pictureBox2.Location = new System.Drawing.Point(648, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(84, 56);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD_System.Properties.Resources._15862658;
+            this.pictureBox1.Location = new System.Drawing.Point(546, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::DVLD_System.Properties.Resources.reset_password;
+            this.pictureBox10.Location = new System.Drawing.Point(309, 341);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 7;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::DVLD_System.Properties.Resources._17035298;
+            this.pictureBox9.Location = new System.Drawing.Point(309, 291);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 6;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::DVLD_System.Properties.Resources._3177440;
+            this.pictureBox5.Location = new System.Drawing.Point(309, 239);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DVLD_System.Properties.Resources._9512601;
+            this.pictureBox4.Location = new System.Drawing.Point(309, 189);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
             // 
             // frmAddEditUser
             // 
@@ -485,27 +483,27 @@
             this.Load += new System.EventHandler(this.frmAddEditUser_Load_1);
             this.grFilter.ResumeLayout(false);
             this.grFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabPersonInfo.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             this.grNext.ResumeLayout(false);
             this.grNext.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabLoginInfo.ResumeLayout(false);
             this.tabLoginInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.grClose.ResumeLayout(false);
             this.grClose.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.btnSave.ResumeLayout(false);
             this.btnSave.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
