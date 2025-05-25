@@ -62,39 +62,53 @@ namespace DVLD_System
                 ucFindPerson uc = new ucFindPerson(ApplicationInfo.ApplicantPersonID);
                 uc.Dock = DockStyle.Fill;
                 panel1.Controls.Add(uc);
+                _PersonID = uc._PersonID;
+                 FillLicenseClasses();
+                LoadData();
 
             }
-            btnSave.Enabled = false;
-            FillLicenseClasses();
-            LoadData();
+            else
+            {
+               
+                btnSave.Enabled = false;
+                LoadData();
+            }
+          
+            
 
         }
 
         private void pictureBox3_MouseCaptureChanged(object sender, EventArgs e)
         {
-            if(ucFindPerson1._PersonID!= -1 || Mode ==enMode.Update )
-            {
-                tabControl.SelectTab(tabAppInfo);
-                btnSave.Enabled = true;
-            }
-            else
+            
+            if (ucFindPerson1._PersonID==-1 && Mode == enMode.AddNew)
             {
                 MessageBox.Show("Errorr");
+                return;
+                
             }
-            _PersonID = ucFindPerson1._PersonID;
+
+            if (Mode == enMode.AddNew)
+                _PersonID = ucFindPerson1._PersonID;
+            tabControl.SelectTab(tabAppInfo);
+            btnSave.Enabled = true;
+            
+            
+
 
         }
 
         private void LoadData()
         {
-            if(Mode== enMode.AddNew)
+            FillLicenseClasses();
+            if (Mode== enMode.AddNew)
             {
                 AddNewApplication();
                 return;
             }
             if (ApplicationInfo != null)
             {
-               // comboBox1.SelectedIndex= LocalAppInfo.LicenseClassID;
+                comboBox1.SelectedIndex= LocalAppInfo.LicenseClassID-1;
                 lblDLAppID.Text = LocalAppInfo.LocalDrivingLicenseApplicationID.ToString();
                 lblTitleFrm.Text = "Update Local Driving License Applications";
                 lblApplicationFees.Text = ApplicationInfo.PaidFees.ToString();
@@ -124,7 +138,7 @@ namespace DVLD_System
         {
             bool isValid = true;
             _LicenseClassID= clsLicenseClassBusiness.Find(comboBox1.SelectedItem.ToString()).LicenseClassID;
-            if (clsApplicationBusiness.IsApplicationActive(ApplicationInfo.ApplicantPersonID, _LicenseClassID))
+            if (clsApplicationBusiness.IsApplicationActive(_PersonID, _LicenseClassID))
             {
                 MessageBox.Show("You have an active application of the same Class..", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 isValid = false;

@@ -39,10 +39,7 @@ namespace DVLD_System
 
         }
 
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -98,6 +95,13 @@ namespace DVLD_System
         {
             frmNewLocalDrivingLicenseApplication frm = new frmNewLocalDrivingLicenseApplication();
             frm.ShowDialog();
+        }
+
+        private void DeiversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMangageDrivers frm = new frmMangageDrivers();
+                frm.ShowDialog();
+
         }
     }
 }

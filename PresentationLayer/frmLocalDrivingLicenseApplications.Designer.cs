@@ -35,23 +35,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalRecords = new System.Windows.Forms.Label();
             this.lblRecordText = new System.Windows.Forms.Label();
-            this.callToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.sedEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CancelApplication = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.CancelApplication = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.SchduleTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schesuleVisoimTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schesuleWrittenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schesuleStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.callToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewLocalApplications = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocalApplications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // comStatus
@@ -124,67 +129,10 @@
             this.lblRecordText.TabIndex = 10;
             this.lblRecordText.Text = "Records :";
             // 
-            // callToUserToolStripMenuItem
-            // 
-            this.callToUserToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.phone;
-            this.callToUserToolStripMenuItem.Name = "callToUserToolStripMenuItem";
-            this.callToUserToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
-            this.callToUserToolStripMenuItem.Text = "Call To User";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = global::DVLD_System.Properties.Resources.food_11060629;
-            this.pictureBox2.Location = new System.Drawing.Point(1091, 214);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(102, 84);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 17;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // sedEmailToolStripMenuItem
-            // 
-            this.sedEmailToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.communication;
-            this.sedEmailToolStripMenuItem.Name = "sedEmailToolStripMenuItem";
-            this.sedEmailToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
-            this.sedEmailToolStripMenuItem.Text = "Sed Email";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.remove;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
-            this.deleteToolStripMenuItem.Text = "Delete Application";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // CancelApplication
-            // 
-            this.CancelApplication.Image = global::DVLD_System.Properties.Resources.password;
-            this.CancelApplication.Name = "CancelApplication";
-            this.CancelApplication.Size = new System.Drawing.Size(369, 40);
-            this.CancelApplication.Text = "Cancel Application";
-            this.CancelApplication.Click += new System.EventHandler(this.CancelApplication_Click_1);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.user_avatar;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
-            this.editToolStripMenuItem.Text = "Edit Application";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(366, 6);
-            // 
-            // detailsToolStripMenuItem
-            // 
-            this.detailsToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.info;
-            this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
-            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
-            this.detailsToolStripMenuItem.Text = "Show Application Details";
             // 
             // contextMenuStrip1
             // 
@@ -197,15 +145,102 @@
             this.deleteToolStripMenuItem,
             this.toolStripSeparator2,
             this.CancelApplication,
-            this.sedEmailToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.SchduleTestToolStripMenuItem,
+            this.toolStripSeparator4,
             this.callToUserToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(370, 284);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(370, 296);
+            // 
+            // detailsToolStripMenuItem
+            // 
+            this.detailsToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.info;
+            this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
+            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
+            this.detailsToolStripMenuItem.Text = "Show Application Details";
+            this.detailsToolStripMenuItem.Click += new System.EventHandler(this.detailsToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.user_avatar;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
+            this.editToolStripMenuItem.Text = "Edit Application";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.remove;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
+            this.deleteToolStripMenuItem.Text = "Delete Application";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(366, 6);
+            // 
+            // CancelApplication
+            // 
+            this.CancelApplication.Image = global::DVLD_System.Properties.Resources.cancelled;
+            this.CancelApplication.Name = "CancelApplication";
+            this.CancelApplication.Size = new System.Drawing.Size(369, 40);
+            this.CancelApplication.Text = "Cancel Application";
+            this.CancelApplication.Click += new System.EventHandler(this.CancelApplication_Click_1);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(366, 6);
+            // 
+            // SchduleTestToolStripMenuItem
+            // 
+            this.SchduleTestToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.schesuleVisoimTestToolStripMenuItem,
+            this.schesuleWrittenTestToolStripMenuItem,
+            this.schesuleStreetTestToolStripMenuItem});
+            this.SchduleTestToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.test__2_;
+            this.SchduleTestToolStripMenuItem.Name = "SchduleTestToolStripMenuItem";
+            this.SchduleTestToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
+            this.SchduleTestToolStripMenuItem.Text = "Sechdule Test";
+            this.SchduleTestToolStripMenuItem.MouseHover += new System.EventHandler(this.SchduleTestToolStripMenuItem_MouseHover);
+            // 
+            // schesuleVisoimTestToolStripMenuItem
+            // 
+            this.schesuleVisoimTestToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.eye;
+            this.schesuleVisoimTestToolStripMenuItem.Name = "schesuleVisoimTestToolStripMenuItem";
+            this.schesuleVisoimTestToolStripMenuItem.Size = new System.Drawing.Size(331, 40);
+            this.schesuleVisoimTestToolStripMenuItem.Text = "Schesule Vision Test";
+            this.schesuleVisoimTestToolStripMenuItem.Click += new System.EventHandler(this.schesuleVisoimTestToolStripMenuItem_Click);
+            // 
+            // schesuleWrittenTestToolStripMenuItem
+            // 
+            this.schesuleWrittenTestToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.examination;
+            this.schesuleWrittenTestToolStripMenuItem.Name = "schesuleWrittenTestToolStripMenuItem";
+            this.schesuleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(331, 40);
+            this.schesuleWrittenTestToolStripMenuItem.Text = "Schesule WrittenTest";
+            this.schesuleWrittenTestToolStripMenuItem.Click += new System.EventHandler(this.schesuleWrittenTestToolStripMenuItem_Click);
+            // 
+            // schesuleStreetTestToolStripMenuItem
+            // 
+            this.schesuleStreetTestToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.driver;
+            this.schesuleStreetTestToolStripMenuItem.Name = "schesuleStreetTestToolStripMenuItem";
+            this.schesuleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(331, 40);
+            this.schesuleStreetTestToolStripMenuItem.Text = "Schesule Street Test";
+            this.schesuleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.schesuleStreetTestToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(366, 6);
+            // 
+            // callToUserToolStripMenuItem
+            // 
+            this.callToUserToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.phone;
+            this.callToUserToolStripMenuItem.Name = "callToUserToolStripMenuItem";
+            this.callToUserToolStripMenuItem.Size = new System.Drawing.Size(369, 40);
+            this.callToUserToolStripMenuItem.Text = "Call To User";
             // 
             // dataGridViewLocalApplications
             // 
@@ -245,6 +280,18 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Image = global::DVLD_System.Properties.Resources.food_11060629;
+            this.pictureBox2.Location = new System.Drawing.Point(1091, 214);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(102, 84);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // frmLocalDrivingLicenseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -264,10 +311,10 @@
             this.Text = "frmLocalDrivingLicenseApplications";
             this.Activated += new System.EventHandler(this.frmLocalDrivingLicenseApplications_Activated);
             this.Load += new System.EventHandler(this.frmLocalDrivingLicenseApplications_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocalApplications)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +330,7 @@
         private System.Windows.Forms.Label lblRecordText;
         private System.Windows.Forms.ToolStripMenuItem callToUserToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolStripMenuItem sedEmailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SchduleTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CancelApplication;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -294,5 +341,10 @@
         private System.Windows.Forms.DataGridView dataGridViewLocalApplications;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem schesuleVisoimTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schesuleWrittenTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schesuleStreetTestToolStripMenuItem;
     }
 }

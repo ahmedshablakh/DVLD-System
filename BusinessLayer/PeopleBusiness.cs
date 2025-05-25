@@ -107,7 +107,7 @@ namespace BusinessLayer
 
             return false;
         }
-   
+
         public static bool ChechNationalNoIsExis(string NationalNO)
         {
             return clsPeopleDataAccess.NationalNoIsExis(NationalNO);
@@ -153,12 +153,12 @@ namespace BusinessLayer
 
             DateTime DateOfBirth = DateTime.Now;
             int CountryID = -1,
-                PersonID=-1;
+                PersonID = -1;
             bool Gendor = true;
 
 
 
-            if (clsPeopleDataAccess.GetPersonInfoByNationalNo(ref PersonID,  NationalNo, ref FirstName, ref SecondName,
+            if (clsPeopleDataAccess.GetPersonInfoByNationalNo(ref PersonID, NationalNo, ref FirstName, ref SecondName,
                           ref ThirdName, ref LastName, ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref CountryID, ref ImagePath))
 
                 return new PeopleBusiness(PersonID, NationalNo, FirstName, SecondName,
@@ -172,13 +172,16 @@ namespace BusinessLayer
         private bool _UpdatePerson()
         {
             //call DataAccess Layer 
-            
+
             return clsPeopleDataAccess.UpdatePersonInfo(this.PersonID, this.NationalNo, this.FirstName, this.SecondName,
                 this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email,
                 this.CountryID, this.ImagePath);
 
         }
 
-
+        public static string GetPersonFullNameByID(int PersonID)
+        {
+            return clsPeopleDataAccess.GetPersonFullNameByID(PersonID);
+        }
     }
 }

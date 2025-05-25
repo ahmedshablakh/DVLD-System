@@ -6,6 +6,8 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.Security.Policy;
 
 namespace DataAccessLayer
 {
@@ -239,7 +241,43 @@ on P.NationalityCountryID = C.CountryID ";
             return isFound;
         }
 
+        public static string GetPersonFullNameByID(int PersonID)
+        {
+            string FullName = "";
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
+            string query = "SELECT FirstName +' '+SecondName+' '+ThirdName+' '+LastName as FullName FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                   
+                    FullName = (string)reader["FullName"];
+
+                }
+               
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return FullName;
+        }
 
 
         public static bool GetPersonInfoByNationalNo(ref int PersonID,string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,

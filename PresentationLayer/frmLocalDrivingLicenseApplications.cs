@@ -34,6 +34,7 @@ namespace DVLD_System
         }
         private void frmLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
+           
             comStatus.Visible = false;
             txtFilter.Visible = false;
             comFilterBy.SelectedIndex = 0;
@@ -154,35 +155,94 @@ namespace DVLD_System
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewLocalDrivingLicenseApplication frm = new frmNewLocalDrivingLicenseApplication((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
-            frm.ShowDialog();
-        }
-
-      
-
-        private void CancelApplication_Click_1(object sender, EventArgs e)
-        {
-
-            DialogResult result = MessageBox.Show("Do you want to cancel the application?",
-                                      "Cancel Confirmation",
-                                      MessageBoxButtons.OKCancel,
-                                      MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you want to delete the application?",
+                                     "Delete Applicatiocn",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question);
 
             if (result == DialogResult.OK)
             {
                 int localID = (int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value;
-                if (clsApplicationBusiness.CancelApplication(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(localID).ApplicationID))
+                clsLocalDrivingLicenseApplicationsBusiness AppInfo;
+                AppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(localID);
+                if (clsLocalDrivingLicenseApplicationsBusiness.DeleteLocalDrivingLicenseApplicationByID(localID) &&
+                    clsApplicationBusiness.DeleteApplicationByID(AppInfo.ApplicationID))
                 {
-                    MessageBox.Show("The application was cancelled successfully.", "Success");
-                    _Load();
+                    
+                        MessageBox.Show("The application was deleted successfully.", "Success");
+                        _Load();
+                    
+
                 }
                 else
                 {
-                    MessageBox.Show("Failed to cancel the application.", "Error");
+                    MessageBox.Show("Failed to delete the application.", "Error");
                 }
             }
+
+        }
+
+        private void CancelApplication_Click_1(object sender, EventArgs e)
+            {
+
+                DialogResult result = MessageBox.Show("Do you want to cancel the application?",
+                                          "Cancel Confirmation",
+                                          MessageBoxButtons.OKCancel,
+                                          MessageBoxIcon.Question);
+
+                if (result == DialogResult.OK)
+                {
+                    int localID = (int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value;
+                    if (clsApplicationBusiness.CancelApplication(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(localID).ApplicationID))
+                    {
+                        MessageBox.Show("The application was cancelled successfully.", "Success");
+                        _Load();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You cannot delete this request because it is linked to other information.", "Falid Delete");
+                    }
+                }
+
             
-           
+        }
+
+        private void detailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowDetalisLocalAppInfo frm = new frmShowDetalisLocalAppInfo((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Load();
+        }
+
+        private void schesuleVisoimTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVisionTestAppointment frm = new frmVisionTestAppointment((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Load();
+        }
+
+        private void schesuleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmWrittenTestAppointments frm = new frmWrittenTestAppointments((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Load();
+        }
+
+        private void schesuleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStreetTestAppointments frm = new frmStreetTestAppointments((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Load();
+        }
+
+       
+
+        private void SchduleTestToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            schesuleVisoimTestToolStripMenuItem.Enabled = (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value) == 0);
+            schesuleWrittenTestToolStripMenuItem.Enabled = (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value) == 1);
+            schesuleStreetTestToolStripMenuItem.Enabled = (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value) == 2);
+
         }
     }
 }

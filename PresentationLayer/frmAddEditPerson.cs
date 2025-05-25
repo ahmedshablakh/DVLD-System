@@ -31,7 +31,6 @@ namespace DVLD_System
                 ctrl.Dock = DockStyle.Fill;
                 this.Controls.Add(ctrl);
 
-
                
 
             }
@@ -40,7 +39,7 @@ namespace DVLD_System
                 cuDetailsPersonInfo ctrl = new cuDetailsPersonInfo(_PersonID);
                 ctrl.Dock = DockStyle.Fill;
 
-                // إضافة الكنترول إلى الفورم (يفترض أن يكون هناك Panel أو Container)
+                
                 this.Controls.Add(ctrl);
             }
         }

@@ -88,10 +88,23 @@ namespace BusinessLayer
             return false;
         }
 
-        
+        public static int GetTotalPassedTestByID(int LocalDrivingLicensApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetTotalPassedTestByID(LocalDrivingLicensApplicationID);
+        }
         public static DataTable GetAllLocalDrivingLicenseApplications()
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.GetAllLocalDrivingLicenseApplications();
+        }
+        public static bool DeleteLocalDrivingLicenseApplicationByID(int LocalAppID)
+        {
+           return clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplicationByID(LocalAppID); 
+
+        }
+
+        public static DataTable GetAllDrivers()
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetAllDrivers();
         }
     }
 }

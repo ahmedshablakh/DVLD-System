@@ -132,8 +132,12 @@ namespace BusinessLayer
         {
             return clsAppliationDataAccess.IsApplicationActive(ApplicantPersonID, LicenseClassID);
         }
-       
 
-      
+        public static bool DeleteApplicationByID(int AppID)
+        {
+            return clsAppliationDataAccess.DeleteApplicationByID(AppID);
+        }
+
+
     }
 }

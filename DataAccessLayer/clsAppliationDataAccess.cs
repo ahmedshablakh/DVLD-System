@@ -103,7 +103,7 @@ namespace DataAccessLayer
             FROM Applications Ap
             INNER JOIN LocalDrivingLicenseApplications Loc ON Ap.ApplicationID = Loc.ApplicationID
             INNER JOIN LicenseClasses LC ON Loc.LicenseClassID = LC.LicenseClassID
-            WHERE Ap.ApplicationStatus IN (1, 2)
+            WHERE Ap.ApplicationStatus IN (1, 3)
               AND Ap.ApplicantPersonID = @ApplicantPersonID
               AND LC.LicenseClassID = @LicenseClassID";
 
@@ -226,8 +226,39 @@ namespace DataAccessLayer
             return rowsAffected > 0;
         }
 
+        public static bool DeleteApplicationByID(int AppID)
+        {
+            int rowsAffected = 0;
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
+            string query = @"Delete Applications 
+                                where ApplicationID = @AppID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AppID", AppID);
+
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+
+                connection.Close();
+
+            }
+
+            return (rowsAffected > 0);
+        }
 
     }
 }
