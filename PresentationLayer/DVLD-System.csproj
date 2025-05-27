@@ -95,6 +95,12 @@
     <Compile Include="frmChangepassword.Designer.cs">
       <DependentUpon>frmChangepassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDriverLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDriverLicenseInfo.Designer.cs">
+      <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditTestType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,18 @@
     </Compile>
     <Compile Include="frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIssueDriverLicenseForFirstTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIssueDriverLicenseForFirstTime.Designer.cs">
+      <DependentUpon>frmIssueDriverLicenseForFirstTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicenseHistory.Designer.cs">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListPeople.cs">
       <SubType>Form</SubType>
@@ -230,6 +248,12 @@
     <Compile Include="ucFindPerson.Designer.cs">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucDriverLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDriverLicenseInfo.Designer.cs">
+      <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucLoginInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -260,11 +284,20 @@
     <EmbeddedResource Include="frmChangepassword.resx">
       <DependentUpon>frmChangepassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDriverLicenseInfo.resx">
+      <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIssueDriverLicenseForFirstTime.resx">
+      <DependentUpon>frmIssueDriverLicenseForFirstTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicenseHistory.resx">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListPeople.resx">
       <DependentUpon>frmListPeople.cs</DependentUpon>
@@ -335,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFindPerson.resx">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucDriverLicenseInfo.resx">
+      <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucLoginInformation.resx">
       <DependentUpon>ucLoginInformation.cs</DependentUpon>
@@ -549,6 +585,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\zzz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\95126011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uk_car_registration1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

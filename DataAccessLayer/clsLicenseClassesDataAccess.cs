@@ -39,7 +39,7 @@ namespace DataAccessLayer
             return dt;
         }
 
-        public static bool GetLicenseClassInfoByID(int LicenseClassID, ref string ClassName)
+        public static bool GetLicenseClassInfoByID(int LicenseClassID, ref string ClassName, ref string  ClassDescription, ref byte MinimumAllowedAge,ref byte DefaultValidityLength, ref decimal ClassFees)
         {
             bool isFound = false;
 
@@ -62,7 +62,11 @@ namespace DataAccessLayer
                     // The record was found
                     isFound = true;
 
-                        ClassName = (string)reader["ClassName"];
+                      ClassName = (string)reader["ClassName"];
+                    ClassDescription = (string)reader["ClassDescription"];
+                    MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    DefaultValidityLength = (byte)reader["DefaultValidityLength"];
+                    ClassFees = (decimal)reader["ClassFees"];
 
                 }
                 else
@@ -89,7 +93,7 @@ namespace DataAccessLayer
         }
 
 
-        public static bool GetLicenseClassInfoByName(string ClassName, ref int LicenseClassID)
+        public static bool GetLicenseClassInfoByName(string ClassName, ref int LicenseClassID, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref decimal ClassFees)
         {
             bool isFound = false;
 
@@ -113,6 +117,10 @@ namespace DataAccessLayer
                     isFound = true;
 
                         LicenseClassID = (int)reader["LicenseClassID"];
+                    ClassDescription = (string)reader["ClassDescription"];
+                    MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    DefaultValidityLength = (byte)reader["DefaultValidityLength"];
+                    ClassFees = (decimal)reader["ClassFees"];
 
                 }
                 else

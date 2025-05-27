@@ -128,7 +128,7 @@ namespace DVLD_System
             ApplicationInfo = new clsApplicationBusiness();
             ApplicationInfo.ApplicationDate = DateTime.Now;
             ApplicationInfo.ApplicationTypeID = 1;
-            ApplicationInfo.ApplicationStatus = clsApplicationBusiness.enStatus.Completed;
+            ApplicationInfo.ApplicationStatus =3;
             ApplicationInfo.LastApplicationDate = DateTime.Now;
             ApplicationInfo.PaidFees = clsAppTypesBusiness.GetApplicationTypeByID(1).Fees;
             ApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;

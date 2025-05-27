@@ -145,12 +145,15 @@ namespace DVLD_System
         {
             frmNewLocalDrivingLicenseApplication frm = new frmNewLocalDrivingLicenseApplication();
             frm.ShowDialog();
+            _Load();
+
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNewLocalDrivingLicenseApplication frm = new frmNewLocalDrivingLicenseApplication((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+            _Load();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,10 +242,67 @@ namespace DVLD_System
 
         private void SchduleTestToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
-            schesuleVisoimTestToolStripMenuItem.Enabled = (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value) == 0);
-            schesuleWrittenTestToolStripMenuItem.Enabled = (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value) == 1);
-            schesuleStreetTestToolStripMenuItem.Enabled = (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value) == 2);
+            
+        }
 
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            schesuleVisoimTestToolStripMenuItem.Enabled = false;
+            schesuleWrittenTestToolStripMenuItem.Enabled = false;
+            schesuleStreetTestToolStripMenuItem.Enabled= false;
+            SchduleTestToolStripMenuItem.Enabled = true;
+            IssueDrivingLicenseToolStripMenuItem.Enabled = false;
+            showLicenceToolStripMenuItem.Enabled = false;
+
+
+
+            switch (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value))
+            {
+                case 0:
+                    schesuleVisoimTestToolStripMenuItem.Enabled = true;
+                    break;
+                    case 1:
+                    schesuleWrittenTestToolStripMenuItem.Enabled = true;
+                    break;
+                    case 2:
+                    schesuleStreetTestToolStripMenuItem.Enabled= true;
+                    break;
+                    case 3:
+                    SchduleTestToolStripMenuItem.Enabled = false;
+                    IssueDrivingLicenseToolStripMenuItem.Enabled = true;
+                    break;
+            }
+
+            if (clsApplicationBusiness.IsAppCompletedByLocalAppID(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value).ApplicationID))
+            {
+                IssueDrivingLicenseToolStripMenuItem.Enabled = false;
+                showLicenceToolStripMenuItem.Enabled = true;
+                editToolStripMenuItem.Enabled=false;
+                deleteToolStripMenuItem.Enabled = false;
+                CancelApplication.Enabled = false;
+            }
+
+
+
+        }
+
+        private void shpwPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           frmLicenseHistory frm = new frmLicenseHistory((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+
+        }
+
+        private void IssueDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIssueDriverLicenseForFirstTime frm = new frmIssueDriverLicenseForFirstTime((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void showLicenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
     }
 }

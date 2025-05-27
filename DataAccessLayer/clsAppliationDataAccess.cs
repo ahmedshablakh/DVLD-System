@@ -260,5 +260,43 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
+        public static bool IsAppCompletedByLocalAppID(int ApplicationID)
+        {
+
+            int PassedTest = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT ApplicationStatus FROM Applications WHERE ApplicationID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    PassedTest = Convert.ToInt32(result);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+            return PassedTest == 3;
+
+
+        }
+
     }
 }

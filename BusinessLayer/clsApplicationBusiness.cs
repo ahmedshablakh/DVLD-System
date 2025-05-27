@@ -13,14 +13,14 @@ namespace BusinessLayer
     {
 
          enum enMode { AddNew, Update };
-        public enum enStatus { New, Completed, Cancelled }
+      
 
          enMode Mode = enMode.AddNew;
         public int ApplicationID { get; set; }
         public int ApplicantPersonID { get; set; }
         public DateTime ApplicationDate { get; set; }
         public int ApplicationTypeID { get; set; }
-        public enStatus ApplicationStatus { get; set; }
+        public short ApplicationStatus { get; set; }
 
         public DateTime LastApplicationDate { get; set; }
 
@@ -36,7 +36,7 @@ namespace BusinessLayer
             this.ApplicantPersonID = -1;
             this.ApplicationDate = DateTime.Now;
             this.ApplicationTypeID = -1;
-            this.ApplicationStatus = enStatus.New;
+            this.ApplicationStatus = 1;
             this.LastApplicationDate = DateTime.Now;
             this.PaidFees = 0;
             this.CreatedByUserID = -1;
@@ -50,7 +50,7 @@ namespace BusinessLayer
             this.ApplicantPersonID = ApplicantPersonID;
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
-            this.ApplicationStatus =(enStatus) ApplicationStatus;
+            this.ApplicationStatus = ApplicationStatus;
             this.LastApplicationDate = LastApplicationDate;
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
@@ -139,5 +139,9 @@ namespace BusinessLayer
         }
 
 
+        public static bool IsAppCompletedByLocalAppID(int LoclAppID)
+        {
+            return clsAppliationDataAccess.IsAppCompletedByLocalAppID((int) LoclAppID);
+        }
     }
 }
