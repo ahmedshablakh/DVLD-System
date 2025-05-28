@@ -14,7 +14,7 @@ namespace DVLD_System
 {
     public partial class ucDriverLicenseInfo : UserControl
     {
-        clsLocalDrivingLicenseApplicationsBusiness LocalAppInfo;
+       
         clsApplicationBusiness ApplicationInfo;
         clsLicensesBusiness LicenseInfo;
         PeopleBusiness PersonInfo;
@@ -22,41 +22,43 @@ namespace DVLD_System
         {
             InitializeComponent();
         }
-        public ucDriverLicenseInfo(int LocalAppID)
+        public ucDriverLicenseInfo(int ApplicationID)
         {
             InitializeComponent();
 
-            LocalAppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(LocalAppID);
-            ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(LocalAppInfo.ApplicationID);
+            ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
             PersonInfo = PeopleBusiness.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
-            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByID(ApplicationInfo.ApplicationID);
+            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByApplicationID(ApplicationID);
 
         }
 
         private void ucDriverLicenseInfo_Load(object sender, EventArgs e)
         {
-
-            lblClass.Text = clsLicenseClassBusiness.Find(LocalAppInfo.LicenseClassID).ClassName;
-            lblFullName.Text = PersonInfo.FirstName + " " + PersonInfo.SecondName + " " + PersonInfo.ThirdName + " " + PersonInfo.LastName;
-            lblLicenseID.Text = LicenseInfo.LicenseID.ToString();
-            lblNotionalNo.Text = PersonInfo.NationalNo;
-            lblGendor.Text = PersonInfo.Gender ? "Male" : "Fimaly";
-            lblIssueDate.Text= LicenseInfo.IssueDate.ToShortDateString();
-            lblIssueReason.Text = LicenseInfo.IssueReason == 1 ? "First Time" : "Second";
-            lblNotes.Text = LicenseInfo.Notes == "" ? "No Notes" : LicenseInfo.Notes;
-            lblIsActive.Text = LicenseInfo.IsActive ? "Yes" : "No";
-            lblDateOfBirth.Text= PersonInfo.DateOfBirth.ToShortDateString();
-            lblDriverID.Text= LicenseInfo.DriverID.ToString();
-            lblExpirationDate.Text = LicenseInfo.ExpirationDate.ToShortDateString();
-            lblIsDetained.Text = "No";
-            if (!string.IsNullOrEmpty(PersonInfo.ImagePath) && File.Exists(PersonInfo.ImagePath))
+            if(ApplicationInfo !=null)
             {
-                pictureBox1.Image = Image.FromFile(PersonInfo.ImagePath);
+                lblClass.Text = clsLicenseClassBusiness.Find(LicenseInfo.LicenseClass).ClassName;
+                lblFullName.Text = PersonInfo.FirstName + " " + PersonInfo.SecondName + " " + PersonInfo.ThirdName + " " + PersonInfo.LastName;
+                lblLicenseID.Text = LicenseInfo.LicenseID.ToString();
+                lblNotionalNo.Text = PersonInfo.NationalNo;
+                lblGendor.Text = PersonInfo.Gender ? "Male" : "Fimaly";
+                lblIssueDate.Text = LicenseInfo.IssueDate.ToShortDateString();
+                lblIssueReason.Text = LicenseInfo.IssueReason == 1 ? "First Time" : "Second";
+                lblNotes.Text = LicenseInfo.Notes == "" ? "No Notes" : LicenseInfo.Notes;
+                lblIsActive.Text = LicenseInfo.IsActive ? "Yes" : "No";
+                lblDateOfBirth.Text = PersonInfo.DateOfBirth.ToShortDateString();
+                lblDriverID.Text = LicenseInfo.DriverID.ToString();
+                lblExpirationDate.Text = LicenseInfo.ExpirationDate.ToShortDateString();
+                lblIsDetained.Text = "No";
+                if (!string.IsNullOrEmpty(PersonInfo.ImagePath) && File.Exists(PersonInfo.ImagePath))
+                {
+                    pictureBox1.Image = Image.FromFile(PersonInfo.ImagePath);
+                }
+                else
+                {
+                    pictureBox1.Image = Properties.Resources.patient_boy;
+                }
             }
-            else
-            {
-                pictureBox1.Image = Properties.Resources.patient_boy;
-            }
+           
 
         }
     }

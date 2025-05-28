@@ -128,7 +128,7 @@ namespace DVLD_System
             ApplicationInfo = new clsApplicationBusiness();
             ApplicationInfo.ApplicationDate = DateTime.Now;
             ApplicationInfo.ApplicationTypeID = 1;
-            ApplicationInfo.ApplicationStatus =3;
+            ApplicationInfo.ApplicationStatus =1;
             ApplicationInfo.LastApplicationDate = DateTime.Now;
             ApplicationInfo.PaidFees = clsAppTypesBusiness.GetApplicationTypeByID(1).Fees;
             ApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
@@ -137,8 +137,25 @@ namespace DVLD_System
         private bool _ValidationData()
         {
             bool isValid = true;
-            _LicenseClassID= clsLicenseClassBusiness.Find(comboBox1.SelectedItem.ToString()).LicenseClassID;
-            if (clsApplicationBusiness.IsApplicationActive(_PersonID, _LicenseClassID))
+            clsLicenseClassBusiness LicenseClassInfo = clsLicenseClassBusiness.Find(comboBox1.SelectedItem.ToString());
+            PeopleBusiness PersonInfo = PeopleBusiness.GetPersonInfoByID(_PersonID);
+
+            int age = DateTime.Now.Year - PersonInfo.DateOfBirth.Year;
+
+            
+            if (DateTime.Now < PersonInfo.DateOfBirth.AddYears(age))
+            {
+                age--;
+            }
+            if(age < LicenseClassInfo.MinimumAllowedAge)
+            {
+                MessageBox.Show("Your age does not allow you to apply for this license. You must not be less than " + LicenseClassInfo.MinimumAllowedAge + " years old.", "Error");
+              
+                return false;
+            }
+
+            _LicenseClassID = LicenseClassInfo.LicenseClassID;
+            if (clsApplicationBusiness.IsApplicationActive(_PersonID, LicenseClassInfo.LicenseClassID))
             {
                 MessageBox.Show("You have an active application of the same Class..", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 isValid = false;

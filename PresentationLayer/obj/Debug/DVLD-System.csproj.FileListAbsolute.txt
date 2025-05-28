@@ -66,3 +66,6 @@ C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmIssueDriverLicenseForFirstTime.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.ucDriverLicenseInfo.resources
 C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmDriverLicenseInfo.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.ucFindLicenseInfo.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.frmIssueInterationalLicense.resources
+C:\Users\aboar\ahmedshablakh\DVLD-System\PresentationLayer\obj\Debug\DVLD_System.ucInternationalDriverLicenseInfo.resources

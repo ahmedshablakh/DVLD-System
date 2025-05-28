@@ -33,7 +33,7 @@ namespace DVLD_System
 
 
             dvLocalLicenses.DataSource = clsLicensesBusiness.GetAllLocalLicansesByPersonID(ApplicationInfo.ApplicantPersonID);
-            dvInternotionalLicenses.DataSource= clsLicensesBusiness.GetAllInternationalLicensesByPersonID(ApplicationInfo.ApplicantPersonID);
+            dvInternotionalLicenses.DataSource= clsInternationalLicensesBusienss.GetAllInternationalLicensesByPersonID(ApplicationInfo.ApplicantPersonID);
             
 
         }

@@ -119,6 +119,12 @@
     <Compile Include="frmIssueDriverLicenseForFirstTime.Designer.cs">
       <DependentUpon>frmIssueDriverLicenseForFirstTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIssueInterationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIssueInterationalLicense.Designer.cs">
+      <DependentUpon>frmIssueInterationalLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLicenseHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,12 @@
     <Compile Include="ucDetalisLocalApplicationInfo.Designer.cs">
       <DependentUpon>ucDetalisLocalApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucFindLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFindLicenseInfo.Designer.cs">
+      <DependentUpon>ucFindLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucFindPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,6 +265,12 @@
     </Compile>
     <Compile Include="ucDriverLicenseInfo.Designer.cs">
       <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucInternationalDriverLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucInternationalDriverLicenseInfo.Designer.cs">
+      <DependentUpon>ucInternationalDriverLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ucLoginInformation.cs">
       <SubType>UserControl</SubType>
@@ -295,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIssueDriverLicenseForFirstTime.resx">
       <DependentUpon>frmIssueDriverLicenseForFirstTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIssueInterationalLicense.resx">
+      <DependentUpon>frmIssueInterationalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLicenseHistory.resx">
       <DependentUpon>frmLicenseHistory.cs</DependentUpon>
@@ -366,11 +387,17 @@
     <EmbeddedResource Include="ucDetalisLocalApplicationInfo.resx">
       <DependentUpon>ucDetalisLocalApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucFindLicenseInfo.resx">
+      <DependentUpon>ucFindLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucFindPerson.resx">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucDriverLicenseInfo.resx">
       <DependentUpon>ucDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucInternationalDriverLicenseInfo.resx">
+      <DependentUpon>ucInternationalDriverLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucLoginInformation.resx">
       <DependentUpon>ucLoginInformation.cs</DependentUpon>

@@ -48,6 +48,18 @@ namespace BusinessLayer
         }
 
 
+
+        public static clsLocalDrivingLicenseApplicationsBusiness GetLocalDrivingLicenseByApplicationInfID(int ApplicationID)
+        {
+
+            int LocalDrivingLicenseApplicationID = -1,
+                LicenseClassID = -1;
+            if (clsLocalDrivingLicenseApplicationsDataAccess.GetLocalDrivingLicenseByApplicationInfID(ApplicationID, ref LocalDrivingLicenseApplicationID, ref LicenseClassID))
+                return new clsLocalDrivingLicenseApplicationsBusiness(LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
+            else
+                return null;
+        }
+
         private bool _AddNewLocalDrivingLicenseApplications()
         {
             this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.AddNewLocalDrivingLicenseApplications(this.ApplicationID,this.LicenseClassID);

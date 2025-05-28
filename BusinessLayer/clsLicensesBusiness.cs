@@ -90,7 +90,7 @@ namespace BusinessLayer
             }
         }
 
-        public static clsLicensesBusiness GetLicenseInfoByID(int ApplicationID)
+        public static clsLicensesBusiness GetLicenseInfoByApplicationID(int ApplicationID)
         {
             int LicensID = -1,
                   DriverID = -1,
@@ -102,7 +102,7 @@ namespace BusinessLayer
             decimal PaidFees = 0;
             bool IsActive = false;
             byte IssueReason = 1;
-            if (clsLisenceDataAccess.GetLicenseInfoByID(ref LicensID, ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
+            if (clsLisenceDataAccess.GetLicenseInfoByApplicationID(ref LicensID, ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
                 return new clsLicensesBusiness(LicensID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
             else
                 return null;
@@ -110,15 +110,31 @@ namespace BusinessLayer
 
         }
 
+        public static clsLicensesBusiness GetLicenseInfoByLicenseID(int LicenseID)
+        {
+            int DriverID = -1,
+                  LicenseClass = -1,
+                  ApplicationID = -1,
+             CreatedByUserID = -1;
+            DateTime IssueDate = DateTime.Now,
+               ExpirationDate = DateTime.Now;
+            string Notes = "";
+            decimal PaidFees = 0;
+            bool IsActive = false;
+            byte IssueReason = 1;
+            if (clsLisenceDataAccess.GetLicenseInfoByLicenseID(LicenseID,ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
+                return new clsLicensesBusiness(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+            else
+                return null;
 
-            public static DataTable GetAllLocalLicansesByPersonID(int PersonID)
+
+        }
+
+        public static DataTable GetAllLocalLicansesByPersonID(int PersonID)
         {
           return  clsLisenceDataAccess.GetAllLocalLicansesByPersonID(PersonID);
         }
 
-        public static DataTable GetAllInternationalLicensesByPersonID(int PersonID)
-        {
-            return clsLisenceDataAccess.GetAllInternationalLicensesByPersonID(PersonID);
-        }
+       
     }
 }

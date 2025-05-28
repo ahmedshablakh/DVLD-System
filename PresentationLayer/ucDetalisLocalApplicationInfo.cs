@@ -30,7 +30,12 @@ namespace DVLD_System
 
         private void ucDetalisApplicationInfo_Load(object sender, EventArgs e)
         {
-            lblShowLisInfo.Enabled = false;
+            
+
+            clsApplicationBusiness ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(DLAppInfo.ApplicationID);
+            lblShowLisInfo.Enabled =(ApplicationInfo.ApplicationStatus==3);
+            
+
             lblDLAID.Text = DLAppInfo.LocalDrivingLicenseApplicationID.ToString();
             lblAppliedForLicense.Text = clsLicenseClassBusiness.Find(DLAppInfo.LicenseClassID).ClassName;
             lblPassesTeste.Text = clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID(DLAppInfo.LocalDrivingLicenseApplicationID).ToString();
@@ -41,7 +46,8 @@ namespace DVLD_System
 
         private void lblShowLisInfo_Click(object sender, EventArgs e)
         {
-
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(DLAppInfo.ApplicationID);
+            frm.ShowDialog();
         }
     }
 }

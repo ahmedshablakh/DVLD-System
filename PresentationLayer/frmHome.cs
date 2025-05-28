@@ -103,5 +103,11 @@ namespace DVLD_System
                 frm.ShowDialog();
 
         }
+
+        private void inToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           frmIssueInterationalLicense frm = new frmIssueInterationalLicense();
+            frm.ShowDialog();
+        }
     }
 }

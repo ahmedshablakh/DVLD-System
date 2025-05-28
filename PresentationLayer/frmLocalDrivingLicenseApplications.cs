@@ -253,6 +253,9 @@ namespace DVLD_System
             SchduleTestToolStripMenuItem.Enabled = true;
             IssueDrivingLicenseToolStripMenuItem.Enabled = false;
             showLicenceToolStripMenuItem.Enabled = false;
+            editToolStripMenuItem.Enabled = true;
+            deleteToolStripMenuItem.Enabled = true;
+            CancelApplication.Enabled = true;
 
 
 
@@ -277,7 +280,7 @@ namespace DVLD_System
             {
                 IssueDrivingLicenseToolStripMenuItem.Enabled = false;
                 showLicenceToolStripMenuItem.Enabled = true;
-                editToolStripMenuItem.Enabled=false;
+                editToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = false;
                 CancelApplication.Enabled = false;
             }
@@ -301,7 +304,7 @@ namespace DVLD_System
 
         private void showLicenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDriverLicenseInfo frm = new frmDriverLicenseInfo((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value);
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value).ApplicationID);
             frm.ShowDialog();
         }
     }

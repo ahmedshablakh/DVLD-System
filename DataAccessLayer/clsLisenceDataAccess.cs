@@ -54,44 +54,7 @@ namespace ContactsDataAccessLayer
 
         }
 
-        public static DataTable GetAllInternationalLicensesByPersonID(int PersonID)
-        {
-
-            DataTable dt = new DataTable();
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT InternationalLicenseID, Inte.ApplicationID ,IssuedUsingLocalLicenseID, IssueDate,ExpirationDate ,IsActive
-                    FROM     InternationalLicenses Inte inner join Applications App
-                            On Inte.ApplicationID= App.ApplicationID
-                             where App.ApplicantPersonID = @PersonID";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    dt.Load(reader);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return dt;
-
-        }
-
-
+        
 
 
         public static int IssueNewLicense(int ApplicationID,int DriverID,int LicenseClass,DateTime IssueDate,DateTime ExpirationDate,string Notes,decimal PaidFees, bool IsActive,short IssueReason,int CreatedByUserID)
@@ -173,7 +136,7 @@ namespace ContactsDataAccessLayer
         }
 
 
-        public static bool GetLicenseInfoByID(ref int LicensID, int ApplicationID,ref int DriverID,ref int LicenseClass,ref DateTime IssueDate,ref DateTime ExpirationDate,ref string Notes,ref decimal PaidFees,ref bool IsActive,ref byte IssueReason,ref int CreatedByUserID)
+        public static bool GetLicenseInfoByApplicationID(ref int LicenseID, int ApplicationID,ref int DriverID,ref int LicenseClass,ref DateTime IssueDate,ref DateTime ExpirationDate,ref string Notes,ref decimal PaidFees,ref bool IsActive,ref byte IssueReason,ref int CreatedByUserID)
         {
             bool isFound = false;
 
@@ -195,7 +158,57 @@ namespace ContactsDataAccessLayer
                 if (reader.Read())
                 {
                     isFound = true;
-                    LicensID = (int)reader["LicenseID"];
+                    LicenseID = (int)reader["LicenseID"];
+                    DriverID = (int)reader["DriverID"];
+                    LicenseClass = (int)reader["LicenseClass"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    Notes = reader["Notes"] != DBNull.Value ? reader["Notes"].ToString() : null;
+
+                    PaidFees = (decimal)reader["PaidFees"];
+                    IsActive = (bool)reader["IsActive"];
+                    IssueReason = (byte)reader["IssueReason"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+
+
+        public static bool GetLicenseInfoByLicenseID(int LicenseID,ref int ApplicationID, ref int DriverID, ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref decimal PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"select * from Licenses
+                               where LicenseID = @LicensID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LicensID", LicenseID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ApplicationID = (int)reader["ApplicationID"];
                     DriverID = (int)reader["DriverID"];
                     LicenseClass = (int)reader["LicenseClass"];
                     IssueDate = (DateTime)reader["IssueDate"];
