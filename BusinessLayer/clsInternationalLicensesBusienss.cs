@@ -31,7 +31,17 @@ namespace BusinessLayer
             this.CreatedByUserID = -1;
         }
 
-
+        private clsInternationalLicensesBusienss(int internationalLicenseID, int applicationID, int driverID, int issuedUsingLocalLicenseID, DateTime issueDate, DateTime expirationDate, bool isActive, int createdByUserID)
+        {
+            this.InternationalLicenseID = internationalLicenseID;
+            this.ApplicationID = applicationID;
+            this.DriverID = driverID;
+            this.IssuedUsingLocalLicenseID = issuedUsingLocalLicenseID;
+            this.IssueDate = issueDate;
+            this.ExpirationDate = expirationDate;
+            this.IsActive = isActive;
+            this.CreatedByUserID = createdByUserID;
+        }
 
         private bool _IssueLicense()
         {
@@ -40,10 +50,32 @@ namespace BusinessLayer
         }
 
 
+
+
         public bool Save()
         {
             return _IssueLicense();
         }
+
+
+        public static clsInternationalLicensesBusienss GetInternationalLicenseByLicenseID(int InternationalLicenseID)
+        {
+            int DriverID = -1,
+                IssuedUsingLocalLicenseID =-1,
+                  ApplicationID = -1,
+             CreatedByUserID = -1;
+            DateTime IssueDate = DateTime.Now,
+               ExpirationDate = DateTime.Now;
+            bool IsActive = false;
+            if (clsInternationalLicensesDataAccess.GetInternationalLicenseByLicenseID(InternationalLicenseID, ref ApplicationID, ref DriverID, ref IssuedUsingLocalLicenseID, ref IssueDate, ref ExpirationDate,ref IsActive, ref CreatedByUserID))
+                return new clsInternationalLicensesBusienss(InternationalLicenseID, ApplicationID, DriverID, IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID);
+            else
+                return null;
+
+
+        }
+
+
 
 
         public static DataTable GetAllInternationalLicensesByPersonID(int PersonID)

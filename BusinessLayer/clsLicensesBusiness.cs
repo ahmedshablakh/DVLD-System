@@ -122,7 +122,7 @@ namespace BusinessLayer
             decimal PaidFees = 0;
             bool IsActive = false;
             byte IssueReason = 1;
-            if (clsLisenceDataAccess.GetLicenseInfoByLicenseID(LicenseID,ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
+            if (clsLisenceDataAccess.GetLicenseInfoByLicenseID(LicenseID, ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
                 return new clsLicensesBusiness(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
             else
                 return null;

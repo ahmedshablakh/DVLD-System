@@ -13,10 +13,10 @@ namespace DVLD_System
 {
     public partial class frmIssueInterationalLicense : Form
     {
-        int LocalLicenseID=-1;
+        int LocalLicenseID = -1;
         int ApplicationID = -1;
         int DriverID = -1,
-        NewApplicationID = -1; 
+        NewApplicationID = -1;
 
         public frmIssueInterationalLicense()
         {
@@ -25,21 +25,19 @@ namespace DVLD_System
 
         private void _LoadAppInfo()
         {
-
             lblLocalLicenseID.Text = LocalLicenseID.ToString();
-            lblApplicationDate.Text= DateTime.Now.ToShortDateString();
+            lblApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
             lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
-            lblFees.Text= clsAppTypesBusiness.GetApplicationTypeByID(6).Fees.ToString();
-
+            lblFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(6).Fees.ToString();
         }
 
 
         private bool _AddNewInterationalApp()
         {
             clsApplicationBusiness LocalAppInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
-             clsApplicationBusiness NewApplicationInfo = new clsApplicationBusiness();
+            clsApplicationBusiness NewApplicationInfo = new clsApplicationBusiness();
             NewApplicationInfo.ApplicantPersonID = LocalAppInfo.ApplicantPersonID;
             NewApplicationInfo.ApplicationDate = DateTime.Now;
             NewApplicationInfo.ApplicationTypeID = 6;
@@ -47,7 +45,7 @@ namespace DVLD_System
             NewApplicationInfo.LastApplicationDate = DateTime.Now;
             NewApplicationInfo.PaidFees = Convert.ToDecimal(lblFees.Text);
             NewApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
-            if(NewApplicationInfo.Save())
+            if (NewApplicationInfo.Save())
             {
                 NewApplicationID = NewApplicationInfo.ApplicationID;
                 return true;
@@ -115,7 +113,7 @@ namespace DVLD_System
         {
             _Find();
         }
-        
+
         private void lblShowLicensesHistory_Click(object sender, EventArgs e)
         {
             frmLicenseHistory frm = new frmLicenseHistory(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID);
@@ -132,7 +130,7 @@ namespace DVLD_System
                 InternationalLicensesInfo.IssuedUsingLocalLicenseID = LocalLicenseID;
                 InternationalLicensesInfo.DriverID = DriverID;
                 InternationalLicensesInfo.IssueDate = DateTime.Now;
-                InternationalLicensesInfo.ExpirationDate = DateTime.Now;
+                InternationalLicensesInfo.ExpirationDate = DateTime.Now.AddYears(1);
                 InternationalLicensesInfo.IsActive= true;
                 InternationalLicensesInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
                 if(InternationalLicensesInfo.Save())
@@ -140,6 +138,7 @@ namespace DVLD_System
                     MessageBox.Show("The issuance process was completed successfully. The international LicenseID is : " + InternationalLicensesInfo.InternationalLicenseID);
                     lblILLicenseID.Text = InternationalLicensesInfo.InternationalLicenseID.ToString();
                     lblILApplicationID.Text = NewApplicationID.ToString();
+                    lblShowLicenseInfo.Enabled = true;
                 }
                 else
                 {
@@ -155,6 +154,12 @@ namespace DVLD_System
                 MessageBox.Show("Application submission failed.");
 
             }
+        }
+
+        private void lblShowLicenseInfo_Click(object sender, EventArgs e)
+        {
+            frmInternationalDriverLicenseInfo frm = new frmInternationalDriverLicenseInfo(Convert.ToInt16(lblILLicenseID.Text));
+            frm.ShowDialog();
         }
 
         private void btnCls_Click(object sender, EventArgs e)

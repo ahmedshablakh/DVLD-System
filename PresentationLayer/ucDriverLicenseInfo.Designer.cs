@@ -376,7 +376,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grDriverLicenseInfo);
             this.Name = "ucDriverLicenseInfo";
-            this.Size = new System.Drawing.Size(936, 360);
+            this.Size = new System.Drawing.Size(936, 363);
             this.Load += new System.EventHandler(this.ucDriverLicenseInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grDriverLicenseInfo.ResumeLayout(false);

@@ -109,5 +109,11 @@ namespace DVLD_System
            frmIssueInterationalLicense frm = new frmIssueInterationalLicense();
             frm.ShowDialog();
         }
+
+        private void renewDrivingLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalDrivingLicense frm = new frmRenewLocalDrivingLicense();
+            frm.ShowDialog();
+        }
     }
 }

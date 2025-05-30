@@ -288,6 +288,7 @@
             this.lblShowLicenseInfo.Size = new System.Drawing.Size(146, 20);
             this.lblShowLicenseInfo.TabIndex = 8;
             this.lblShowLicenseInfo.Text = "Show License Info";
+            this.lblShowLicenseInfo.Click += new System.EventHandler(this.lblShowLicenseInfo_Click);
             // 
             // panel1
             // 

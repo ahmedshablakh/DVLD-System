@@ -115,7 +115,7 @@
             // 
             this.localLicenseToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.street;
             this.localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
-            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(279, 56);
+            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(249, 28);
             this.localLicenseToolStripMenuItem.Text = "Local License";
             this.localLicenseToolStripMenuItem.Click += new System.EventHandler(this.localLicenseToolStripMenuItem_Click);
             // 
@@ -123,7 +123,7 @@
             // 
             this.inToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.web;
             this.inToolStripMenuItem.Name = "inToolStripMenuItem";
-            this.inToolStripMenuItem.Size = new System.Drawing.Size(279, 56);
+            this.inToolStripMenuItem.Size = new System.Drawing.Size(249, 28);
             this.inToolStripMenuItem.Text = "Interational License";
             this.inToolStripMenuItem.Click += new System.EventHandler(this.inToolStripMenuItem_Click);
             // 
@@ -132,6 +132,7 @@
             this.renewDrivingLicensesToolStripMenuItem.Name = "renewDrivingLicensesToolStripMenuItem";
             this.renewDrivingLicensesToolStripMenuItem.Size = new System.Drawing.Size(461, 56);
             this.renewDrivingLicensesToolStripMenuItem.Text = "Renew Driving License";
+            this.renewDrivingLicensesToolStripMenuItem.Click += new System.EventHandler(this.renewDrivingLicensesToolStripMenuItem_Click);
             // 
             // replacementForLastOrDamagedLicenseToolStripMenuItem
             // 
