@@ -139,6 +139,7 @@
             this.replacementForLastOrDamagedLicenseToolStripMenuItem.Name = "replacementForLastOrDamagedLicenseToolStripMenuItem";
             this.replacementForLastOrDamagedLicenseToolStripMenuItem.Size = new System.Drawing.Size(461, 56);
             this.replacementForLastOrDamagedLicenseToolStripMenuItem.Text = "Replacement for Last or Damaged License";
+            this.replacementForLastOrDamagedLicenseToolStripMenuItem.Click += new System.EventHandler(this.replacementForLastOrDamagedLicenseToolStripMenuItem_Click);
             // 
             // releaseDetainedDrivingLicenseToolStripMenuItem
             // 

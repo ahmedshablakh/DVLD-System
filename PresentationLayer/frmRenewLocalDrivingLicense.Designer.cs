@@ -60,6 +60,7 @@
             this.labNationalNo = new System.Windows.Forms.Label();
             this.labI = new System.Windows.Forms.Label();
             this.lblIssue = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.grFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grAppInfo.SuspendLayout();
@@ -410,12 +411,24 @@
             this.lblIssue.TabIndex = 85;
             this.lblIssue.Text = "Expiration Date :";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(334, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(367, 29);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Renew Local Driving License";
+            // 
             // frmRenewLocalDrivingLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1079, 1042);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grFilter);
             this.Controls.Add(this.lblShowLicenseInfo);
@@ -424,7 +437,7 @@
             this.Controls.Add(this.btnRenew);
             this.Controls.Add(this.grAppInfo);
             this.Name = "frmRenewLocalDrivingLicense";
-            this.Text = "frmRenewLocalDrivingLicense";
+            this.Text = "Renew Local Driving License";
             this.Load += new System.EventHandler(this.frmRenewLocalDrivingLicense_Load);
             this.grFilter.ResumeLayout(false);
             this.grFilter.PerformLayout();
@@ -470,5 +483,6 @@
         private System.Windows.Forms.TextBox lblNotes;
         public System.Windows.Forms.Label lblTotalFees;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
     }
 }

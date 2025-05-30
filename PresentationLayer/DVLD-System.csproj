@@ -179,6 +179,12 @@
     <Compile Include="frmRenewLocalDrivingLicense.Designer.cs">
       <DependentUpon>frmRenewLocalDrivingLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReplacementforDamagedOrLostLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReplacementforDamagedOrLostLicenses.Designer.cs">
+      <DependentUpon>frmReplacementforDamagedOrLostLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmScheduleStreetTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRenewLocalDrivingLicense.resx">
       <DependentUpon>frmRenewLocalDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReplacementforDamagedOrLostLicenses.resx">
+      <DependentUpon>frmReplacementforDamagedOrLostLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScheduleStreetTest.resx">
       <DependentUpon>frmScheduleStreetTest.cs</DependentUpon>

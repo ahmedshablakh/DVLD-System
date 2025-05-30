@@ -115,5 +115,11 @@ namespace DVLD_System
             frmRenewLocalDrivingLicense frm = new frmRenewLocalDrivingLicense();
             frm.ShowDialog();
         }
+
+        private void replacementForLastOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplacementforDamagedOrLostLicenses frm = new frmReplacementforDamagedOrLostLicenses();
+                frm.ShowDialog();
+        }
     }
 }

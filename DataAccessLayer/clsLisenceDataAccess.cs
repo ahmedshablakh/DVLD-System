@@ -110,7 +110,7 @@ namespace ContactsDataAccessLayer
             int AffectedRows = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"Update Licenses SET IsActive= @IsActive where LicensID=@LicensID";
+            string query = @"Update Licenses SET IsActive= @IsActive where LicenseID=@LicensID";
 
 
             SqlCommand command = new SqlCommand(query, connection);

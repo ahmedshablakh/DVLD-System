@@ -50,7 +50,7 @@ namespace DVLD_System
 
         private void _LoadAppInfo()
         {
-             ClassInfo = clsLicenseClassBusiness.Find(LicenseInfo.LicenseClass);
+            ClassInfo = clsLicenseClassBusiness.Find(LicenseInfo.LicenseClass);
             lblOldLicenseID.Text = LocalLicenseID.ToString();
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
@@ -64,24 +64,25 @@ namespace DVLD_System
         private void _Find()
         {
 
-             LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
+            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
             if (LicenseInfo != null)
             {
-                if(LicenseInfo.ExpirationDate >= DateTime.Now)
+                if (LicenseInfo.ExpirationDate >= DateTime.Now)
                 {
                     MessageBox.Show("Selected License is not yet expiared, it will expire on :" + LicenseInfo.ExpirationDate.ToString(), "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+
                     panel1.Controls.Clear();
                     ucDriverLicenseInfo u1cDL = new ucDriverLicenseInfo(LicenseInfo.ApplicationID);
                     u1cDL.Dock = DockStyle.Fill;
                     panel1.Controls.Add(u1cDL);
                     lblShowLicensesHistory.Enabled = true;
                     ApplicationID = LicenseInfo.ApplicationID;
+                    btnRenew.Enabled = LicenseInfo.IsActive;
                     return;
                 }
 
                 panel1.Controls.Clear();
-             
+
                 ucDriverLicenseInfo ucDL = new ucDriverLicenseInfo(LicenseInfo.ApplicationID);
                 ucDL.Dock = DockStyle.Fill;
                 panel1.Controls.Add(ucDL);
@@ -89,8 +90,8 @@ namespace DVLD_System
                 lblShowLicensesHistory.Enabled = true;
                 ApplicationID = LicenseInfo.ApplicationID;
                 DriverID = LicenseInfo.DriverID;
+                btnRenew.Enabled = LicenseInfo.IsActive;
                 _LoadAppInfo();
-                btnRenew.Enabled = true;
             }
             else
             {
