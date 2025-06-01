@@ -95,6 +95,12 @@
     <Compile Include="frmChangepassword.Designer.cs">
       <DependentUpon>frmChangepassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDriverLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangepassword.resx">
       <DependentUpon>frmChangepassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDriverLicenseInfo.resx">
       <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
@@ -654,6 +663,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\air-conditioner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

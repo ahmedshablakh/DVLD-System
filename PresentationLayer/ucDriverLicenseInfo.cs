@@ -48,7 +48,7 @@ namespace DVLD_System
                 lblDateOfBirth.Text = PersonInfo.DateOfBirth.ToShortDateString();
                 lblDriverID.Text = LicenseInfo.DriverID.ToString();
                 lblExpirationDate.Text = LicenseInfo.ExpirationDate.ToShortDateString();
-                lblIsDetained.Text = "No";
+                lblIsDetained.Text = clsDetainLicenseBusiness.IsDetainLicense(LicenseInfo.LicenseID)?"Yes":"No";
                 if (!string.IsNullOrEmpty(PersonInfo.ImagePath) && File.Exists(PersonInfo.ImagePath))
                 {
                     pictureBox1.Image = Image.FromFile(PersonInfo.ImagePath);

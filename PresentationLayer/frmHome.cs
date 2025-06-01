@@ -121,5 +121,16 @@ namespace DVLD_System
             frmReplacementforDamagedOrLostLicenses frm = new frmReplacementforDamagedOrLostLicenses();
                 frm.ShowDialog();
         }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense frm = new frmDetainLicense();
+            frm.ShowDialog();
+        }
     }
 }
