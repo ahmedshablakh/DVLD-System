@@ -132,5 +132,11 @@ namespace DVLD_System
             frmDetainLicense frm = new frmDetainLicense();
             frm.ShowDialog();
         }
+
+        private void relToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense(); 
+            frm.ShowDialog();
+        }
     }
 }
