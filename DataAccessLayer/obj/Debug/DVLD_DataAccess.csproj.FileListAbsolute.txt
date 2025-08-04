@@ -1,0 +1,6 @@
+C:\Users\aboar\ahmedshablakh\DVLD-System\DataAccessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\aboar\ahmedshablakh\DVLD-System\DataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\aboar\ahmedshablakh\DVLD-System\DataAccessLayer\obj\Debug\DVLD_DataAccess.csproj.AssemblyReference.cache
+C:\Users\aboar\ahmedshablakh\DVLD-System\DataAccessLayer\obj\Debug\DVLD_DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\aboar\ahmedshablakh\DVLD-System\DataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
+C:\Users\aboar\ahmedshablakh\DVLD-System\DataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb

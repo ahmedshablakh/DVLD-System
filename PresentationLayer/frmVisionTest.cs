@@ -53,12 +53,12 @@ namespace DVLD_System
 
             }
 
-            clsLocalDrivingLicenseApplicationsBusiness LocaAppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(AppointmentTestInfo.LocalDrivingLicenseApplicationID);
+            clsLocalDrivingLicenseApplication LocaAppInfo = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(AppointmentTestInfo.LocalDrivingLicenseApplicationID);
             lblTrial.Text = clsTestAppointmentsBusiness.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, _TestType).ToString();
             lblDateTime.Text = AppointmentTestInfo.AppointmentDate.ToString();
             lblDLAID.Text = LocaAppInfo.LocalDrivingLicenseApplicationID.ToString();
-            lblDClass.Text = clsLicenseClassBusiness.Find(LocaAppInfo.LicenseClassID).ClassName;
-            lblName.Text = PeopleBusiness.GetPersonFullNameByID(clsApplicationBusiness.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
+            lblDClass.Text = clsLicenseClass.Find(LocaAppInfo.LicenseClassID).ClassName;
+            lblName.Text = clsPerson.GetPersonFullNameByID(clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
             lblFees.Text = clsTestTypeBusiness.GetTestTypeByID(_TestType).Fees.ToString();
         }
 
@@ -67,7 +67,7 @@ namespace DVLD_System
             TestInfo.TestAppointmentID = AppointmentTestInfo.TestAppointmentID;
             TestInfo.TestResult =( radPass.Checked?true:false);
             TestInfo.Notes= txtNotes.Text;
-            TestInfo.CreatedByUserID= clsGlobalUser.CurrentUser.UserID;
+            TestInfo.CreatedByUserID= clsGlobal.CurrentUser.UserID;
            
             if(TestInfo.Save())
             {

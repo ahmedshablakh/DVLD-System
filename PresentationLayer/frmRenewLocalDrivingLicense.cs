@@ -19,7 +19,7 @@ namespace DVLD_System
         int DriverID = -1,
         NewApplicationID = -1;
         clsLicensesBusiness LicenseInfo;
-        clsLicenseClassBusiness ClassInfo;
+        clsLicenseClass ClassInfo;
         clsLicensesBusiness NewLicenseInfo = new clsLicensesBusiness();
 
         public frmRenewLocalDrivingLicense()
@@ -30,15 +30,15 @@ namespace DVLD_System
 
         private bool _AddApp()
         {
-            clsApplicationBusiness LocalAppInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
-            clsApplicationBusiness NewApplicationInfo = new clsApplicationBusiness();
+            clsApplication LocalAppInfo = clsApplication.GetApplicationInfoByID(ApplicationID);
+            clsApplication NewApplicationInfo = new clsApplication();
             NewApplicationInfo.ApplicantPersonID = LocalAppInfo.ApplicantPersonID;
             NewApplicationInfo.ApplicationDate = DateTime.Now;
             NewApplicationInfo.ApplicationTypeID = 2;
             NewApplicationInfo.ApplicationStatus = 1;
             NewApplicationInfo.LastApplicationDate = DateTime.Now;
             NewApplicationInfo.PaidFees = Convert.ToDecimal(lblAppFees.Text);
-            NewApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+            NewApplicationInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             if (NewApplicationInfo.Save())
             {
                 NewApplicationID = NewApplicationInfo.ApplicationID;
@@ -50,15 +50,15 @@ namespace DVLD_System
 
         private void _LoadAppInfo()
         {
-            ClassInfo = clsLicenseClassBusiness.Find(LicenseInfo.LicenseClass);
+            ClassInfo = clsLicenseClass.Find(LicenseInfo.LicenseClass);
             lblOldLicenseID.Text = LocalLicenseID.ToString();
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblExpirationDate.Text = DateTime.Now.AddYears(Convert.ToInt16(ClassInfo.DefaultValidityLength)).ToShortDateString();
-            lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
-            lblAppFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(2).Fees.ToString();
+            lblCreateBy.Text = clsGlobal.CurrentUser.Username;
+            lblAppFees.Text = clsApplicationType.GetApplicationTypeByID(2).Fees.ToString();
             lblLicenseFees.Text = ClassInfo.ClassFees.ToString();
-            lblTotalFees.Text = (clsAppTypesBusiness.GetApplicationTypeByID(2).Fees + ClassInfo.ClassFees).ToString();
+            lblTotalFees.Text = (clsApplicationType.GetApplicationTypeByID(2).Fees + ClassInfo.ClassFees).ToString();
         }
 
         private void _Find()
@@ -149,7 +149,7 @@ namespace DVLD_System
                 NewLicenseInfo.PaidFees = ClassInfo.ClassFees;
                 NewLicenseInfo.IsActive = true;
                 NewLicenseInfo.IssueReason = 2;
-                NewLicenseInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+                NewLicenseInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                
                     DialogResult = MessageBox.Show("Are you sure want Renew the license?","Confirm",MessageBoxButtons.OKCancel);
                     if(DialogResult == DialogResult.OK)
@@ -172,7 +172,7 @@ namespace DVLD_System
             }
             else
             {
-                clsApplicationBusiness.DeleteApplicationByID(NewApplicationID);
+                clsApplication.DeleteApplicationByID(NewApplicationID);
             }
         }
 
@@ -185,7 +185,7 @@ namespace DVLD_System
         private void lblShowLicensesHistory_Click_1(object sender, EventArgs e)
         {
 
-            int LocalAppID = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID;
+            int LocalAppID = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID;
             if (LocalAppID != null)
             {
                 frmLicenseHistory frm = new frmLicenseHistory(LocalAppID);

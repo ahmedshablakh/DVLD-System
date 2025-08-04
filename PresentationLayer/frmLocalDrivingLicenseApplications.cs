@@ -14,7 +14,7 @@ namespace DVLD_System
 {
     public partial class frmLocalDrivingLicenseApplications : Form
     {
-        DataTable dt = clsLocalDrivingLicenseApplicationsBusiness.GetAllLocalDrivingLicenseApplications();
+        DataTable dt = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
         public frmLocalDrivingLicenseApplications()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace DVLD_System
         private void _Load()
         {
 
-            dt = clsLocalDrivingLicenseApplicationsBusiness.GetAllLocalDrivingLicenseApplications();
+            dt = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
             dataGridViewLocalApplications.DataSource = dt;
 
             dataGridViewLocalApplications.Columns["FullName"].Width = 190;
@@ -166,10 +166,10 @@ namespace DVLD_System
             if (result == DialogResult.OK)
             {
                 int localID = (int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value;
-                clsLocalDrivingLicenseApplicationsBusiness AppInfo;
-                AppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(localID);
-                if (clsLocalDrivingLicenseApplicationsBusiness.DeleteLocalDrivingLicenseApplicationByID(localID) &&
-                    clsApplicationBusiness.DeleteApplicationByID(AppInfo.ApplicationID))
+                clsLocalDrivingLicenseApplication AppInfo;
+                AppInfo = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(localID);
+                if (clsLocalDrivingLicenseApplication.DeleteLocalDrivingLicenseApplicationByID(localID) &&
+                    clsApplication.DeleteApplicationByID(AppInfo.ApplicationID))
                 {
                     
                         MessageBox.Show("The application was deleted successfully.", "Success");
@@ -196,7 +196,7 @@ namespace DVLD_System
                 if (result == DialogResult.OK)
                 {
                     int localID = (int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value;
-                    if (clsApplicationBusiness.CancelApplication(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(localID).ApplicationID))
+                    if (clsApplication.CancelApplication(clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(localID).ApplicationID))
                     {
                         MessageBox.Show("The application was cancelled successfully.", "Success");
                         _Load();
@@ -259,7 +259,7 @@ namespace DVLD_System
 
 
 
-            switch (clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value))
+            switch (clsLocalDrivingLicenseApplication.GetTotalPassedTestByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value))
             {
                 case 0:
                     schesuleVisoimTestToolStripMenuItem.Enabled = true;
@@ -276,7 +276,7 @@ namespace DVLD_System
                     break;
             }
 
-            if (clsApplicationBusiness.IsAppCompletedByLocalAppID(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value).ApplicationID))
+            if (clsApplication.IsAppCompletedByLocalAppID(clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value).ApplicationID))
             {
                 IssueDrivingLicenseToolStripMenuItem.Enabled = false;
                 showLicenceToolStripMenuItem.Enabled = true;
@@ -304,7 +304,7 @@ namespace DVLD_System
 
         private void showLicenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value).ApplicationID);
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID((int)dataGridViewLocalApplications.CurrentRow.Cells[0].Value).ApplicationID);
             frm.ShowDialog();
         }
     }

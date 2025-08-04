@@ -27,14 +27,14 @@ namespace DVLD_System
         private bool _AddApp()
         {
           
-            clsApplicationBusiness NewApplicationInfo = new clsApplicationBusiness();
-            NewApplicationInfo.ApplicantPersonID = clsApplicationBusiness.GetApplicationInfoByID(LicenseInfo.ApplicationID).ApplicantPersonID;
+            clsApplication NewApplicationInfo = new clsApplication();
+            NewApplicationInfo.ApplicantPersonID = clsApplication.GetApplicationInfoByID(LicenseInfo.ApplicationID).ApplicantPersonID;
             NewApplicationInfo.ApplicationDate = DateTime.Now;
             NewApplicationInfo.ApplicationTypeID = 5;
             NewApplicationInfo.ApplicationStatus =31;
             NewApplicationInfo.LastApplicationDate = DateTime.Now;
             NewApplicationInfo.PaidFees = ApplicaFees;
-            NewApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+            NewApplicationInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             if (NewApplicationInfo.Save())
             {
 
@@ -53,13 +53,13 @@ namespace DVLD_System
 
              ReleaseInfo = clsDetainLicenseBusiness.GetDetainInfoByLicenseID(LicenseInfo.LicenseID);
             
-            lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
+            lblCreateBy.Text = clsGlobal.CurrentUser.Username;
             lblShowLicensesHistory.Enabled = true;
             lblDetainID.Text = ReleaseInfo.DetainID.ToString();
             lblDetainDate.Text = ReleaseInfo.DetainDate.ToString();
             lblFineFees.Text = ReleaseInfo.FineFees.ToString();
             lblLicenseID.Text = LicenseInfo.LicenseID.ToString();
-             ApplicaFees = clsAppTypesBusiness.GetApplicationTypeByID(5).Fees;
+             ApplicaFees = clsApplicationType.GetApplicationTypeByID(5).Fees;
             decimal TotalFees = ApplicaFees + ReleaseInfo.FineFees; 
             lblApplicationFees.Text= ApplicaFees.ToString();
             lblTotalFees.Text = TotalFees.ToString();
@@ -137,7 +137,7 @@ namespace DVLD_System
             {
                 ReleaseInfo.IsReleased = true;
                 ReleaseInfo.ReleaseDate = DateTime.Now;
-                ReleaseInfo.ReleasedByUserID=clsGlobalUser.CurrentUser.UserID;
+                ReleaseInfo.ReleasedByUserID=clsGlobal.CurrentUser.UserID;
                 ReleaseInfo.ReleaseApplicationID = NewAppID;
                 if(ReleaseInfo.Save())
                 {
@@ -146,7 +146,7 @@ namespace DVLD_System
                 else
                 {
                     MessageBox.Show("Error..", "Falid..", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    clsApplicationBusiness.DeleteApplicationByID(NewAppID);
+                    clsApplication.DeleteApplicationByID(NewAppID);
                 }
             }
 

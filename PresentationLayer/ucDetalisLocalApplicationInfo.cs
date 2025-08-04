@@ -13,7 +13,7 @@ namespace DVLD_System
 {
     public partial class ucDetalisLocalApplicationInfo : UserControl
     {
-        clsLocalDrivingLicenseApplicationsBusiness DLAppInfo;
+        clsLocalDrivingLicenseApplication DLAppInfo;
         
         
         public ucDetalisLocalApplicationInfo()
@@ -23,7 +23,7 @@ namespace DVLD_System
         public ucDetalisLocalApplicationInfo(int DLAID)
         {
             InitializeComponent();
-            DLAppInfo= clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(DLAID);
+            DLAppInfo= clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(DLAID);
         }
 
 
@@ -32,13 +32,13 @@ namespace DVLD_System
         {
             
 
-            clsApplicationBusiness ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(DLAppInfo.ApplicationID);
+            clsApplication ApplicationInfo = clsApplication.GetApplicationInfoByID(DLAppInfo.ApplicationID);
             lblShowLisInfo.Enabled =(ApplicationInfo.ApplicationStatus==3);
             
 
             lblDLAID.Text = DLAppInfo.LocalDrivingLicenseApplicationID.ToString();
-            lblAppliedForLicense.Text = clsLicenseClassBusiness.Find(DLAppInfo.LicenseClassID).ClassName;
-            lblPassesTeste.Text = clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID(DLAppInfo.LocalDrivingLicenseApplicationID).ToString();
+            lblAppliedForLicense.Text = clsLicenseClass.Find(DLAppInfo.LicenseClassID).ClassName;
+            lblPassesTeste.Text = clsLocalDrivingLicenseApplication.GetTotalPassedTestByID(DLAppInfo.LocalDrivingLicenseApplicationID).ToString();
             ucDetalisBascApplicationInfo ucBInfo =new ucDetalisBascApplicationInfo(DLAppInfo.ApplicationID);
             ucBInfo.Dock = DockStyle.Fill;
             panel1.Controls.Add(ucBInfo);

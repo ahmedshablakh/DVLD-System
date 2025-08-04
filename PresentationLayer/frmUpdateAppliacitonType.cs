@@ -14,7 +14,7 @@ namespace DVLD_System
     public partial class frmUpdateAppliacitonType : Form
     {
         int _ID;
-        clsAppTypesBusiness AppTypeInfo;
+        clsApplicationType AppTypeInfo;
         public frmUpdateAppliacitonType(int ID)
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace DVLD_System
         }
         private void _loodData()
         {
-            AppTypeInfo = clsAppTypesBusiness.GetApplicationTypeByID(_ID);
+            AppTypeInfo = clsApplicationType.GetApplicationTypeByID(_ID);
             if(AppTypeInfo != null)
             {
                 lblID.Text = AppTypeInfo.Id.ToString();

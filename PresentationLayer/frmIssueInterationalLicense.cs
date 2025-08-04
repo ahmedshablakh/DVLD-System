@@ -29,22 +29,22 @@ namespace DVLD_System
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
-            lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
-            lblFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(6).Fees.ToString();
+            lblCreateBy.Text = clsGlobal.CurrentUser.Username;
+            lblFees.Text = clsApplicationType.GetApplicationTypeByID(6).Fees.ToString();
         }
 
 
         private bool _AddNewInterationalApp()
         {
-            clsApplicationBusiness LocalAppInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
-            clsApplicationBusiness NewApplicationInfo = new clsApplicationBusiness();
+            clsApplication LocalAppInfo = clsApplication.GetApplicationInfoByID(ApplicationID);
+            clsApplication NewApplicationInfo = new clsApplication();
             NewApplicationInfo.ApplicantPersonID = LocalAppInfo.ApplicantPersonID;
             NewApplicationInfo.ApplicationDate = DateTime.Now;
             NewApplicationInfo.ApplicationTypeID = 6;
             NewApplicationInfo.ApplicationStatus = 1;
             NewApplicationInfo.LastApplicationDate = DateTime.Now;
             NewApplicationInfo.PaidFees = Convert.ToDecimal(lblFees.Text);
-            NewApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+            NewApplicationInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             if (NewApplicationInfo.Save())
             {
                 NewApplicationID = NewApplicationInfo.ApplicationID;
@@ -116,7 +116,7 @@ namespace DVLD_System
 
         private void lblShowLicensesHistory_Click(object sender, EventArgs e)
         {
-            frmLicenseHistory frm = new frmLicenseHistory(clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID);
+            frmLicenseHistory frm = new frmLicenseHistory(clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID);
             frm.ShowDialog();
         }
 
@@ -132,7 +132,7 @@ namespace DVLD_System
                 InternationalLicensesInfo.IssueDate = DateTime.Now;
                 InternationalLicensesInfo.ExpirationDate = DateTime.Now.AddYears(1);
                 InternationalLicensesInfo.IsActive= true;
-                InternationalLicensesInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+                InternationalLicensesInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                 if(InternationalLicensesInfo.Save())
                 {
                     MessageBox.Show("The issuance process was completed successfully. The international LicenseID is : " + InternationalLicensesInfo.InternationalLicenseID);
@@ -144,7 +144,7 @@ namespace DVLD_System
                 {
                    
                     MessageBox.Show("Application submission failed.");
-                    clsApplicationBusiness.DeleteApplicationByID(NewApplicationID);
+                    clsApplication.DeleteApplicationByID(NewApplicationID);
 
                 }
 

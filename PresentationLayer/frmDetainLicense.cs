@@ -41,7 +41,7 @@ namespace DVLD_System
                 lblShowLicensesHistory.Enabled = true;
                 lblDetainDate.Text = DateTime.Now.ToString();
                 lblFineFees.Text = "50";
-                lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
+                lblCreateBy.Text = clsGlobal.CurrentUser.Username;
                 lblLicenseID.Text = LicenseInfo.LicenseID.ToString();
             }
             else
@@ -85,7 +85,7 @@ namespace DVLD_System
 
             DetainInfo.LicenseID = LicenseInfo.LicenseID;
             DetainInfo.DetainDate=DateTime.Now;
-            DetainInfo.CreatedByUserID=clsGlobalUser.CurrentUser.UserID;
+            DetainInfo.CreatedByUserID=clsGlobal.CurrentUser.UserID;
             DetainInfo.FineFees = 50;
             DialogResult result= MessageBox.Show("Are you sure want to detain license?","Confirm",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
             if(result == DialogResult.OK)

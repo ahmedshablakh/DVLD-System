@@ -15,17 +15,17 @@ namespace DVLD_System
     {
         public enum enMode { AddNew, Update }
         public enMode Mode;
-        clsLocalDrivingLicenseApplicationsBusiness LocaAppInfo;
-        clsApplicationBusiness Application;
+        clsLocalDrivingLicenseApplication LocaAppInfo;
+        clsApplication Application;
         clsTestAppointmentsBusiness AppointmentTestInfo;
-        clsApplicationBusiness RetakeTestApplication;
+        clsApplication RetakeTestApplication;
         public decimal TotalFees;
         public frmScheduleStreetTest(int LocalAppID, int AppointID)
         {
             InitializeComponent();
             Mode = enMode.AddNew;
-            LocaAppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(LocalAppID);
-            Application = clsApplicationBusiness.GetApplicationInfoByID(LocaAppInfo.ApplicationID);
+            LocaAppInfo = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(LocalAppID);
+            Application = clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID);
             if (AppointID != -1)
             {
                 AppointmentTestInfo = clsTestAppointmentsBusiness.GetTestAppointmentInfoByID(AppointID);
@@ -45,8 +45,8 @@ namespace DVLD_System
             grRetakeTest.Enabled = (Convert.ToInt16(lblTrial.Text) != 0);
             dateTimePicker1.MinDate = AppointmentTestInfo.AppointmentDate;
             lblDLAID.Text = LocaAppInfo.LocalDrivingLicenseApplicationID.ToString();
-            lblDClass.Text = clsLicenseClassBusiness.Find(LocaAppInfo.LicenseClassID).ClassName;
-            lblName.Text = PeopleBusiness.GetPersonFullNameByID(clsApplicationBusiness.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
+            lblDClass.Text = clsLicenseClass.Find(LocaAppInfo.LicenseClassID).ClassName;
+            lblName.Text = clsPerson.GetPersonFullNameByID(clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
             decimal AppFees = (decimal)clsTestTypeBusiness.GetTestTypeByID(3).Fees;
             lblFees.Text = AppFees.ToString();
             lblRAppFees.Text = "0";
@@ -55,7 +55,7 @@ namespace DVLD_System
             {
 
 
-                decimal ReFees = clsAppTypesBusiness.GetApplicationTypeByID(8).Fees;
+                decimal ReFees = clsApplicationType.GetApplicationTypeByID(8).Fees;
                 lblRAppFees.Text = ReFees.ToString();
                 TotalFees = AppFees + ReFees;
             }
@@ -72,8 +72,8 @@ namespace DVLD_System
             grRetakeTest.Enabled = (Convert.ToInt16(lblTrial.Text) != 0);
             dateTimePicker1.MinDate = DateTime.Now;
             lblDLAID.Text = LocaAppInfo.LocalDrivingLicenseApplicationID.ToString();
-            lblDClass.Text = clsLicenseClassBusiness.Find(LocaAppInfo.LicenseClassID).ClassName;
-            lblName.Text = PeopleBusiness.GetPersonFullNameByID(clsApplicationBusiness.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
+            lblDClass.Text = clsLicenseClass.Find(LocaAppInfo.LicenseClassID).ClassName;
+            lblName.Text = clsPerson.GetPersonFullNameByID(clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
             decimal AppFees = (decimal)clsTestTypeBusiness.GetTestTypeByID(3).Fees;
             lblFees.Text = AppFees.ToString();
             lblRAppFees.Text = "0";
@@ -81,16 +81,16 @@ namespace DVLD_System
 
             if (grRetakeTest.Enabled == true && Mode == enMode.AddNew)
             {
-                decimal ReFees = clsAppTypesBusiness.GetApplicationTypeByID(8).Fees;
+                decimal ReFees = clsApplicationType.GetApplicationTypeByID(8).Fees;
 
                 TotalFees = ReFees + AppFees;
                 lblRAppFees.Text = ReFees.ToString();
-                RetakeTestApplication = new clsApplicationBusiness();
+                RetakeTestApplication = new clsApplication();
 
                 RetakeTestApplication.ApplicationTypeID = 8;
                 RetakeTestApplication.ApplicantPersonID = Application.ApplicantPersonID;
                 RetakeTestApplication.PaidFees = ReFees;
-                RetakeTestApplication.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+                RetakeTestApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
 
             }
@@ -123,7 +123,7 @@ namespace DVLD_System
             AppointmentTestInfo.LocalDrivingLicenseApplicationID = LocaAppInfo.LocalDrivingLicenseApplicationID;
             AppointmentTestInfo.AppointmentDate = dateTimePicker1.Value;
             AppointmentTestInfo.PaidFees = TotalFees;
-            AppointmentTestInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+            AppointmentTestInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             if (AppointmentTestInfo.Save())
             {
                 if (Mode == enMode.AddNew)

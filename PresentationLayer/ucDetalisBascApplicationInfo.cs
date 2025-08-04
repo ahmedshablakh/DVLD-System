@@ -14,7 +14,7 @@ namespace DVLD_System
     public partial class ucDetalisBascApplicationInfo : UserControl
     {
 
-        clsApplicationBusiness AppInfo;
+        clsApplication AppInfo;
         public ucDetalisBascApplicationInfo()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace DVLD_System
         public ucDetalisBascApplicationInfo(int ApplicationID)
         {
             InitializeComponent();
-            AppInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
+            AppInfo = clsApplication.GetApplicationInfoByID(ApplicationID);
         }
         
 
@@ -30,9 +30,9 @@ namespace DVLD_System
         {
             lblAppID.Text=AppInfo.ApplicationID.ToString();
             lblStatus.Text=AppInfo.ApplicationStatus.ToString();
-            lblFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(AppInfo.ApplicationTypeID).Fees.ToString();
-            lblType.Text = clsAppTypesBusiness.GetApplicationTypeByID(AppInfo.ApplicationTypeID).Title;
-            lblApplicant.Text=PeopleBusiness.GetPersonFullNameByID(AppInfo.ApplicantPersonID);
+            lblFees.Text = clsApplicationType.GetApplicationTypeByID(AppInfo.ApplicationTypeID).Fees.ToString();
+            lblType.Text = clsApplicationType.GetApplicationTypeByID(AppInfo.ApplicationTypeID).Title;
+            lblApplicant.Text=clsPerson.GetPersonFullNameByID(AppInfo.ApplicantPersonID);
             lblDate.Text= AppInfo.ApplicationDate.ToString();
             lblStatusDate.Text=AppInfo.LastApplicationDate.ToString();
             lblCreatedByUser.Text=AppInfo.CreatedByUserID.ToString();

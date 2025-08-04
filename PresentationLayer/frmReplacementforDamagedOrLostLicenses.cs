@@ -18,7 +18,7 @@ namespace DVLD_System
         int DriverID = -1,
         NewApplicationID = -1;
         clsLicensesBusiness LicenseInfo;
-        clsLicenseClassBusiness ClassInfo;
+        clsLicenseClass ClassInfo;
         clsLicensesBusiness NewLicenseInfo = new clsLicensesBusiness();
         public frmReplacementforDamagedOrLostLicenses()
         {
@@ -27,15 +27,15 @@ namespace DVLD_System
 
         private bool _AddApp()
         {
-            clsApplicationBusiness LocalAppInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
-            clsApplicationBusiness NewApplicationInfo = new clsApplicationBusiness();
+            clsApplication LocalAppInfo = clsApplication.GetApplicationInfoByID(ApplicationID);
+            clsApplication NewApplicationInfo = new clsApplication();
             NewApplicationInfo.ApplicantPersonID = LocalAppInfo.ApplicantPersonID;
             NewApplicationInfo.ApplicationDate = DateTime.Now;
             NewApplicationInfo.ApplicationTypeID = 2;
             NewApplicationInfo.ApplicationStatus = 1;
             NewApplicationInfo.LastApplicationDate = DateTime.Now;
             NewApplicationInfo.PaidFees = Convert.ToDecimal(lblAppFees.Text);
-            NewApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+            NewApplicationInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             if (NewApplicationInfo.Save())
             {
                 NewApplicationID = NewApplicationInfo.ApplicationID;
@@ -47,11 +47,11 @@ namespace DVLD_System
 
         private void _LoadAppInfo()
         {
-            ClassInfo = clsLicenseClassBusiness.Find(LicenseInfo.LicenseClass);
+            ClassInfo = clsLicenseClass.Find(LicenseInfo.LicenseClass);
             lblOldLicenseID.Text = LocalLicenseID.ToString();
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
            
-            lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
+            lblCreateBy.Text = clsGlobal.CurrentUser.Username;
            
             
         }
@@ -101,7 +101,7 @@ namespace DVLD_System
 
         private void lblShowLicensesHistory_Click(object sender, EventArgs e)
         {
-            int LocalAppID = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID;
+            int LocalAppID = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseByApplicationInfID(ApplicationID).LocalDrivingLicenseApplicationID;
             if (LocalAppID != null)
             {
                 frmLicenseHistory frm = new frmLicenseHistory(LocalAppID);
@@ -131,7 +131,7 @@ namespace DVLD_System
                 NewLicenseInfo.IssueReason = (byte)(rdioDamageLic.Checked ? 3 : 4);
 
 
-                NewLicenseInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+                NewLicenseInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
                 DialogResult = MessageBox.Show("Are you sure want Renew the license?", "Confirm", MessageBoxButtons.OKCancel);
                 if (DialogResult == DialogResult.OK)
@@ -152,7 +152,7 @@ namespace DVLD_System
                     }
                     else
                     {
-                        clsApplicationBusiness.DeleteApplicationByID(NewApplicationID);
+                        clsApplication.DeleteApplicationByID(NewApplicationID);
                     }
                 }
 
@@ -164,14 +164,14 @@ namespace DVLD_System
 
         private void rdioDamageLic_CheckedChanged(object sender, EventArgs e)
         {
-            lblAppFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(4).Fees.ToString();
+            lblAppFees.Text = clsApplicationType.GetApplicationTypeByID(4).Fees.ToString();
             lblTitle.Text = "Replacement for Damaged Licenses";
             this.Text = "Replacement for Damaged Licenses";
         }
 
         private void rdioLostLicense_CheckedChanged(object sender, EventArgs e)
         {
-            lblAppFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(3).Fees.ToString();
+            lblAppFees.Text = clsApplicationType.GetApplicationTypeByID(3).Fees.ToString();
             lblTitle.Text = "Replacement for Lost Licenses";
             this.Text = "Replacement for Lost Licenses";
 

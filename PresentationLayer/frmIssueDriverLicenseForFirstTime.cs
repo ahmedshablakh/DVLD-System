@@ -36,21 +36,21 @@ namespace DVLD_System
         private void btnSave_Click(object sender, EventArgs e)
         {
             clsLicensesBusiness LicenseInfo = new clsLicensesBusiness();
-            clsLocalDrivingLicenseApplicationsBusiness LocalAppInfo =clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(_LocalAppID);
+            clsLocalDrivingLicenseApplication LocalAppInfo =clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(_LocalAppID);
            
             LicenseInfo.ApplicationID = LocalAppInfo.ApplicationID;
             LicenseInfo.DriverID = 11;
             LicenseInfo.LicenseClass = LocalAppInfo.LicenseClassID;
             LicenseInfo.IssueDate = DateTime.Now;
-            LicenseInfo.ExpirationDate = DateTime.Now.AddYears(clsLicenseClassBusiness.Find(LocalAppInfo.LicenseClassID).DefaultValidityLength);
+            LicenseInfo.ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.Find(LocalAppInfo.LicenseClassID).DefaultValidityLength);
             LicenseInfo.Notes = lblNotes.Text;
-            LicenseInfo.PaidFees = clsLicenseClassBusiness.Find(LocalAppInfo.LicenseClassID).ClassFees;
+            LicenseInfo.PaidFees = clsLicenseClass.Find(LocalAppInfo.LicenseClassID).ClassFees;
             LicenseInfo.IsActive = true;
             LicenseInfo.IssueReason = 1;
-            LicenseInfo.CreatedByUserID= clsGlobalUser.CurrentUser.UserID;
+            LicenseInfo.CreatedByUserID= clsGlobal.CurrentUser.UserID;
             if(LicenseInfo.Save())
             {
-                clsApplicationBusiness ApplicInfo = clsApplicationBusiness.GetApplicationInfoByID(LicenseInfo.ApplicationID);
+                clsApplication ApplicInfo = clsApplication.GetApplicationInfoByID(LicenseInfo.ApplicationID);
                 ApplicInfo.ApplicationStatus = 3;
                 if (ApplicInfo.Save())
 

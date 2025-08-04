@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\PresentationLayer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA98564-EEFC-4E80-B1D1-B340BFD93384}|..\\BusinessLayer\\DVLD_Buisness.csproj|c:\\users\\aboar\\ahmedshablakh\\dvld-system\\businesslayer\\clslicenseclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsLicenseClass.cs",
+              "DocumentMoniker": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\BusinessLayer\\clsLicenseClass.cs",
+              "RelativeDocumentMoniker": "..\\BusinessLayer\\clsLicenseClass.cs",
+              "ToolTip": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\BusinessLayer\\clsLicenseClass.cs",
+              "RelativeToolTip": "..\\BusinessLayer\\clsLicenseClass.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAwGUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T13:58:08.359Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

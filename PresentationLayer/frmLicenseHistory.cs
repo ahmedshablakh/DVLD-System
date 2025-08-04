@@ -14,14 +14,14 @@ namespace DVLD_System
     public partial class frmLicenseHistory : Form
     {
         int _LocalAppID;
-        clsLocalDrivingLicenseApplicationsBusiness LocalAppInfo;
-        clsApplicationBusiness ApplicationInfo;
+        clsLocalDrivingLicenseApplication LocalAppInfo;
+        clsApplication ApplicationInfo;
         public frmLicenseHistory(int LocalAppID)
         {
             InitializeComponent();
             _LocalAppID = LocalAppID;
-            LocalAppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(_LocalAppID);
-            ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(LocalAppInfo.ApplicationID);
+            LocalAppInfo = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(_LocalAppID);
+            ApplicationInfo = clsApplication.GetApplicationInfoByID(LocalAppInfo.ApplicationID);
         }
 
         private void frmLicenseHistory_Load(object sender, EventArgs e)

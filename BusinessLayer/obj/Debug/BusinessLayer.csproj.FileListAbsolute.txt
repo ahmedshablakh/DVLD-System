@@ -4,6 +4,6 @@ C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\bin\Debug\ContactsDataAcc
 C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\bin\Debug\ContactsDataAccessLayer.pdb
 C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
 C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\obj\Debug\Business.EA331CBA.Up2Date
 C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\aboar\ahmedshablakh\DVLD-System\BusinessLayer\obj\Debug\BusinessLayer.pdb

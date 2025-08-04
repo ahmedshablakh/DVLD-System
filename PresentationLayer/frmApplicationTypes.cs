@@ -20,7 +20,7 @@ namespace DVLD_System
 
         private void _LoadAppTypesData()
         {
-            DataTable dt = clsAppTypesBusiness.GetAllAppType();
+            DataTable dt = clsApplicationType.GetAllAppType();
             dgvAppTypes.DataSource = dt;
 
             dgvAppTypes.Columns["ApplicationTypeID"].HeaderText = "ID";

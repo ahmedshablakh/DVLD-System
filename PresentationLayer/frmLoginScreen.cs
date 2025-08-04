@@ -28,11 +28,11 @@ namespace DVLD_System
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            clsGlobalUser.CurrentUser = clsUsersBusiness.GetUserInfoByUsernameAndPassword(txtUsernmae.Text, txtPassword.Text);
+            clsGlobal.CurrentUser = clsUser.GetUserInfoByUsernameAndPassword(txtUsernmae.Text, txtPassword.Text);
 
-            if (clsGlobalUser.CurrentUser != null)
+            if (clsGlobal.CurrentUser != null)
             {
-                if (clsGlobalUser.CurrentUser.IsActive)
+                if (clsGlobal.CurrentUser.IsActive)
                 {
                     if(checkBox1.Checked)
                     {

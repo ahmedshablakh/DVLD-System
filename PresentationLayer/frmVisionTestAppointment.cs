@@ -41,7 +41,7 @@ namespace DVLD_System
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if(clsLocalDrivingLicenseApplicationsBusiness.GetTotalPassedTestByID(_LocalAppID)>0)
+            if(clsLocalDrivingLicenseApplication.GetTotalPassedTestByID(_LocalAppID)>0)
             {
 
                 MessageBox.Show("You have passed this exam. You cannot add another exam.", "Error");

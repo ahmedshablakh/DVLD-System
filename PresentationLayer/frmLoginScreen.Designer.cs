@@ -44,7 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(527, 100);
+            this.label1.Location = new System.Drawing.Point(60, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 39);
             this.label1.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(416, 272);
+            this.label2.Location = new System.Drawing.Point(40, 349);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(148, 29);
             this.label2.TabIndex = 3;
@@ -64,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(416, 209);
+            this.label3.Location = new System.Drawing.Point(34, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 29);
             this.label3.TabIndex = 4;
@@ -72,26 +72,28 @@
             // 
             // txtUsernmae
             // 
-            this.txtUsernmae.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtUsernmae.Location = new System.Drawing.Point(597, 209);
+            this.txtUsernmae.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsernmae.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUsernmae.Location = new System.Drawing.Point(237, 260);
             this.txtUsernmae.Name = "txtUsernmae";
-            this.txtUsernmae.Size = new System.Drawing.Size(242, 36);
+            this.txtUsernmae.Size = new System.Drawing.Size(268, 48);
             this.txtUsernmae.TabIndex = 5;
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtPassword.Location = new System.Drawing.Point(597, 272);
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPassword.Location = new System.Drawing.Point(237, 345);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(242, 36);
+            this.txtPassword.Size = new System.Drawing.Size(268, 48);
             this.txtPassword.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(622, 324);
+            this.label4.Location = new System.Drawing.Point(41, 367);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 20);
             this.label4.TabIndex = 7;
@@ -100,7 +102,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBox1.Location = new System.Drawing.Point(597, 320);
+            this.checkBox1.Location = new System.Drawing.Point(369, 435);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(157, 24);
             this.checkBox1.TabIndex = 8;
@@ -110,7 +112,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLogin.Location = new System.Drawing.Point(546, 380);
+            this.btnLogin.Location = new System.Drawing.Point(151, 488);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(139, 43);
             this.btnLogin.TabIndex = 9;
@@ -121,9 +123,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD_System.Properties.Resources.login1;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(194, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(352, 449);
+            this.pictureBox1.Size = new System.Drawing.Size(352, 446);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -132,8 +134,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(893, 561);
+            this.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.ClientSize = new System.Drawing.Size(595, 561);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label4);
@@ -143,8 +145,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLoginScreen";
-            this.Text = "frmLoginScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login Screen";
             this.Load += new System.EventHandler(this.frmLoginScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

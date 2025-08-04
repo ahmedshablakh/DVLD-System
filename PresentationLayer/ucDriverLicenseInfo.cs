@@ -15,9 +15,9 @@ namespace DVLD_System
     public partial class ucDriverLicenseInfo : UserControl
     {
        
-        clsApplicationBusiness ApplicationInfo;
+        clsApplication ApplicationInfo;
         clsLicensesBusiness LicenseInfo;
-        PeopleBusiness PersonInfo;
+        clsPerson PersonInfo;
         public ucDriverLicenseInfo()
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace DVLD_System
         {
             InitializeComponent();
 
-            ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(ApplicationID);
-            PersonInfo = PeopleBusiness.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
+            ApplicationInfo = clsApplication.GetApplicationInfoByID(ApplicationID);
+            PersonInfo = clsPerson.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
             LicenseInfo = clsLicensesBusiness.GetLicenseInfoByApplicationID(ApplicationID);
 
         }
@@ -36,7 +36,7 @@ namespace DVLD_System
         {
             if(ApplicationInfo !=null)
             {
-                lblClass.Text = clsLicenseClassBusiness.Find(LicenseInfo.LicenseClass).ClassName;
+                lblClass.Text = clsLicenseClass.Find(LicenseInfo.LicenseClass).ClassName;
                 lblFullName.Text = PersonInfo.FirstName + " " + PersonInfo.SecondName + " " + PersonInfo.ThirdName + " " + PersonInfo.LastName;
                 lblLicenseID.Text = LicenseInfo.LicenseID.ToString();
                 lblNotionalNo.Text = PersonInfo.NationalNo;

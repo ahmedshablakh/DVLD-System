@@ -17,8 +17,8 @@ namespace DVLD_System
         public int _LicenseClassID = -1;
         public int _LocalDrivingLicenseApplicationID = -1; 
        
-        clsApplicationBusiness ApplicationInfo;
-        clsLocalDrivingLicenseApplicationsBusiness LocalAppInfo;
+        clsApplication ApplicationInfo;
+        clsLocalDrivingLicenseApplication LocalAppInfo;
         enum enMode {AddNew,Update }
         enMode Mode;
         public frmNewLocalDrivingLicenseApplication()
@@ -31,14 +31,14 @@ namespace DVLD_System
             InitializeComponent();
             Mode = enMode.Update;
             this._LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
-           LocalAppInfo = clsLocalDrivingLicenseApplicationsBusiness.GetLocalDrivingLicenseApplicationInfoByID(LocalDrivingLicenseApplicationID);
-           ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(LocalAppInfo.ApplicationID);
+           LocalAppInfo = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(LocalDrivingLicenseApplicationID);
+           ApplicationInfo = clsApplication.GetApplicationInfoByID(LocalAppInfo.ApplicationID);
             _PersonID = ApplicationInfo.ApplicantPersonID;
 
         }
         private void FillLicenseClasses()
         {
-            DataTable dt = clsLicenseClassBusiness.GetAllLicenseClasses();
+            DataTable dt = clsLicenseClass.GetAllLicenseClasses();
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -113,7 +113,7 @@ namespace DVLD_System
                 lblTitleFrm.Text = "Update Local Driving License Applications";
                 lblApplicationFees.Text = ApplicationInfo.PaidFees.ToString();
                 lblAppDate.Text = ApplicationInfo.ApplicationDate.ToString();
-                lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
+                lblCreateBy.Text = clsGlobal.CurrentUser.Username;
                 
             }
             
@@ -121,24 +121,24 @@ namespace DVLD_System
         private void  AddNewApplication()
         {
 
-            lblApplicationFees.Text = clsAppTypesBusiness.GetApplicationTypeByID(1).Fees.ToString();
+            lblApplicationFees.Text = clsApplicationType.GetApplicationTypeByID(1).Fees.ToString();
             lblAppDate.Text = DateTime.Now.ToString();
-            lblCreateBy.Text = clsGlobalUser.CurrentUser.Username;
+            lblCreateBy.Text = clsGlobal.CurrentUser.Username;
 
-            ApplicationInfo = new clsApplicationBusiness();
+            ApplicationInfo = new clsApplication();
             ApplicationInfo.ApplicationDate = DateTime.Now;
             ApplicationInfo.ApplicationTypeID = 1;
             ApplicationInfo.ApplicationStatus =1;
             ApplicationInfo.LastApplicationDate = DateTime.Now;
-            ApplicationInfo.PaidFees = clsAppTypesBusiness.GetApplicationTypeByID(1).Fees;
-            ApplicationInfo.CreatedByUserID = clsGlobalUser.CurrentUser.UserID;
+            ApplicationInfo.PaidFees = clsApplicationType.GetApplicationTypeByID(1).Fees;
+            ApplicationInfo.CreatedByUserID = clsGlobal.CurrentUser.UserID;
         }
 
         private bool _ValidationData()
         {
             bool isValid = true;
-            clsLicenseClassBusiness LicenseClassInfo = clsLicenseClassBusiness.Find(comboBox1.SelectedItem.ToString());
-            PeopleBusiness PersonInfo = PeopleBusiness.GetPersonInfoByID(_PersonID);
+            clsLicenseClass LicenseClassInfo = clsLicenseClass.Find(comboBox1.SelectedItem.ToString());
+            clsPerson PersonInfo = clsPerson.GetPersonInfoByID(_PersonID);
 
             int age = DateTime.Now.Year - PersonInfo.DateOfBirth.Year;
 
@@ -155,7 +155,7 @@ namespace DVLD_System
             }
 
             _LicenseClassID = LicenseClassInfo.LicenseClassID;
-            if (clsApplicationBusiness.IsApplicationActive(_PersonID, LicenseClassInfo.LicenseClassID))
+            if (clsApplication.IsApplicationActive(_PersonID, LicenseClassInfo.LicenseClassID))
             {
                 MessageBox.Show("You have an active application of the same Class..", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 isValid = false;
@@ -179,7 +179,7 @@ namespace DVLD_System
             {
                 if(Mode ==enMode.AddNew)
                 {
-                    LocalAppInfo = new clsLocalDrivingLicenseApplicationsBusiness();
+                    LocalAppInfo = new clsLocalDrivingLicenseApplication();
                     LocalAppInfo.ApplicationID = ApplicationInfo.ApplicationID;
                     
                 }

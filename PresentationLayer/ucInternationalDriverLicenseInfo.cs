@@ -14,15 +14,15 @@ namespace DVLD_System
 {
     public partial class ucInternationalDriverLicenseInfo : UserControl
     {
-        clsApplicationBusiness ApplicationInfo;
-        PeopleBusiness PersonInfo;
+        clsApplication ApplicationInfo;
+        clsPerson PersonInfo;
         clsInternationalLicensesBusienss IntLicenseInfo;
         public ucInternationalDriverLicenseInfo(int InternationalLicenseID)
         {
             InitializeComponent();
             IntLicenseInfo = clsInternationalLicensesBusienss.GetInternationalLicenseByLicenseID(InternationalLicenseID);
-            ApplicationInfo = clsApplicationBusiness.GetApplicationInfoByID(IntLicenseInfo.ApplicationID);
-            PersonInfo = PeopleBusiness.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
+            ApplicationInfo = clsApplication.GetApplicationInfoByID(IntLicenseInfo.ApplicationID);
+            PersonInfo = clsPerson.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
 
 
 

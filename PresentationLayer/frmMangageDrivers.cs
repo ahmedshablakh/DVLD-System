@@ -19,7 +19,7 @@ namespace DVLD_System
         }
          private void _loadData()
         {
-            dataGridViewLicense.DataSource = clsLocalDrivingLicenseApplicationsBusiness.GetAllDrivers();
+            dataGridViewLicense.DataSource = clsLocalDrivingLicenseApplication.GetAllDrivers();
             lblTotalRecords.Text = dataGridViewLicense.RowCount.ToString();
         }
 
