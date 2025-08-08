@@ -1,6 +1,6 @@
 ﻿namespace DVLD_System
 {
-    partial class frmApplicationTypes
+    partial class frmListApplicationTypes
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAppTypes = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editApplicaitonTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lbltotalRecord = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editApplicaitonTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppTypes)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,23 @@
             this.dgvAppTypes.RowTemplate.Height = 24;
             this.dgvAppTypes.Size = new System.Drawing.Size(667, 228);
             this.dgvAppTypes.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editApplicaitonTypeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(257, 32);
+            // 
+            // editApplicaitonTypeToolStripMenuItem
+            // 
+            this.editApplicaitonTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.editApplicaitonTypeToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.edit;
+            this.editApplicaitonTypeToolStripMenuItem.Name = "editApplicaitonTypeToolStripMenuItem";
+            this.editApplicaitonTypeToolStripMenuItem.Size = new System.Drawing.Size(256, 28);
+            this.editApplicaitonTypeToolStripMenuItem.Text = "Edit Applicaiton Type";
+            this.editApplicaitonTypeToolStripMenuItem.Click += new System.EventHandler(this.editApplicaitonTypeToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -85,24 +102,7 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Manage Application Types";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editApplicaitonTypeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(257, 60);
-            // 
-            // editApplicaitonTypeToolStripMenuItem
-            // 
-            this.editApplicaitonTypeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.editApplicaitonTypeToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.edit;
-            this.editApplicaitonTypeToolStripMenuItem.Name = "editApplicaitonTypeToolStripMenuItem";
-            this.editApplicaitonTypeToolStripMenuItem.Size = new System.Drawing.Size(256, 28);
-            this.editApplicaitonTypeToolStripMenuItem.Text = "Edit Applicaiton Type";
-            this.editApplicaitonTypeToolStripMenuItem.Click += new System.EventHandler(this.editApplicaitonTypeToolStripMenuItem_Click);
-            // 
-            // frmApplicationTypes
+            // frmListApplicationTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,8 +111,10 @@
             this.Controls.Add(this.lbltotalRecord);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAppTypes);
-            this.Name = "frmApplicationTypes";
-            this.Text = "frmApplicationTypes";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "frmListApplicationTypes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Manage Application Types";
             this.Activated += new System.EventHandler(this.frmApplicationTypes_Activated);
             this.Load += new System.EventHandler(this.frmApplicationTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppTypes)).EndInit();

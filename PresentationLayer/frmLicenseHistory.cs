@@ -32,8 +32,8 @@ namespace DVLD_System
             palPersonInfo.Controls.Add(PersonInfo);
 
 
-            dvLocalLicenses.DataSource = clsLicensesBusiness.GetAllLocalLicansesByPersonID(ApplicationInfo.ApplicantPersonID);
-            dvInternotionalLicenses.DataSource= clsInternationalLicensesBusienss.GetAllInternationalLicensesByPersonID(ApplicationInfo.ApplicantPersonID);
+            dvLocalLicenses.DataSource = clsLicense.GetAllLocalLicansesByPersonID(ApplicationInfo.ApplicantPersonID);
+            dvInternotionalLicenses.DataSource= clsInternationalLicense.GetAllInternationalLicensesByPersonID(ApplicationInfo.ApplicantPersonID);
             
 
         }

@@ -13,20 +13,20 @@ namespace DVLD_System
 {
     public partial class frmTetakeTest : Form
     {
-        clsTestAppointmentsBusiness AppointmentTestInfo;
-        clsTestsBusiness TestInfo;
+        clsTestAppointment AppointmentTestInfo;
+        clsTest TestInfo;
         int _TestType;
         public frmTetakeTest(int AppointTestID, int TestID,int TestType)
         {
             InitializeComponent();
             _TestType = TestType;
-            AppointmentTestInfo= clsTestAppointmentsBusiness.GetTestAppointmentInfoByID(AppointTestID);
+            AppointmentTestInfo= clsTestAppointment.GetTestAppointmentInfoByID(AppointTestID);
             if (TestID != -1)
             {
-                TestInfo = clsTestsBusiness.GetTestByID(TestID);
+                TestInfo = clsTest.GetTestByID(TestID);
             }
             else
-                TestInfo = new clsTestsBusiness();
+                TestInfo = new clsTest();
         }
 
         private void frmTetakeVisionTest_Load(object sender, EventArgs e)
@@ -54,12 +54,12 @@ namespace DVLD_System
             }
 
             clsLocalDrivingLicenseApplication LocaAppInfo = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(AppointmentTestInfo.LocalDrivingLicenseApplicationID);
-            lblTrial.Text = clsTestAppointmentsBusiness.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, _TestType).ToString();
+            lblTrial.Text = clsTestAppointment.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, _TestType).ToString();
             lblDateTime.Text = AppointmentTestInfo.AppointmentDate.ToString();
             lblDLAID.Text = LocaAppInfo.LocalDrivingLicenseApplicationID.ToString();
             lblDClass.Text = clsLicenseClass.Find(LocaAppInfo.LicenseClassID).ClassName;
             lblName.Text = clsPerson.GetPersonFullNameByID(clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
-            lblFees.Text = clsTestTypeBusiness.GetTestTypeByID(_TestType).Fees.ToString();
+            lblFees.Text = clsTestType.GetTestTypeByID(_TestType).Fees.ToString();
         }
 
         private void Save_Click(object sender, EventArgs e)

@@ -75,11 +75,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\Appliaction Types\frmEditApplicationType.cs">
+    <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrlApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\ctrlDrivingLicenseApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\ctrlDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicesnseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Appliaction Types\frmEditApplicationType.Designer.cs">
-      <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    <Compile Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicesnseApplication.Designer.cs">
+      <DependentUpon>frmAddUpdateLocalDrivingLicesnseApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -112,11 +124,11 @@
     <Compile Include="People\frmAddUpdatePerson.Designer.cs">
       <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmApplicationTypes.cs">
+    <Compile Include="Applications\Appliaction Types\frmListApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmApplicationTypes.Designer.cs">
-      <DependentUpon>frmApplicationTypes.cs</DependentUpon>
+    <Compile Include="Applications\Appliaction Types\frmListApplicationTypes.Designer.cs">
+      <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDetainLicense.cs">
       <SubType>Form</SubType>
@@ -250,11 +262,11 @@
     <Compile Include="frmVisionTest.Designer.cs">
       <DependentUpon>frmVisionTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUpdateAppliacitonType.cs">
+    <Compile Include="Applications\Appliaction Types\frmEditApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUpdateAppliacitonType.Designer.cs">
-      <DependentUpon>frmUpdateAppliacitonType.cs</DependentUpon>
+    <Compile Include="Applications\Appliaction Types\frmEditApplicationType.Designer.cs">
+      <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUserInfo.cs">
       <SubType>Form</SubType>
@@ -362,8 +374,14 @@
     <Compile Include="User\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\Appliaction Types\frmEditApplicationType.resx">
-      <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Controls\ctrlApplicationBasicInfo.resx">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\ctrlDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicesnseApplication.resx">
+      <DependentUpon>frmAddUpdateLocalDrivingLicesnseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -380,8 +398,8 @@
     <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
       <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmApplicationTypes.resx">
-      <DependentUpon>frmApplicationTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Appliaction Types\frmListApplicationTypes.resx">
+      <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
@@ -449,8 +467,8 @@
     <EmbeddedResource Include="frmVisionTest.resx">
       <DependentUpon>frmVisionTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateAppliacitonType.resx">
-      <DependentUpon>frmUpdateAppliacitonType.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Appliaction Types\frmEditApplicationType.resx">
+      <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserInfo.resx">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
@@ -750,9 +768,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\Controls\" />
     <Folder Include="Applications\International License\" />
-    <Folder Include="Applications\Local Driving License\" />
     <Folder Include="Applications\Renew Local License\" />
     <Folder Include="Applications\ReplaceLostOrDamagedLicense\" />
     <Folder Include="Applications\Rlease Detained License\" />

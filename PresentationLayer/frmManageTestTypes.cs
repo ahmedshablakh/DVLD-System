@@ -20,7 +20,7 @@ namespace DVLD_System
 
         private void _LoadAppTypesData()
         {
-            DataTable dt = clsTestTypeBusiness.GetAllTestTypes();
+            DataTable dt = clsTestType.GetAllTestTypes();
             dgvTestTypes.DataSource = dt;
            
             dgvTestTypes.Columns["TestTypeID"].HeaderText = "ID";

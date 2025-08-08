@@ -11,9 +11,9 @@ using BusinessLayer;
 
 namespace DVLD_System
 {
-    public partial class frmApplicationTypes : Form
+    public partial class frmListApplicationTypes : Form
     {
-        public frmApplicationTypes()
+        public frmListApplicationTypes()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace DVLD_System
 
         private void editApplicaitonTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateAppliacitonType frm = new frmUpdateAppliacitonType((int)dgvAppTypes.CurrentRow.Cells[0].Value);
+            frmEditApplicationType frm = new frmEditApplicationType((int)dgvAppTypes.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
     }

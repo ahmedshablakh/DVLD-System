@@ -15,8 +15,8 @@ namespace DVLD_System
     public partial class frmReleaseDetainedLicense : Form
     { 
 
-        clsLicensesBusiness LicenseInfo;
-        clsDetainLicenseBusiness ReleaseInfo;
+        clsLicense LicenseInfo;
+        clsDetainedLicense ReleaseInfo;
         decimal ApplicaFees;
         int NewAppID = -1;
         public frmReleaseDetainedLicense()
@@ -51,7 +51,7 @@ namespace DVLD_System
         {
 
 
-             ReleaseInfo = clsDetainLicenseBusiness.GetDetainInfoByLicenseID(LicenseInfo.LicenseID);
+             ReleaseInfo = clsDetainedLicense.GetDetainInfoByLicenseID(LicenseInfo.LicenseID);
             
             lblCreateBy.Text = clsGlobal.CurrentUser.Username;
             lblShowLicensesHistory.Enabled = true;
@@ -69,12 +69,12 @@ namespace DVLD_System
         private void _Find()
         {
 
-            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
+            LicenseInfo = clsLicense.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
             if (LicenseInfo != null)
             {
                 btnRelease.Enabled = true;
                 lblShowLicensesHistory.Enabled = true;
-                if (!clsDetainLicenseBusiness.IsDetainLicense(LicenseInfo.LicenseID))
+                if (!clsDetainedLicense.IsDetainLicense(LicenseInfo.LicenseID))
                 {
                     MessageBox.Show("Selected License i not detained , choose another on.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     btnRelease.Enabled = false;

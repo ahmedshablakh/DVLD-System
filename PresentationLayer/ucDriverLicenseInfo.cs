@@ -16,7 +16,7 @@ namespace DVLD_System
     {
        
         clsApplication ApplicationInfo;
-        clsLicensesBusiness LicenseInfo;
+        clsLicense LicenseInfo;
         clsPerson PersonInfo;
         public ucDriverLicenseInfo()
         {
@@ -28,7 +28,7 @@ namespace DVLD_System
 
             ApplicationInfo = clsApplication.GetApplicationInfoByID(ApplicationID);
             PersonInfo = clsPerson.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
-            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByApplicationID(ApplicationID);
+            LicenseInfo = clsLicense.GetLicenseInfoByApplicationID(ApplicationID);
 
         }
 
@@ -48,7 +48,7 @@ namespace DVLD_System
                 lblDateOfBirth.Text = PersonInfo.DateOfBirth.ToShortDateString();
                 lblDriverID.Text = LicenseInfo.DriverID.ToString();
                 lblExpirationDate.Text = LicenseInfo.ExpirationDate.ToShortDateString();
-                lblIsDetained.Text = clsDetainLicenseBusiness.IsDetainLicense(LicenseInfo.LicenseID)?"Yes":"No";
+                lblIsDetained.Text = clsDetainedLicense.IsDetainLicense(LicenseInfo.LicenseID)?"Yes":"No";
                 if (!string.IsNullOrEmpty(PersonInfo.ImagePath) && File.Exists(PersonInfo.ImagePath))
                 {
                     pictureBox1.Image = Image.FromFile(PersonInfo.ImagePath);

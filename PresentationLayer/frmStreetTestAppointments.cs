@@ -21,7 +21,7 @@ namespace DVLD_System
         }
         private void GetAllStreetTestAppointments()
         {
-            dataGridView1.DataSource = clsTestAppointmentsBusiness.GetAllTestAppointmentsByLocalAppID(_LocalAppID, 3);
+            dataGridView1.DataSource = clsTestAppointment.GetAllTestAppointmentsByLocalAppID(_LocalAppID, 3);
             lblTotalRecord.Text = dataGridView1.RowCount.ToString();
         }
         private void frmStreetTestAppointments_Load(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace DVLD_System
                 return;
 
             }
-            if (clsTestAppointmentsBusiness.CheckTestIsActive(_LocalAppID, 3))
+            if (clsTestAppointment.CheckTestIsActive(_LocalAppID, 3))
             {
                 MessageBox.Show("You cannot add a new exam if you have an active exam.", "Error");
                 return;

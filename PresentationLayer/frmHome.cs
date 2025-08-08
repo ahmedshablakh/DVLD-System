@@ -70,7 +70,7 @@ namespace DVLD_System
 
         private void manageApplToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmApplicationTypes frm = new frmApplicationTypes();
+            frmListApplicationTypes frm = new frmListApplicationTypes();
             frm.ShowDialog();
         }
 

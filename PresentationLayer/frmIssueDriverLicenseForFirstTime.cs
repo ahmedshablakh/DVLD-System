@@ -35,7 +35,7 @@ namespace DVLD_System
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            clsLicensesBusiness LicenseInfo = new clsLicensesBusiness();
+            clsLicense LicenseInfo = new clsLicense();
             clsLocalDrivingLicenseApplication LocalAppInfo =clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationInfoByID(_LocalAppID);
            
             LicenseInfo.ApplicationID = LocalAppInfo.ApplicationID;

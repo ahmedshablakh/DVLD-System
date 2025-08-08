@@ -14,7 +14,7 @@ namespace DVLD_System
 {
     public partial class frmDetainLicense : Form
     {
-        clsLicensesBusiness LicenseInfo;
+        clsLicense LicenseInfo;
         public frmDetainLicense()
         {
             InitializeComponent();
@@ -23,12 +23,12 @@ namespace DVLD_System
         private void _Find()
         {
 
-            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
+            LicenseInfo = clsLicense.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
             if (LicenseInfo != null)
             {
                 btnDetain.Enabled = true;
                 lblShowLicensesHistory.Enabled = true;
-                if(clsDetainLicenseBusiness.IsDetainLicense(LicenseInfo.LicenseID))
+                if(clsDetainedLicense.IsDetainLicense(LicenseInfo.LicenseID))
                 {
                     MessageBox.Show("Selected License i already detained , choose another on.","Not allowed",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     btnDetain.Enabled=false;
@@ -81,7 +81,7 @@ namespace DVLD_System
 
         private void btnDetain_Click(object sender, EventArgs e)
         {
-            clsDetainLicenseBusiness DetainInfo= new clsDetainLicenseBusiness();
+            clsDetainedLicense DetainInfo= new clsDetainedLicense();
 
             DetainInfo.LicenseID = LicenseInfo.LicenseID;
             DetainInfo.DetainDate=DateTime.Now;

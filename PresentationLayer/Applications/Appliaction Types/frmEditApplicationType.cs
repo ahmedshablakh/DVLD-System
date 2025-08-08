@@ -1,6 +1,4 @@
-﻿using DVLD.Classes;
-using DVLD_Buisness;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,114 +7,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLayer;
 
-namespace DVLD.Applications
+namespace DVLD_System
 {
     public partial class frmEditApplicationType : Form
     {
-
-        private int _ApplicationTypeID = -1;
-        private clsApplicationType _ApplicationType;
-
-        public frmEditApplicationType(int ApplicationTypeID)
+        int _ID;
+        clsApplicationType AppTypeInfo;
+        public frmEditApplicationType(int ID)
         {
             InitializeComponent();
-
-            _ApplicationTypeID = ApplicationTypeID;
-
+            _ID = ID;
         }
 
-        private void frmEditApplicationType_Load(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
-            lblApplicationTypeID.Text = _ApplicationTypeID.ToString();
-
-            _ApplicationType = clsApplicationType.Find(_ApplicationTypeID);
-
-            if (_ApplicationType != null)
+            if(txtFees.Text !=""&& txtTitle.Text!="")
             {
-                txtTitle.Text = _ApplicationType.Title;
-                txtFees.Text = _ApplicationType.Fees.ToString();
-
-
+                AppTypeInfo.Title = txtTitle.Text;
+                AppTypeInfo.Fees = decimal.Parse(txtFees.Text);
+                if(AppTypeInfo.Save())
+                {
+                    MessageBox.Show("Update Successffuly..", "Successffuly");
+                    _loodData();
+                }
+                else
+                {
+                    MessageBox.Show("Update Falid..", "Falid");
+                }
             }
-
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void frmUpdateAppliacitonType_Load(object sender, EventArgs e)
         {
-
-            if (!this.ValidateChildren())
-            {
-                //Here we dont continue becuase the form is not valid
-                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-
-            }
-
-            _ApplicationType.Title = txtTitle.Text.Trim();
-            _ApplicationType.Fees = Convert.ToSingle(txtFees.Text.Trim());
-
-
-            if (_ApplicationType.Save())
-            {
-                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            _loodData();
         }
-
-        private void txtTitle_Validating(object sender, CancelEventArgs e)
+        private void _loodData()
         {
-
-
-            if (string.IsNullOrEmpty(txtTitle.Text.Trim()))
+            AppTypeInfo = clsApplicationType.GetApplicationTypeByID(_ID);
+            if(AppTypeInfo != null)
             {
-                e.Cancel = true;
-                errorProvider1.SetError(txtTitle, "Title cannot be empty!");
+                lblID.Text = AppTypeInfo.Id.ToString();
+                txtTitle.Text = AppTypeInfo.Title;
+                txtFees.Text = AppTypeInfo.Fees.ToString();
             }
-            else
-            {
-                errorProvider1.SetError(txtTitle, null);
-            }
-            ;
-
-
+            
+           
         }
 
-        private void txtFees_Validating(object sender, CancelEventArgs e)
+        private void txtFees_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-
-
-            if (string.IsNullOrEmpty(txtFees.Text.Trim()))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Cancel = true;
-                errorProvider1.SetError(txtFees, "Fees cannot be empty!");
-                return;
+                e.Handled = true;
             }
-            else
-            {
-                errorProvider1.SetError(txtFees, null);
-
-            }
-            ;
-
-
-            if (!clsValidatoin.IsNumber(txtFees.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtFees, "Invalid Number.");
-            }
-            else
-            {
-                errorProvider1.SetError(txtFees, null);
-            }
-            ;
-
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }

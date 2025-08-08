@@ -30,10 +30,10 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPersonInfo = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grNext = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ucFindPerson1 = new DVLD_System.ucFindPerson();
             this.tabAppInfo = new System.Windows.Forms.TabPage();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -57,7 +57,6 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTitleFrm = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl.SuspendLayout();
             this.tabPersonInfo.SuspendLayout();
             this.grNext.SuspendLayout();
@@ -72,14 +71,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.grClose.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPersonInfo);
             this.tabControl.Controls.Add(this.tabAppInfo);
-            this.tabControl.Location = new System.Drawing.Point(100, 118);
+            this.tabControl.Location = new System.Drawing.Point(99, 114);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(930, 567);
@@ -96,6 +94,13 @@
             this.tabPersonInfo.TabIndex = 0;
             this.tabPersonInfo.Text = "Person Info";
             this.tabPersonInfo.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 0;
             // 
             // grNext
             // 
@@ -129,13 +134,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Next";
             this.label2.MouseCaptureChanged += new System.EventHandler(this.pictureBox3_MouseCaptureChanged);
-            // 
-            // ucFindPerson1
-            // 
-            this.ucFindPerson1.Location = new System.Drawing.Point(15, 12);
-            this.ucFindPerson1.Name = "ucFindPerson1";
-            this.ucFindPerson1.Size = new System.Drawing.Size(845, 393);
-            this.ucFindPerson1.TabIndex = 0;
             // 
             // tabAppInfo
             // 
@@ -388,14 +386,6 @@
             this.lblTitleFrm.TabIndex = 19;
             this.lblTitleFrm.Text = "New Local Driving License Applications";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ucFindPerson1);
-            this.panel1.Location = new System.Drawing.Point(18, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(875, 412);
-            this.panel1.TabIndex = 11;
-            // 
             // frmNewLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -426,7 +416,6 @@
             this.grClose.ResumeLayout(false);
             this.grClose.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,7 +426,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPersonInfo;
         private System.Windows.Forms.TabPage tabAppInfo;
-        private ucFindPerson ucFindPerson1;
         private System.Windows.Forms.GroupBox grNext;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;

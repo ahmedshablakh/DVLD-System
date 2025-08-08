@@ -17,7 +17,7 @@ namespace DVLD_System
         public enMode Mode;
         clsLocalDrivingLicenseApplication LocaAppInfo;
         clsApplication Application;
-        clsTestAppointmentsBusiness VisionTestInfo;
+        clsTestAppointment VisionTestInfo;
         clsApplication RetakeTestApplication;
         public  decimal TotalFees;
         public frmScheduleVisionTest(int LocalAppID,int AppointID)
@@ -28,7 +28,7 @@ namespace DVLD_System
             Application = clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID);
             if (AppointID != -1)
             {
-                VisionTestInfo = clsTestAppointmentsBusiness.GetTestAppointmentInfoByID(AppointID);
+                VisionTestInfo = clsTestAppointment.GetTestAppointmentInfoByID(AppointID);
                 Mode = enMode.Update;
             }
                
@@ -44,13 +44,13 @@ namespace DVLD_System
                 return;
             }
             
-            lblTrial.Text = clsTestAppointmentsBusiness.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, 1).ToString();
+            lblTrial.Text = clsTestAppointment.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, 1).ToString();
             grRetakeTest.Enabled = (Convert.ToInt16(lblTrial.Text) != 0);
             dateTimePicker1.MinDate = VisionTestInfo.AppointmentDate;
             lblDLAID.Text = LocaAppInfo.LocalDrivingLicenseApplicationID.ToString();
             lblDClass.Text = clsLicenseClass.Find(LocaAppInfo.LicenseClassID).ClassName;
             lblName.Text = clsPerson.GetPersonFullNameByID(clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
-            decimal AppFees = (decimal)clsTestTypeBusiness.GetTestTypeByID(1).Fees;
+            decimal AppFees = (decimal)clsTestType.GetTestTypeByID(1).Fees;
             lblFees.Text = AppFees.ToString();
             lblRAppFees.Text = "0";
             TotalFees = AppFees;
@@ -70,14 +70,14 @@ namespace DVLD_System
         }
         private void AddNewTest()
         {
-            VisionTestInfo = new clsTestAppointmentsBusiness();
-            lblTrial.Text = clsTestAppointmentsBusiness.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, 1).ToString();
+            VisionTestInfo = new clsTestAppointment();
+            lblTrial.Text = clsTestAppointment.GetCountTestAppointmentByLcalAppIDAndTestTypeID(LocaAppInfo.LocalDrivingLicenseApplicationID, 1).ToString();
             grRetakeTest.Enabled = (Convert.ToInt16(lblTrial.Text) != 0);
             dateTimePicker1.MinDate = DateTime.Now;
             lblDLAID.Text = LocaAppInfo.LocalDrivingLicenseApplicationID.ToString();
             lblDClass.Text = clsLicenseClass.Find(LocaAppInfo.LicenseClassID).ClassName;
             lblName.Text = clsPerson.GetPersonFullNameByID(clsApplication.GetApplicationInfoByID(LocaAppInfo.ApplicationID).ApplicantPersonID);
-            decimal AppFees = (decimal)clsTestTypeBusiness.GetTestTypeByID(1).Fees;
+            decimal AppFees = (decimal)clsTestType.GetTestTypeByID(1).Fees;
             lblFees.Text = AppFees.ToString();
             lblRAppFees.Text = "0";
             TotalFees = AppFees;

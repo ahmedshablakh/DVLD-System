@@ -16,11 +16,11 @@ namespace DVLD_System
     {
         clsApplication ApplicationInfo;
         clsPerson PersonInfo;
-        clsInternationalLicensesBusienss IntLicenseInfo;
+        clsInternationalLicense IntLicenseInfo;
         public ucInternationalDriverLicenseInfo(int InternationalLicenseID)
         {
             InitializeComponent();
-            IntLicenseInfo = clsInternationalLicensesBusienss.GetInternationalLicenseByLicenseID(InternationalLicenseID);
+            IntLicenseInfo = clsInternationalLicense.GetInternationalLicenseByLicenseID(InternationalLicenseID);
             ApplicationInfo = clsApplication.GetApplicationInfoByID(IntLicenseInfo.ApplicationID);
             PersonInfo = clsPerson.GetPersonInfoByID(ApplicationInfo.ApplicantPersonID);
 

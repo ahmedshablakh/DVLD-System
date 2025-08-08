@@ -25,7 +25,7 @@ namespace DVLD_System
 
         private void GetAllVisionTestAppointments()
         {
-            dt = clsTestAppointmentsBusiness.GetAllTestAppointmentsByLocalAppID(_LocalAppID, 1);
+            dt = clsTestAppointment.GetAllTestAppointmentsByLocalAppID(_LocalAppID, 1);
             dataGridView1.DataSource = dt;
             lblTotalRecord.Text=dataGridView1.RowCount.ToString();
         }
@@ -48,7 +48,7 @@ namespace DVLD_System
                 return;
 
             }
-            if (clsTestAppointmentsBusiness.CheckTestIsActive(_LocalAppID, 1))
+            if (clsTestAppointment.CheckTestIsActive(_LocalAppID, 1))
             {
                 MessageBox.Show("You cannot add a new exam if you have an active exam.", "Error");
                 return;

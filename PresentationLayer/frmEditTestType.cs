@@ -15,7 +15,7 @@ namespace DVLD_System
     public partial class frmEditTestType : Form
     {
         int _ID;
-        clsTestTypeBusiness TestInfo;
+        clsTestType TestInfo;
         public frmEditTestType(int ID)
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace DVLD_System
 
         private void _loodData()
         {
-            TestInfo = clsTestTypeBusiness.GetTestTypeByID(_ID);
+            TestInfo = clsTestType.GetTestTypeByID(_ID);
             if (TestInfo != null)
             {
                 lblID.Text = TestInfo.Id.ToString();

@@ -59,7 +59,7 @@ namespace DVLD_System
         private void _Find()
         {
             
-            clsLicensesBusiness LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
+            clsLicense LicenseInfo = clsLicense.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
             if (LicenseInfo != null)
             {
                 
@@ -125,7 +125,7 @@ namespace DVLD_System
             if (_AddNewInterationalApp())
             {
 
-                clsInternationalLicensesBusienss InternationalLicensesInfo = new clsInternationalLicensesBusienss();
+                clsInternationalLicense InternationalLicensesInfo = new clsInternationalLicense();
                 InternationalLicensesInfo.ApplicationID = NewApplicationID;
                 InternationalLicensesInfo.IssuedUsingLocalLicenseID = LocalLicenseID;
                 InternationalLicensesInfo.DriverID = DriverID;

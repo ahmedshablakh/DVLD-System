@@ -18,9 +18,9 @@ namespace DVLD_System
         int ApplicationID = -1;
         int DriverID = -1,
         NewApplicationID = -1;
-        clsLicensesBusiness LicenseInfo;
+        clsLicense LicenseInfo;
         clsLicenseClass ClassInfo;
-        clsLicensesBusiness NewLicenseInfo = new clsLicensesBusiness();
+        clsLicense NewLicenseInfo = new clsLicense();
 
         public frmRenewLocalDrivingLicense()
         {
@@ -64,7 +64,7 @@ namespace DVLD_System
         private void _Find()
         {
 
-            LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
+            LicenseInfo = clsLicense.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
             if (LicenseInfo != null)
             {
                 if (LicenseInfo.ExpirationDate >= DateTime.Now)

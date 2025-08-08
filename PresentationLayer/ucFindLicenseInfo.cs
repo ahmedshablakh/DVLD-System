@@ -22,7 +22,7 @@ namespace DVLD_System
 
         private void _Find()
         {
-            clsLicensesBusiness LicenseInfo = clsLicensesBusiness.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
+            clsLicense LicenseInfo = clsLicense.GetLicenseInfoByLicenseID(Convert.ToInt16(txtPersonID.Text));
             if(LicenseInfo != null)
             {
                 panel1.Controls.Clear();
