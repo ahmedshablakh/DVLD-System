@@ -43,6 +43,7 @@ namespace DVLD.Controls.ApplicationControls
             this.label3 = new System.Windows.Forms.Label();
             this.llShowLicenceInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlApplicationBasicInfo1 = new DVLD.Controls.ApplicationControls.ctrlApplicationBasicInfo();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -66,7 +67,7 @@ namespace DVLD.Controls.ApplicationControls
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1000, 158);
+            this.groupBox1.Size = new System.Drawing.Size(999, 158);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Driving License Application Info";
@@ -181,6 +182,7 @@ namespace DVLD.Controls.ApplicationControls
             this.llShowLicenceInfo.Size = new System.Drawing.Size(163, 20);
             this.llShowLicenceInfo.TabIndex = 1;
             this.llShowLicenceInfo.Text = "Show License Info";
+            this.llShowLicenceInfo.Click += new System.EventHandler(this.llShowLicenceInfo_Click);
             // 
             // label1
             // 
@@ -192,13 +194,21 @@ namespace DVLD.Controls.ApplicationControls
             this.label1.TabIndex = 0;
             this.label1.Text = "D.L.A.ID :";
             // 
+            // ctrlApplicationBasicInfo1
+            // 
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(3, 160);
+            this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
+            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1003, 214);
+            this.ctrlApplicationBasicInfo1.TabIndex = 2;
+            // 
             // ctrlDrivingLicenseApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.Controls.Add(this.groupBox1);
             this.Name = "ctrlDrivingLicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(1012, 390);
+            this.Size = new System.Drawing.Size(1006, 376);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -210,7 +220,7 @@ namespace DVLD.Controls.ApplicationControls
         }
 
         #endregion
-        private ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
+       
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblLocalDrivingLicenseApplicationID;
@@ -225,5 +235,6 @@ namespace DVLD.Controls.ApplicationControls
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label llShowLicenceInfo;
         private System.Windows.Forms.Label label1;
+        private ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
     }
 }

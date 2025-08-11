@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace DVLD.User
 {
-    public partial class frmUserInfo : Form
+    public partial class frmUserInfo1 : Form
     {
         private int _UserID;
 
-        public frmUserInfo(int UserID)
+        public frmUserInfo1(int UserID)
         {
             InitializeComponent();
             _UserID = UserID;

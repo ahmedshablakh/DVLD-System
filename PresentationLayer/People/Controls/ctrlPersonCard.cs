@@ -113,7 +113,9 @@ namespace DVLD.Controls
 
         }
 
-        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    
+
+        private void llEditPersonInfo_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.ShowDialog();
@@ -121,7 +123,5 @@ namespace DVLD.Controls
             //refresh
             LoadPersonInfo(_PersonID);
         }
-
-       
     }
 }

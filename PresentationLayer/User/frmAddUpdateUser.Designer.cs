@@ -4,7 +4,7 @@ using DVLD.Controls;
 
 namespace DVLD.User
 {
-    partial class frmAddUpdateUser
+    partial class frmAddUpdateUser1
     {
         /// <summary>
         /// Required designer variable.
@@ -54,6 +54,7 @@ namespace DVLD.User
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.ctrlPersonCardWithFilter1 = new DVLD.Controls.ctrlPersonCardWithFilter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.tpPersonalInfo.SuspendLayout();
             this.tcUserInfo.SuspendLayout();
@@ -155,6 +156,7 @@ namespace DVLD.User
             // 
             // tpPersonalInfo
             // 
+            this.tpPersonalInfo.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tpPersonalInfo.Controls.Add(this.btnPersonInfoNext);
             this.tpPersonalInfo.Location = new System.Drawing.Point(4, 25);
             this.tpPersonalInfo.Name = "tpPersonalInfo";
@@ -299,7 +301,16 @@ namespace DVLD.User
             this.pictureBox4.TabIndex = 134;
             this.pictureBox4.TabStop = false;
             // 
-            // frmAddUpdateUser
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(14, 17);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(824, 395);
+            this.ctrlPersonCardWithFilter1.TabIndex = 120;
+           // 
+            // frmAddUpdateUser1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -308,7 +319,9 @@ namespace DVLD.User
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.tcUserInfo);
-            this.Name = "frmAddUpdateUser";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "frmAddUpdateUser1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateUser";
             this.Load += new System.EventHandler(this.frmAddUpdateUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

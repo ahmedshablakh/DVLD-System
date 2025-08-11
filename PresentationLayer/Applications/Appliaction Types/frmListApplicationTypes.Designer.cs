@@ -46,12 +46,12 @@
             this.dgvAppTypes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvAppTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppTypes.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvAppTypes.Location = new System.Drawing.Point(86, 163);
+            this.dgvAppTypes.Location = new System.Drawing.Point(41, 154);
             this.dgvAppTypes.Name = "dgvAppTypes";
             this.dgvAppTypes.ReadOnly = true;
             this.dgvAppTypes.RowHeadersWidth = 51;
             this.dgvAppTypes.RowTemplate.Height = 24;
-            this.dgvAppTypes.Size = new System.Drawing.Size(667, 228);
+            this.dgvAppTypes.Size = new System.Drawing.Size(749, 276);
             this.dgvAppTypes.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -75,7 +75,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(83, 415);
+            this.label1.Location = new System.Drawing.Point(36, 449);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 29);
             this.label1.TabIndex = 1;
@@ -85,7 +85,7 @@
             // 
             this.lbltotalRecord.AutoSize = true;
             this.lbltotalRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbltotalRecord.Location = new System.Drawing.Point(195, 415);
+            this.lbltotalRecord.Location = new System.Drawing.Point(148, 449);
             this.lbltotalRecord.Name = "lbltotalRecord";
             this.lbltotalRecord.Size = new System.Drawing.Size(74, 29);
             this.lbltotalRecord.TabIndex = 2;
@@ -96,7 +96,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(210, 88);
+            this.label2.Location = new System.Drawing.Point(224, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(443, 39);
             this.label2.TabIndex = 7;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 496);
+            this.ClientSize = new System.Drawing.Size(914, 551);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbltotalRecord);
             this.Controls.Add(this.label1);

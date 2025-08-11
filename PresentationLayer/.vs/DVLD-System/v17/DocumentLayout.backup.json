@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\PresentationLayer\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B318D63F-8681-4351-AA1B-AEF961CB00BA}|DVLD.csproj|c:\\users\\aboar\\ahmedshablakh\\dvld-system\\presentationlayer\\people\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B318D63F-8681-4351-AA1B-AEF961CB00BA}|DVLD.csproj|solutionrelative:people\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B318D63F-8681-4351-AA1B-AEF961CB00BA}|DVLD.csproj|c:\\users\\aboar\\ahmedshablakh\\dvld-system\\presentationlayer\\people\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B318D63F-8681-4351-AA1B-AEF961CB00BA}|DVLD.csproj|solutionrelative:people\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmListPeople.cs",
+              "DocumentMoniker": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\PresentationLayer\\People\\frmListPeople.cs",
+              "RelativeDocumentMoniker": "People\\frmListPeople.cs",
+              "ToolTip": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\PresentationLayer\\People\\frmListPeople.cs*",
+              "RelativeToolTip": "People\\frmListPeople.cs*",
+              "ViewState": "AgIAAPQAAAAAAAAAAAAEwAUBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T10:31:27.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmListPeople.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\PresentationLayer\\People\\frmListPeople.cs",
+              "RelativeDocumentMoniker": "People\\frmListPeople.cs",
+              "ToolTip": "C:\\Users\\aboar\\ahmedshablakh\\DVLD-System\\PresentationLayer\\People\\frmListPeople.cs [Design]*",
+              "RelativeToolTip": "People\\frmListPeople.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T10:25:48.139Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

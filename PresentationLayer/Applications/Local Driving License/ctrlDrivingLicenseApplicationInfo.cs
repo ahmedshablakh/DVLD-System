@@ -1,14 +1,15 @@
-﻿using System;
+﻿using DVLD.Classes;
+using DVLD.DriverLicense;
+using DVLD_Buisness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLD_Buisness;
-using DVLD.Classes;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -88,11 +89,12 @@ namespace DVLD.Controls.ApplicationControls
 
         }
 
-        private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+     
+
+        private void llShowLicenceInfo_Click(object sender, EventArgs e)
         {
             frmShowLicenseInfo frm = new frmShowLicenseInfo(_LocalDrivingLicenseApplication.GetActiveLicenseID());
             frm.ShowDialog();
-
         }
     }
 }

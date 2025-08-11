@@ -1,4 +1,4 @@
-﻿using DVLD.Properties;
+﻿
 using DVLD_Buisness;
 using System;
 using System.Collections.Generic;

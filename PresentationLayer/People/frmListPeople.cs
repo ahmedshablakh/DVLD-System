@@ -178,7 +178,7 @@ namespace DVLD.People
 
         }
 
-        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showDetailsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
             Form frm = new frmShowPersonInfo(PersonID);
@@ -228,7 +228,7 @@ namespace DVLD.People
 
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             Form frm = new frmAddUpdatePerson();
             frm.ShowDialog();
@@ -260,5 +260,6 @@ namespace DVLD.People
             if (cbFilterBy.Text == "Person ID")
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
     }
 }

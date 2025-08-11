@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace DVLD.User
 {
-    public partial class frmAddUpdateUser : Form
+    public partial class frmAddUpdateUser1 : Form
     {
 
         public enum enMode { AddNew = 0, Update = 1 };
@@ -24,14 +24,14 @@ namespace DVLD.User
         private int _UserID = -1;
         clsUser _User;
 
-        public frmAddUpdateUser()
+        public frmAddUpdateUser1()
         {
             InitializeComponent();
 
             _Mode = enMode.AddNew;
         }
 
-        public frmAddUpdateUser(int UserID)
+        public frmAddUpdateUser1(int UserID)
         {
             InitializeComponent();
 
@@ -261,5 +261,7 @@ namespace DVLD.User
         {
             ctrlPersonCardWithFilter1.FilterFocus();
         }
+
+        
     }
 }

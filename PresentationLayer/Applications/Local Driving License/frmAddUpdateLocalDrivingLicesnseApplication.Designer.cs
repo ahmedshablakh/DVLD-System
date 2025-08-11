@@ -34,6 +34,11 @@ namespace DVLD.Applications
             this.tabPersonInfo = new System.Windows.Forms.TabPage();
             this.btnApplicationInfoNext = new System.Windows.Forms.Button();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
+            this.lblCreatedByUser = new System.Windows.Forms.Label();
+            this.lblFees = new System.Windows.Forms.Label();
+            this.cbLicenseClass = new System.Windows.Forms.ComboBox();
+            this.lblApplicationDate = new System.Windows.Forms.Label();
+            this.lblLocalDrivingLicebseApplicationID = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -44,15 +49,10 @@ namespace DVLD.Applications
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAppID = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblCreatedByUser = new System.Windows.Forms.Label();
-            this.lblFees = new System.Windows.Forms.Label();
-            this.cbLicenseClass = new System.Windows.Forms.ComboBox();
-            this.lblApplicationDate = new System.Windows.Forms.Label();
-            this.lblLocalDrivingLicebseApplicationID = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ctrlPersonCardWithFilter1 = new DVLD.Controls.ctrlPersonCardWithFilter();
             this.tcApplicationInfo.SuspendLayout();
             this.tabPersonInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
@@ -76,6 +76,7 @@ namespace DVLD.Applications
             // 
             // tabPersonInfo
             // 
+            this.tabPersonInfo.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tabPersonInfo.Controls.Add(this.btnApplicationInfoNext);
             this.tabPersonInfo.Location = new System.Drawing.Point(4, 38);
             this.tabPersonInfo.Name = "tabPersonInfo";
@@ -122,6 +123,60 @@ namespace DVLD.Applications
             this.tpApplicationInfo.TabIndex = 1;
             this.tpApplicationInfo.Text = "Application Info";
             this.tpApplicationInfo.UseVisualStyleBackColor = true;
+            // 
+            // lblCreatedByUser
+            // 
+            this.lblCreatedByUser.AutoSize = true;
+            this.lblCreatedByUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblCreatedByUser.Location = new System.Drawing.Point(354, 339);
+            this.lblCreatedByUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCreatedByUser.Name = "lblCreatedByUser";
+            this.lblCreatedByUser.Size = new System.Drawing.Size(75, 29);
+            this.lblCreatedByUser.TabIndex = 146;
+            this.lblCreatedByUser.Text = "[????]";
+            // 
+            // lblFees
+            // 
+            this.lblFees.AutoSize = true;
+            this.lblFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFees.Location = new System.Drawing.Point(354, 272);
+            this.lblFees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFees.Name = "lblFees";
+            this.lblFees.Size = new System.Drawing.Size(66, 29);
+            this.lblFees.TabIndex = 145;
+            this.lblFees.Text = "[$$$]";
+            // 
+            // cbLicenseClass
+            // 
+            this.cbLicenseClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLicenseClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbLicenseClass.FormattingEnabled = true;
+            this.cbLicenseClass.Location = new System.Drawing.Point(354, 206);
+            this.cbLicenseClass.Name = "cbLicenseClass";
+            this.cbLicenseClass.Size = new System.Drawing.Size(270, 37);
+            this.cbLicenseClass.TabIndex = 144;
+            // 
+            // lblApplicationDate
+            // 
+            this.lblApplicationDate.AutoSize = true;
+            this.lblApplicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblApplicationDate.Location = new System.Drawing.Point(354, 139);
+            this.lblApplicationDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApplicationDate.Name = "lblApplicationDate";
+            this.lblApplicationDate.Size = new System.Drawing.Size(137, 29);
+            this.lblApplicationDate.TabIndex = 143;
+            this.lblApplicationDate.Text = "[??/??/????]";
+            // 
+            // lblLocalDrivingLicebseApplicationID
+            // 
+            this.lblLocalDrivingLicebseApplicationID.AutoSize = true;
+            this.lblLocalDrivingLicebseApplicationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblLocalDrivingLicebseApplicationID.Location = new System.Drawing.Point(354, 72);
+            this.lblLocalDrivingLicebseApplicationID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLocalDrivingLicebseApplicationID.Name = "lblLocalDrivingLicebseApplicationID";
+            this.lblLocalDrivingLicebseApplicationID.Size = new System.Drawing.Size(63, 29);
+            this.lblLocalDrivingLicebseApplicationID.TabIndex = 142;
+            this.lblLocalDrivingLicebseApplicationID.Text = "[???]";
             // 
             // pictureBox5
             // 
@@ -223,13 +278,6 @@ namespace DVLD.Applications
             this.lblAppID.TabIndex = 0;
             this.lblAppID.Text = "D.L.Application ID :";
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(0, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 124;
-            // 
             // btnSave
             // 
             this.btnSave.Enabled = false;
@@ -256,60 +304,6 @@ namespace DVLD.Applications
             this.lblTitle.Text = "Local Driving License Application";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblCreatedByUser
-            // 
-            this.lblCreatedByUser.AutoSize = true;
-            this.lblCreatedByUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCreatedByUser.Location = new System.Drawing.Point(354, 339);
-            this.lblCreatedByUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCreatedByUser.Name = "lblCreatedByUser";
-            this.lblCreatedByUser.Size = new System.Drawing.Size(75, 29);
-            this.lblCreatedByUser.TabIndex = 146;
-            this.lblCreatedByUser.Text = "[????]";
-            // 
-            // lblFees
-            // 
-            this.lblFees.AutoSize = true;
-            this.lblFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblFees.Location = new System.Drawing.Point(354, 272);
-            this.lblFees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFees.Name = "lblFees";
-            this.lblFees.Size = new System.Drawing.Size(66, 29);
-            this.lblFees.TabIndex = 145;
-            this.lblFees.Text = "[$$$]";
-            // 
-            // cbLicenseClass
-            // 
-            this.cbLicenseClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLicenseClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbLicenseClass.FormattingEnabled = true;
-            this.cbLicenseClass.Location = new System.Drawing.Point(354, 206);
-            this.cbLicenseClass.Name = "cbLicenseClass";
-            this.cbLicenseClass.Size = new System.Drawing.Size(270, 37);
-            this.cbLicenseClass.TabIndex = 144;
-            // 
-            // lblApplicationDate
-            // 
-            this.lblApplicationDate.AutoSize = true;
-            this.lblApplicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblApplicationDate.Location = new System.Drawing.Point(354, 139);
-            this.lblApplicationDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApplicationDate.Name = "lblApplicationDate";
-            this.lblApplicationDate.Size = new System.Drawing.Size(137, 29);
-            this.lblApplicationDate.TabIndex = 143;
-            this.lblApplicationDate.Text = "[??/??/????]";
-            // 
-            // lblLocalDrivingLicebseApplicationID
-            // 
-            this.lblLocalDrivingLicebseApplicationID.AutoSize = true;
-            this.lblLocalDrivingLicebseApplicationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblLocalDrivingLicebseApplicationID.Location = new System.Drawing.Point(354, 72);
-            this.lblLocalDrivingLicebseApplicationID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLocalDrivingLicebseApplicationID.Name = "lblLocalDrivingLicebseApplicationID";
-            this.lblLocalDrivingLicebseApplicationID.Size = new System.Drawing.Size(63, 29);
-            this.lblLocalDrivingLicebseApplicationID.TabIndex = 142;
-            this.lblLocalDrivingLicebseApplicationID.Text = "[???]";
-            // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -325,6 +319,17 @@ namespace DVLD.Applications
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(20, 9);
+            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(5);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(837, 409);
+            this.ctrlPersonCardWithFilter1.TabIndex = 121;
+            // 
             // frmAddUpdateLocalDrivingLicesnseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,7 +337,6 @@ namespace DVLD.Applications
             this.ClientSize = new System.Drawing.Size(1055, 857);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tcApplicationInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -354,7 +358,7 @@ namespace DVLD.Applications
         }
 
         #endregion
-        private ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
+       
         private System.Windows.Forms.TabControl tcApplicationInfo;
         private System.Windows.Forms.TabPage tabPersonInfo;
         private System.Windows.Forms.TabPage tpApplicationInfo;
@@ -369,7 +373,6 @@ namespace DVLD.Applications
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblAppID;
         private System.Windows.Forms.Button btnApplicationInfoNext;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblCreatedByUser;
@@ -378,5 +381,6 @@ namespace DVLD.Applications
         private System.Windows.Forms.Label lblApplicationDate;
         private System.Windows.Forms.Label lblLocalDrivingLicebseApplicationID;
         private System.Windows.Forms.Button button1;
+        private ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
     }
 }

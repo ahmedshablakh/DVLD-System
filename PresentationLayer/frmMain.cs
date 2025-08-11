@@ -11,8 +11,8 @@ using DVLD.Login;
 using DVLD.People;
 using DVLD.Tests;
 using DVLD.User;
-
 using DVLD_System;
+using DVLD_System.Applications.International_License;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -52,14 +52,15 @@ namespace DVLD
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-          
+           
+           
             this.Refresh();
 
         }
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.UserID);
+            frmUserInfo1 frm = new frmUserInfo1(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
 
         }
@@ -80,7 +81,9 @@ namespace DVLD
 
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+
+            frmListApplicationTypes frm = new frmListApplicationTypes();
+            
             frm.ShowDialog();
         }
 
@@ -177,6 +180,17 @@ namespace DVLD
 
         }
 
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            clsGlobal.CurrentUser = null;
+            _frmLogin.Show();
+            this.Close();
 
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

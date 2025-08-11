@@ -32,6 +32,9 @@ namespace DVLD.People
             this.Close();
         }
 
-        
+        private void frmShowPersonInfo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

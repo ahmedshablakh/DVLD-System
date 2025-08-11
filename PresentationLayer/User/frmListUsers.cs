@@ -162,7 +162,7 @@ namespace DVLD.User
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            frmAddUpdateUser Frm1 = new frmAddUpdateUser();
+            frmAddUpdateUser1 Frm1 = new frmAddUpdateUser1();
             Frm1.ShowDialog();
             frmListUsers_Load(null, null);
         }
@@ -170,7 +170,7 @@ namespace DVLD.User
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            frmAddUpdateUser Frm1 = new frmAddUpdateUser((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmAddUpdateUser1 Frm1 = new frmAddUpdateUser1((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
             frmListUsers_Load(null, null);
 
@@ -178,7 +178,7 @@ namespace DVLD.User
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddUpdateUser Frm1 = new frmAddUpdateUser();
+            frmAddUpdateUser1 Frm1 = new frmAddUpdateUser1();
             Frm1.ShowDialog();
             frmListUsers_Load(null, null);
 
@@ -186,14 +186,14 @@ namespace DVLD.User
 
         private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmUserInfo Frm1 = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmUserInfo1 Frm1 = new frmUserInfo1((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
 
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserInfo Frm1 = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmUserInfo1 Frm1 = new frmUserInfo1((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
 
         }

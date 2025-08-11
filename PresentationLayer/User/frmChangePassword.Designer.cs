@@ -42,6 +42,8 @@ namespace DVLD.User
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.ctrlUserCard1 = new DVLD.Controls.ctrlUserCard();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -52,7 +54,7 @@ namespace DVLD.User
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 455);
+            this.label1.Location = new System.Drawing.Point(34, 571);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 25);
@@ -62,7 +64,7 @@ namespace DVLD.User
             // txtCurrentPassword
             // 
             this.txtCurrentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCurrentPassword.Location = new System.Drawing.Point(283, 455);
+            this.txtCurrentPassword.Location = new System.Drawing.Point(299, 564);
             this.txtCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCurrentPassword.MaxLength = 50;
             this.txtCurrentPassword.Name = "txtCurrentPassword";
@@ -73,7 +75,7 @@ namespace DVLD.User
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DVLD_System.Properties.Resources._17035298;
-            this.pictureBox2.Location = new System.Drawing.Point(229, 454);
+            this.pictureBox2.Location = new System.Drawing.Point(241, 563);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -86,7 +88,7 @@ namespace DVLD.User
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(549, 613);
+            this.btnClose.Location = new System.Drawing.Point(565, 722);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 37);
@@ -100,7 +102,7 @@ namespace DVLD.User
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(683, 613);
+            this.btnSave.Location = new System.Drawing.Point(699, 722);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 37);
@@ -112,7 +114,7 @@ namespace DVLD.User
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtConfirmPassword.Location = new System.Drawing.Point(283, 540);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(299, 649);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtConfirmPassword.MaxLength = 50;
             this.txtConfirmPassword.Name = "txtConfirmPassword";
@@ -124,7 +126,7 @@ namespace DVLD.User
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 540);
+            this.label3.Location = new System.Drawing.Point(32, 656);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(194, 25);
@@ -135,7 +137,7 @@ namespace DVLD.User
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(56, 499);
+            this.label2.Location = new System.Drawing.Point(60, 615);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 25);
@@ -145,7 +147,7 @@ namespace DVLD.User
             // txtNewPassword
             // 
             this.txtNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtNewPassword.Location = new System.Drawing.Point(283, 499);
+            this.txtNewPassword.Location = new System.Drawing.Point(299, 608);
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNewPassword.MaxLength = 50;
             this.txtNewPassword.Name = "txtNewPassword";
@@ -156,7 +158,7 @@ namespace DVLD.User
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD_System.Properties.Resources.reset_password;
-            this.pictureBox1.Location = new System.Drawing.Point(229, 540);
+            this.pictureBox1.Location = new System.Drawing.Point(241, 649);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -166,7 +168,7 @@ namespace DVLD.User
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DVLD_System.Properties.Resources.reset_password;
-            this.pictureBox3.Location = new System.Drawing.Point(229, 498);
+            this.pictureBox3.Location = new System.Drawing.Point(241, 607);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 36);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -177,11 +179,31 @@ namespace DVLD.User
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(280, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(294, 37);
+            this.label4.TabIndex = 150;
+            this.label4.Text = "Change Password";
+            // 
+            // ctrlUserCard1
+            // 
+            this.ctrlUserCard1.Location = new System.Drawing.Point(22, 144);
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
+            this.ctrlUserCard1.Size = new System.Drawing.Size(838, 400);
+            this.ctrlUserCard1.TabIndex = 149;
+            // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 755);
+            this.ClientSize = new System.Drawing.Size(887, 794);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.ctrlUserCard1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCurrentPassword);
             this.Controls.Add(this.pictureBox2);
@@ -220,7 +242,8 @@ namespace DVLD.User
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private ctrlUserCard ctrlUserCard1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private ctrlUserCard ctrlUserCard1;
+        private System.Windows.Forms.Label label4;
     }
 }

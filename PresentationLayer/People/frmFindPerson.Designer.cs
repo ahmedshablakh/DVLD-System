@@ -2,7 +2,7 @@
 using DVLD.Controls;
 namespace DVLD.People
 {
-    partial class frmFindPerson
+    partial class frmFindPerson1
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@ namespace DVLD.People
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlPersonCardWithFilter1 = new DVLD.Controls.ctrlPersonCardWithFilter();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -60,15 +61,25 @@ namespace DVLD.People
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
-            // frmFindPerson
+            // ctrlPersonCardWithFilter2
+            // 
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(35, 97);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter2";
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(834, 400);
+            this.ctrlPersonCardWithFilter1.TabIndex = 117;
+            // 
+            // frmFindPerson1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 589);
+            this.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmFindPerson";
+            this.Name = "frmFindPerson1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find";
             this.Load += new System.EventHandler(this.frmFindPerson_Load);

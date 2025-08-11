@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLayer;
+using DVLD_Buisness;
 
 namespace DVLD_System
 {
@@ -20,7 +20,7 @@ namespace DVLD_System
 
         private void _LoadAppTypesData()
         {
-            DataTable dt = clsApplicationType.GetAllAppType();
+            DataTable dt = clsApplicationType.GetAllApplicationTypes();
             dgvAppTypes.DataSource = dt;
 
             dgvAppTypes.Columns["ApplicationTypeID"].HeaderText = "ID";
@@ -32,6 +32,7 @@ namespace DVLD_System
             dgvAppTypes.Columns["ApplicationFees"].Width = 80;
             dgvAppTypes.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             lbltotalRecord.Text = dgvAppTypes.RowCount.ToString();
+            dt.DefaultView.Sort = "ApplicationTypeID ASC";
 
         }
         private void frmApplicationTypes_Load(object sender, EventArgs e)
@@ -49,5 +50,7 @@ namespace DVLD_System
             frmEditApplicationType frm = new frmEditApplicationType((int)dgvAppTypes.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
+
+        
     }
 }

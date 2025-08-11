@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLayer;
+using DVLD_Buisness;
 
 namespace DVLD_System
 {
@@ -26,7 +26,7 @@ namespace DVLD_System
             if(txtFees.Text !=""&& txtTitle.Text!="")
             {
                 AppTypeInfo.Title = txtTitle.Text;
-                AppTypeInfo.Fees = decimal.Parse(txtFees.Text);
+                AppTypeInfo.Fees = float.Parse(txtFees.Text);
                 if(AppTypeInfo.Save())
                 {
                     MessageBox.Show("Update Successffuly..", "Successffuly");
@@ -45,10 +45,10 @@ namespace DVLD_System
         }
         private void _loodData()
         {
-            AppTypeInfo = clsApplicationType.GetApplicationTypeByID(_ID);
+            AppTypeInfo = clsApplicationType.Find(_ID);
             if(AppTypeInfo != null)
             {
-                lblID.Text = AppTypeInfo.Id.ToString();
+                lblID.Text = AppTypeInfo.ID.ToString();
                 txtTitle.Text = AppTypeInfo.Title;
                 txtFees.Text = AppTypeInfo.Fees.ToString();
             }

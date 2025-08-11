@@ -35,6 +35,7 @@
             this.lblUserID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlPersonCard1 = new DVLD.Controls.ctrlPersonCard();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 311);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(855, 86);
+            this.groupBox1.Size = new System.Drawing.Size(827, 86);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login Information";
@@ -119,13 +120,21 @@
             this.label1.TabIndex = 130;
             this.label1.Text = "Username:";
             // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(7, 3);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(825, 307);
+            this.ctrlPersonCard1.TabIndex = 3;
+            // 
             // ctrlUserCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ctrlPersonCard1);
             this.Controls.Add(this.groupBox1);
             this.Name = "ctrlUserCard";
-            this.Size = new System.Drawing.Size(867, 403);
+            this.Size = new System.Drawing.Size(838, 403);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
